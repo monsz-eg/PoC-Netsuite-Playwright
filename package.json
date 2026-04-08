@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:report": "npx playwright show-report",
+    "test:report:html": "npx playwright show-report --reporter=html",
+    "test:report:json": "npx playwright show-report --reporter=json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/monsz-eg/PoC-Netsuite-Playwright.git"
