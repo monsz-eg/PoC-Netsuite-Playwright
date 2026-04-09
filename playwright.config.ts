@@ -8,11 +8,11 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  reporter: [['html', { open: 'never' }]],
   use: {
     baseURL: 'https://5177942-sb3.app.netsuite.com/app/center/card.nl?sc=-29&whence=',
 
-    trace: 'on-first-retry',
+    trace: 'on',
   },
 
   projects: [
