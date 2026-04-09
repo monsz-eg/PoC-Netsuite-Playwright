@@ -35,8 +35,6 @@ Generated Playwright tests must be:
 
 ## Locator Priority
 
-## Locator Priority
-
 Always prefer stable NetSuite-native attributes that map directly to Field ID. Follow this order strictly:
 | Priority | Selector | Example | When |
 |---|---|---|---|
