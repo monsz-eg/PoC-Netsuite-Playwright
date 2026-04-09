@@ -38,7 +38,7 @@ Generated Playwright tests must be:
 ## Locator Priority
 
 Always prefer stable NetSuite-native attributes that map directly to Field ID. Follow this order strictly:
-Example | When |
+| Priority | Selector | Example | When |
 |---|---|---|---|
 | 1 | `[name="fieldId"]` | `[name="entity"]`, `[name="custentity_eg_chain"]` | Editable fields — standard and custom. `name` maps directly to NS Field ID |
 | 2 | `[data-field-name="fieldId"]` | `[data-field-name="entitystatus"]` | Read-only fields — wrapper `<div>` always has this in view mode |
