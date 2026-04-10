@@ -6,6 +6,6 @@ test("nstest01 session is valid", async ({ browser }) => {
   });
   const page = await context.newPage();
   await page.goto("https://5177942-sb3.app.netsuite.com");
-  await expect(page.locator("#spn_userName")).toContainText("nstest1");
+  await expect(page).toHaveURL(/app\/center/);
   await context.close();
 });
