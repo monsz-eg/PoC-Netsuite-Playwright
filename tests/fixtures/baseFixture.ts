@@ -4,13 +4,13 @@ const USERS = ["nstest01", "nstest02"];
 
 type WorkerFixtures = {
   workerContext: BrowserContext;
+  userId: string;
 };
 
 export const test = base.extend<{}, WorkerFixtures>({
   workerContext: [
     async ({ browser }, use, workerInfo) => {
       const userId = USERS[workerInfo.workerIndex % USERS.length];
-      console.log(`[Worker ${workerInfo.workerIndex}] → ${userId}`);
       const context = await browser.newContext({
         storageState: `auth/${userId}.json`,
       });
@@ -19,7 +19,14 @@ export const test = base.extend<{}, WorkerFixtures>({
     },
     { scope: "worker" },
   ],
-  page: async ({ workerContext }, use) => {
+  userId: [
+    async ({}, use, workerInfo) => {
+      await use(USERS[workerInfo.workerIndex % USERS.length]);
+    },
+    { scope: "worker" },
+  ],
+  page: async ({ workerContext, userId }, use, testInfo) => {
+    testInfo.annotations.push({ type: "user", description: userId });
     const page = await workerContext.newPage();
     await use(page);
     await page.close();
