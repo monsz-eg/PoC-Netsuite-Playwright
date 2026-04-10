@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("nstest02 session is valid", async ({ browser }) => {
+test("nstest02 session is valid @auth", async ({ browser }) => {
   const context = await browser.newContext({
     storageState: "auth/nstest02.json",
   });
