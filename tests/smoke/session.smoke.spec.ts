@@ -1,5 +1,4 @@
-import { expect } from "@playwright/test";
-import { test } from "../fixtures/baseFixture";
+import { expect, test } from "@playwright/test";
 
 const USERS = ["nstest01", "nstest02"] as const;
 
