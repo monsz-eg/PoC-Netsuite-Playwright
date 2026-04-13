@@ -4,13 +4,14 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  timeout: 90000,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 2,
   reporter: [['html', { open: 'never' }]],
   use: {
-    baseURL: 'https://5177942-sb3.app.netsuite.com/app/center/card.nl?sc=-29&whence=',
+    baseURL: 'https://5177942-sb3.app.netsuite.com',
 
     trace: 'on',
   },

@@ -9,7 +9,8 @@
     "test:debug": "npx playwright test --debug",
     "test:report": "npx playwright show-report",
     "test:report:html": "npx playwright show-report --reporter=html",
-    "test:report:json": "npx playwright show-report --reporter=json"
+    "test:report:json": "npx playwright show-report --reporter=json",
+    "auth:setup": "npx ts-node scripts/setup-auth.ts"
   },
   "repository": {
     "type": "git",
