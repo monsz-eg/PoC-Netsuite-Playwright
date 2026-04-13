@@ -10,9 +10,7 @@
     "test:report": "npx playwright show-report",
     "test:report:html": "npx playwright show-report --reporter=html",
     "test:report:json": "npx playwright show-report --reporter=json",
-    "auth:nstest01": "npx playwright codegen --save-storage=auth/nstest01.json \"https://5177942-sb3.app.netsuite.com/app/center/card.nl?sc=-29&whence=\"",
-    "auth:nstest02": "npx playwright codegen --save-storage=auth/nstest02.json \"https://5177942-sb3.app.netsuite.com/app/center/card.nl?sc=-29&whence=\"",
-    "auth:nstest03": "npx playwright codegen --save-storage=auth/nstest03.json \"https://5177942-sb3.app.netsuite.com/app/center/card.nl?sc=-29&whence=\""
+    "auth:setup": "npx ts-node scripts/setup-auth.ts"
   },
   "repository": {
     "type": "git",

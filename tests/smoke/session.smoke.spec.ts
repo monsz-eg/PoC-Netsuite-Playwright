@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const USERS = ["nstest01", "nstest02"] as const;
+const USERS = ["nstest1", "nstest2", "nstest3"] as const;
 
 for (const userId of USERS) {
   test.describe(userId, () => {

@@ -1,13 +1,18 @@
-import { test as base, type BrowserContext } from "@playwright/test";
+import { test as base, type BrowserContext, type Page } from "@playwright/test";
 
-const USERS = ["nstest01", "nstest02"];
+const USERS = ["nstest1", "nstest2", "nstest3"];
 
 type WorkerFixtures = {
   workerContext: BrowserContext;
   userId: string;
 };
 
-export const test = base.extend<{}, WorkerFixtures>({
+type TestFixtures = {
+  isolatedStorageState: string;
+  isolatedPage: Page;
+};
+
+export const test = base.extend<TestFixtures, WorkerFixtures>({
   workerContext: [
     async ({ browser }, use, workerInfo) => {
       const userId = USERS[workerInfo.workerIndex % USERS.length];
@@ -30,6 +35,16 @@ export const test = base.extend<{}, WorkerFixtures>({
     const page = await workerContext.newPage();
     await use(page);
     await page.close();
+  },
+  isolatedStorageState: async ({ userId }, use) => {
+    await use(`auth/${userId}.json`);
+  },
+  isolatedPage: async ({ browser, isolatedStorageState }, use, testInfo) => {
+    testInfo.annotations.push({ type: "storageState", description: isolatedStorageState });
+    const context = await browser.newContext({ storageState: isolatedStorageState });
+    const page = await context.newPage();
+    await use(page);
+    await context.close();
   },
 });
 
