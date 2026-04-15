@@ -1,3 +1,6 @@
+// Intentionally imports from @playwright/test (not baseFixture) so that all 3 users
+// are tested unconditionally — independent of which worker runs this file.
+// The baseFixture maps one user per worker; using it here would only test one user per run.
 import { expect, test } from "@playwright/test";
 
 const USERS = ["nstest1", "nstest2", "nstest3"] as const;

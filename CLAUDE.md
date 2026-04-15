@@ -20,6 +20,34 @@ Tests exist to detect problems in the application — not to hide them. If the a
 
 ---
 
+## Test Structure — Arrange / Act / Assert
+
+Every test must follow the AAA pattern with a blank line separating each phase:
+
+```typescript
+test('project status is Active after creation', async ({ page }) => {
+  // Arrange — set up preconditions
+  const projectPage = new ProjectPage(page);
+  await base.switchRole(ROLES.egconsultant);
+  await base.navigateTo('/app/project/...');
+
+  // Act — perform the action under test
+  await projectPage.fillHeader({ name: 'Test Project', status: 'active' });
+  await projectPage.save();
+
+  // Assert — verify the expected outcome
+  await expect(projectPage.statusField).toHaveText('Active');
+});
+```
+
+**Rules:**
+
+- Each phase is marked with a `// Arrange`, `// Act`, or `// Assert` comment
+- One blank line between phases
+- Assert phase contains only assertions — no navigation, no data entry
+
+---
+
 ## Output Expectation
 
 Generated Playwright tests must be:
@@ -266,3 +294,29 @@ test('approval flow', async ({ page }) => {
 ```
 
 > **Note:** Call `switchRole` in `beforeEach` when a test requires a specific role from the start.
+
+---
+
+## Future Actions
+
+### CI/CD — Session Generation in GitHub Actions
+
+When connecting the project to CI, session files must be generated dynamically (they are gitignored and must not be committed).
+
+**Steps to implement:**
+
+1. Add `NSTEST1_PASSWORD`, `NSTEST2_PASSWORD`, `NSTEST3_PASSWORD` as **GitHub Secrets** (repo Settings → Secrets and variables → Actions).
+2. Create a `global-setup.ts` that runs the `setup-auth.ts` logic before the test suite.
+3. Register it in `playwright.config.ts`:
+   ```typescript
+   globalSetup: './scripts/setup-auth.ts'
+   ```
+4. In `.github/workflows/playwright.yml`, expose the secrets as environment variables:
+   ```yaml
+   env:
+     NSTEST1_PASSWORD: ${{ secrets.NSTEST1_PASSWORD }}
+     NSTEST2_PASSWORD: ${{ secrets.NSTEST2_PASSWORD }}
+     NSTEST3_PASSWORD: ${{ secrets.NSTEST3_PASSWORD }}
+   ```
+
+This keeps credentials out of the repo and generates sessions fresh on every CI run.

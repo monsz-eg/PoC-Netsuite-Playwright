@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 export class BasePage {
   constructor(protected readonly page: Page) {
@@ -22,12 +22,19 @@ export class BasePage {
     );
   }
 
+  async verifyRecordCreated(): Promise<void> {
+    await expect(this.page).toHaveURL(/[?&]id=\d+/);
+  }
+
   async switchRole(roleId: number): Promise<void> {
     if (!this.page.url().includes('netsuite.com')) {
       await this.page.goto('/');
       await this.waitForNetSuiteLoad();
     }
 
+    // waitForNsApi() guarantees nlapiGetContext exists as a function, but the function
+    // itself may still throw (e.g. not yet initialised for this page context).
+    // The null-check below catches that case and surfaces a descriptive error.
     await this.waitForNsApi();
 
     const nsContext = await this.page.evaluate((): { empId: string; companyId: string } | null => {
