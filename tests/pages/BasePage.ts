@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 export class BasePage {
   constructor(protected readonly page: Page) {
@@ -22,12 +22,39 @@ export class BasePage {
     );
   }
 
+  // Waits for a SuiteScript-sourced field to reach the expected value.
+  // Use this for fields auto-populated by field-change events (e.g. subsidiary after
+  // setting customer) that don't trigger a page load or the NS spinner.
+  async verifyFieldValue(fieldId: string, expected: string): Promise<void> {
+    await this.page.waitForFunction(
+      ({ id, exp }) => (globalThis as any).nlapiGetFieldValue(id) === exp,
+      { id: fieldId, exp: expected },
+      { timeout: 10000 },
+    );
+  }
+
+  async verifyRecordCreated(): Promise<void> {
+    await expect(this.page).toHaveURL(/[?&]id=\d+/);
+  }
+
+  async save(): Promise<void> {
+    await this.page.locator('[id="btn_multibutton_submitter"]').click();
+    await this.waitForNetSuiteLoad();
+  }
+
+  async switchToTab(tabLabel: string): Promise<void> {
+    await this.page.locator(`[data-nsps-label="${tabLabel}"]`).click();
+  }
+
   async switchRole(roleId: number): Promise<void> {
     if (!this.page.url().includes('netsuite.com')) {
       await this.page.goto('/');
       await this.waitForNetSuiteLoad();
     }
 
+    // waitForNsApi() guarantees nlapiGetContext exists as a function, but the function
+    // itself may still throw (e.g. not yet initialised for this page context).
+    // The null-check below catches that case and surfaces a descriptive error.
     await this.waitForNsApi();
 
     const nsContext = await this.page.evaluate((): { empId: string; companyId: string } | null => {

@@ -10,3 +10,4 @@ node_modules/
 /playwright/.auth/
 /auth/
 .playwright-mcp/
+.claude/settings.local.json
