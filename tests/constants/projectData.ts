@@ -111,7 +111,7 @@ export const PROJECT_DATA = {
     shipToEntity:                   SHIP_TO_ENTITY.orderedByEndUser,
     billToAddress:                  CUSTOMERS.psykologLouiseWestergaard.primaryAddress,
     contactPerson:                  CUSTOMERS.psykologLouiseWestergaard.contactPerson,
-    customerContractPortalAcce:     CUSTOMERS.psykologLouiseWestergaard.customerContractPortalAcce,
+    customerContractPortalAccess:   CUSTOMERS.psykologLouiseWestergaard.customerContractPortalAcce,
   }
 
 } as const;
