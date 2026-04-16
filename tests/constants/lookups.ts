@@ -36,10 +36,75 @@ export const EMPLOYEES = {
 
 
 export const ITEMS = {
-  /** NS label: "[Hours] Consultancy services - T&M" */
-  hoursConsultancyServicesTAndM: "582",
-  /** NS label: "[Hours] Consultancy services - T&M Training" */
-  hoursConsultancyServicesTAndMTraining: "9180",
+  hoursConsultancyServicesTAndM: {
+    id: "582",
+    /** Display label shown in view mode (dot prefix = NS item hierarchy) */
+    displayName: ".[Hours] Consultancy services - T&M",
+  },
+  hoursConsultancyServicesTAndMTraining: {
+    id: "9180",
+    displayName: ".[Hours] Consultancy services - T&M Training",
+  },
+} as const;
 
+export const BILLING_CLASSES = {
+  architect:                      { id: "25", displayName: "Architect" },
+  architectSenior:                { id: "26", displayName: "Architect Senior" },
+  businessAnalyst:                { id: "6",  displayName: "Business Analyst" },
+  businessAnalystSenior:          { id: "8",  displayName: "Business Analyst Senior" },
+  consultant:                     { id: "9",  displayName: "Consultant" },
+  consultantSenior:               { id: "10", displayName: "Consultant Senior" },
+  infrastructureConsultant:       { id: "4",  displayName: "Infrastructure Consultant" },
+  infrastructureConsultantSenior: { id: "5",  displayName: "Infrastructure Consultant Senior" },
+  projectManager:                 { id: "11", displayName: "Project Manager" },
+  projectManagerSenior:           { id: "18", displayName: "Project Manager Senior" },
+  softwareDeveloper:              { id: "21", displayName: "Software Developer" },
+  softwareDeveloperSenior:        { id: "24", displayName: "Software Developer Senior" },
+  supportConsultant:              { id: "2",  displayName: "Support Consultant" },
+  supportConsultantSenior:        { id: "3",  displayName: "Support Consultant Senior" },
+} as const;
+
+export const ACTIVITY_CODES = {
+  /** NS label: "Professional services : Professional services" — cseg_paactivitycode segment */
+  professionalServices: "328",
+} as const;
+
+/**
+ * Product segment hierarchy: cseg_eg_main_prod → cseg_eg_sub_prod → cseg_eg_prod_item.
+ * Each level is a parent of the next — always select a full path (main + sub + item).
+ * Add new sub products and items under the relevant main product entry.
+ *
+ * Usage:
+ *   mainProduct: PRODUCTS.checkWare.id,
+ *   subProduct:  PRODUCTS.checkWare.checkWareMain.id,
+ *   productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain,
+ */
+export const PRODUCTS = {
+  /** cseg_eg_main_prod: "Hardware" */
+  hardware: {
+    id: "201",
+    /** cseg_eg_sub_prod: "Hardware" */
+    hardware: {
+      id: "301",
+      /** cseg_eg_prod_item values under Hardware > Hardware */
+      items: {
+        /** "Hardware" */
+        hardware: "403",
+      },
+    },
+  },
+  /** cseg_eg_main_prod: "CheckWare" */
+  checkWare: {
+    id: "3523",
+    /** cseg_eg_sub_prod: "CheckWare (Main)" */
+    checkWareMain: {
+      id: "4954",
+      /** cseg_eg_prod_item values under CheckWare > CheckWare (Main) */
+      items: {
+        /** "CheckWare (Main)" */
+        checkWareMain: "8323",
+      },
+    },
+  },
 } as const;
 

@@ -80,11 +80,11 @@ export class ProjectRecord extends BasePage {
     await this.page.locator('[name="projectedenddate"]').fill(date);
   }
 
-  async verifySubsidiary(expected: string): Promise<void> {
+  async verifySubsidiaryPrepopulated(expected: string): Promise<void> {
     await this.verifyFieldValue("subsidiary", expected);
   }
 
-  async verifySchedulingMethod(expected: string): Promise<void> {
+  async verifySchedulingMethodPrepopulated(expected: string): Promise<void> {
     await this.verifyFieldValue("schedulingmethod", expected);
   }
 
