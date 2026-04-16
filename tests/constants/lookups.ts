@@ -5,22 +5,19 @@
  * Exported for use within tests/constants/ only — tests import from the data files, not here.
  */
 
-export const CATEGORIES = {
-  /** NS label: verify in NS Setup > Projects > Project Categories */
-  category5: "5",
-} as const;
-
-export const ADDRESSES = {
-  /**
-   * NS label: "Primary Address" — selected in custentity_eg_bill_to_address dropdown.
-   * Selecting this auto-populates custentity_eg_bill_to from the customer's address tab.
-   */
-  primaryAddress: "66536",
-} as const;
-
 export const CUSTOMERS = {
   /** NS label: "006954 Psykolog Louise H. Westergaard" */
-  psykologLouiseWestergaard: "142832",
+  psykologLouiseWestergaard: {
+    id: "142832",
+    /** NS label: "EG DK" — subsidiary auto-populated from customer */
+    subsidiary: "15",
+    /** NS label: "Primary Address" — custentity_eg_bill_to_address dropdown value */
+    primaryAddress: "66536",
+    /** NS label: nstest13 — custentity_eg_contactperson */
+    contactPerson: "3158891",
+    /** NS label: test user — custentity_eg_customercontractportalacce */
+    customerContractPortalAcce: "4753595",
+  },
 } as const;
 
 export const DEPARTMENTS = {
@@ -31,47 +28,8 @@ export const DEPARTMENTS = {
 export const EMPLOYEES = {
   /** NS label: nstest10 */
   nstest10: "2436735",
-  /** NS label: nstest13 */
-  nstest13: "3158891",
-  /** NS label: test user */
-  testUser: "4753595",
 } as const;
 
-export const FORMS = {
-  /** NS label: "EG Project Form - Finance Custom" */
-  egProjectFinanceCustom: "650",
-} as const;
-
-export const SCHEDULING_METHOD = {
-  /** NS internal value: "BACKWARD" = "Backward" */
-  backward: "BACKWARD",
-  /** NS internal value: "FORWARD" = "Forward" */
-  forward:  "FORWARD",
-} as const;
-
-export const ENTITY_STATUS = {
-  /** NS internal value: 1 = "Closed" */
-  closed:           "1",
-  /** NS internal value: 2 = "In Progress - GREEN" */
-  inProgressGreen:  "2",
-  /** NS internal value: 3 = "In Progress - YELLOW" */
-  inProgressYellow: "3",
-  /** NS internal value: 4 = "In Progress - RED" */
-  inProgressRed:    "4",
-  /** NS internal value: 5 = "Not Started" */
-  notStarted:       "5",
-} as const;
-
-export const SHIP_TO_ENTITY = {
-  /** NS internal value: -1 = "- New -" */
-  new:              "-1",
-  /** NS internal value: 1 = "Bill To" */
-  billTo:           "1",
-  /** NS internal value: 2 = "Ordered By/End User" */
-  orderedByEndUser: "2",
-  /** NS internal value: 3 = "Partner/Reseller" */
-  partnerReseller:  "3",
-} as const;
 
 export const ITEMS = {
   /** NS label: "[Hours] Consultancy services - T&M" */

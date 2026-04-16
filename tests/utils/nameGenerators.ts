@@ -1,3 +1,3 @@
 export function generateProjectName(): string {
-  return `prj-name-${Date.now()}`;
+  return `prj-test-automation-${Date.now()}`;
 }

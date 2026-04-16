@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx playwright:*)"
+      "Bash(npx playwright:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_run_code",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_handle_dialog"
     ]
   }
 }

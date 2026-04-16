@@ -80,11 +80,12 @@ export class ProjectRecord extends BasePage {
     await this.page.locator('[name="projectedenddate"]').fill(date);
   }
 
-  async setSchedulingMethod(value: string): Promise<void> {
-    await this.page.evaluate(
-      (v) => (globalThis as any).nlapiSetFieldValue("schedulingmethod", v, null, true),
-      value
-    );
+  async verifySubsidiary(expected: string): Promise<void> {
+    await this.verifyFieldValue("subsidiary", expected);
+  }
+
+  async verifySchedulingMethod(expected: string): Promise<void> {
+    await this.verifyFieldValue("schedulingmethod", expected);
   }
 
   async setProjectStatus(value: string): Promise<void> {
@@ -99,10 +100,6 @@ export class ProjectRecord extends BasePage {
       (v) => (globalThis as any).nlapiSetFieldValue("custentity_eg_ship_to_entity", v, null, true),
       value
     );
-  }
-
-  async switchToTab(tabLabel: string): Promise<void> {
-    await this.page.locator(`[data-nsps-label="${tabLabel}"]`).click();
   }
 
   async setContactPerson(id: string): Promise<void> {
@@ -124,11 +121,6 @@ export class ProjectRecord extends BasePage {
       (v) => (globalThis as any).nlapiSetFieldValue("custentity_eg_bill_to_address", v, null, true),
       id
     );
-  }
-
-  async save(): Promise<void> {
-    await this.page.locator('[id="btn_multibutton_submitter"]').click();
-    await this.waitForNetSuiteLoad();
   }
 
   async verifyCompanyName(expected: string): Promise<void> {
