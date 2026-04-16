@@ -32,7 +32,7 @@ test("project manager can create a new Customer Project @smoke", async ({ isolat
   await projectRecord.setBillToAddress(d.billToAddress);
   await projectRecord.switchToTab("ServiceNow");
   await projectRecord.setContactPerson(d.contactPerson);
-  await projectRecord.setCustomerContractPortalAcce(d.customerContractPortalAcce);
+  await projectRecord.setCustomerContractPortalAcce(d.customerContractPortalAccess);
   await projectRecord.save();
 
   // Assert

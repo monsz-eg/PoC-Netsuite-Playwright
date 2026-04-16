@@ -5,7 +5,7 @@ import { generateProjectName, generateTaskName } from "../utils/nameGenerators";
 import { ProjectRecord } from "../pages/ProjectRecord";
 import { ProjectTaskRecord } from "../pages/ProjectTaskRecord";
 
-test.use({ isolatedStorageState: "auth/nstest2.json" });
+test.use({ isolatedStorageState: "auth/nstest1.json" });
 
 test("project manager can create a Project Task on a Customer Project @smoke", async ({ isolatedPage, isolatedUserId }) => {
   // Arrange — create prerequisite project, then navigate to new task form
@@ -32,7 +32,7 @@ test("project manager can create a Project Task on a Customer Project @smoke", a
   await projectRecord.setBillToAddress(p.billToAddress);
   await projectRecord.switchToTab("ServiceNow");
   await projectRecord.setContactPerson(p.contactPerson);
-  await projectRecord.setCustomerContractPortalAcce(p.customerContractPortalAcce);
+  await projectRecord.setCustomerContractPortalAcce(p.customerContractPortalAccess);
   await projectRecord.save();
   await projectRecord.verifyRecordCreated();
 
