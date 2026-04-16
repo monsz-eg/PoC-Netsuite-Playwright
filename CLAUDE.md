@@ -255,6 +255,35 @@ Always verify the internal ID value (not display label) in NS Field Help before 
 
 ---
 
+## Verify Method Naming Convention
+
+Two distinct verify patterns exist depending on when the check runs:
+
+| Suffix | Mode | Mechanism | When to use |
+|---|---|---|---|
+| `verifyXxxPrepopulated` | Edit mode | `nlapiGetFieldValue` via `BasePage.verifyFieldValue` | Before `save()` — checks auto-populated values while the form is still open |
+| `verifyXxx` | View mode | `[data-field-name="x"] [data-nsps-type="field_input"]` | After `save()` — checks saved values on the read-only record page |
+
+**Rule:** never mix the two. A `verifyXxx` locator will not resolve in edit mode, and `nlapiGetFieldValue` is not available in view mode.
+
+```typescript
+// Edit mode — verify subsidiary auto-populated after customer was set
+async verifySubsidiaryPrepopulated(expected: string): Promise<void> {
+  await this.verifyFieldValue("subsidiary", expected);  // nlapiGetFieldValue
+}
+
+// View mode — verify subsidiary label on saved record
+async verifySubsidiary(expected: string): Promise<void> {
+  await expect(
+    this.page.locator('[data-field-name="subsidiary"] [data-nsps-type="field_input"]')
+  ).toHaveText(expected);
+}
+```
+
+In tests, `verifyXxxPrepopulated` calls appear in the **Act** phase (before `save()`), and `verifyXxx` calls appear in the **Assert** phase.
+
+---
+
 ## Role Management
 
 **Closed decision:** URL-based role switch — no separate session files per role.
@@ -298,6 +327,86 @@ test('approval flow', async ({ page }) => {
 ---
 
 ## Future Actions
+
+### Test Data Management — Fixture Strategies
+
+When a test depends on a prerequisite NS record (e.g. a project task requires a project), avoid hardcoding internal IDs — they break after sandbox refreshes. Two patterns are on the roadmap; neither is implemented yet.
+
+#### Option A — Worker-scoped fixture (fast, shared)
+
+Creates the prerequisite record **once per worker** at startup. All tests in that worker share it. Right when the test only needs *a* record, not a specific configuration.
+
+```typescript
+// tests/fixtures/projectFixture.ts
+const test = baseTest.extend<{}, { sharedProjectId: string }>({
+  sharedProjectId: [async ({ workerContext }, use) => {
+    const page = await workerContext.newPage();
+    const project = new ProjectRecord(page);
+    await project.switchRole(ROLES.egProjectManager);
+    await project.navigateToProject();
+    // ... fill with PROJECT_DATA.customerProject ...
+    await project.save();
+    const id = new URL(page.url()).searchParams.get('id')!;
+    await page.close();
+    await use(id);           // same id reused by all tests in this worker
+  }, { scope: 'worker' }],
+});
+```
+
+| | |
+|---|---|
+| **Speed** | Fast — 1 record created per worker per run |
+| **Isolation** | Tests share the record — one test mutating it can affect others |
+| **Use when** | "I need *a* project to create tasks against" |
+
+#### Option B — Factory fixture (flexible, isolated)
+
+Passes a **factory function** to the test. The test calls it with the specific data it needs, getting its own fresh record each time. Right when tests need different configurations or must not share state.
+
+```typescript
+// tests/fixtures/projectFixture.ts
+const test = baseTest.extend<{ createProject: (data: ProjectConfig) => Promise<string> }>({
+  createProject: async ({ isolatedPage }, use) => {
+    await use(async (data) => {
+      const project = new ProjectRecord(isolatedPage);
+      await project.switchRole(ROLES.egProjectManager);
+      await project.navigateToProject();
+      // ... fill with data ...
+      await project.save();
+      return new URL(isolatedPage.url()).searchParams.get('id')!;
+    });
+  },
+});
+```
+
+```typescript
+test('task on Customer Project', async ({ createProject }) => {
+  const projectId = await createProject(PROJECT_DATA.customerProject);
+  // ...
+});
+test('task on Internal Project', async ({ createProject }) => {
+  const projectId = await createProject(PROJECT_DATA.internalAdmin);
+  // ...
+});
+```
+
+| | |
+|---|---|
+| **Speed** | Slower — 1 record per test |
+| **Isolation** | Full — each test gets its own record |
+| **Use when** | "I need *this specific* project configuration" |
+
+#### Decision guidance
+
+| Scenario | Pattern |
+|---|---|
+| Test just needs any valid project | Worker-scoped fixture |
+| Test needs a specific project config | Factory fixture |
+| Test needs unique names/timestamps | Either pattern + `generateProjectName()` |
+
+**Current PoC approach:** project creation is placed in the Arrange phase directly, without a fixture. Refactor to fixtures once multiple tests share the same prerequisite.
+
+---
 
 ### CI/CD — Session Generation in GitHub Actions
 

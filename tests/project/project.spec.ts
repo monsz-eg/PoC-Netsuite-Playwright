@@ -19,14 +19,14 @@ test("project manager can create a new Customer Project @smoke", async ({ isolat
   await projectRecord.setCustomForm(d.form);
   await projectRecord.setProjectCategory(d.projectCategory);
   await projectRecord.setBillToCustomer(d.customer);
-  await projectRecord.verifySubsidiary(d.subsidiary);
+  await projectRecord.verifySubsidiaryPrepopulated(d.subsidiary);
   await projectRecord.setJobType(d.jobType);
   await projectRecord.setCompanyName(projectName);
   await projectRecord.setProjectManager(d.projectManager);
   await projectRecord.setDefaultItemAutoAss(d.defaultItem);
   await projectRecord.setServiceItemForTimeBased(d.serviceItemTimeBased);
   await projectRecord.setDepartment(d.department);
-  await projectRecord.verifySchedulingMethod(d.schedulingMethod);
+  await projectRecord.verifySchedulingMethodPrepopulated(d.schedulingMethod);
   await projectRecord.setProjectedEndDate(d.projectedEndDate);
   await projectRecord.setProjectStatus(d.projectStatus);
   await projectRecord.setBillToAddress(d.billToAddress);
