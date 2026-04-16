@@ -9,6 +9,7 @@ export const CUSTOMERS = {
   /** NS label: "006954 Psykolog Louise H. Westergaard" */
   psykologLouiseWestergaard: {
     id: "142832",
+    displayName: "006954 Psykolog Louise H. Westergaard",
     /** NS label: "EG DK" — subsidiary auto-populated from customer */
     subsidiary: "15",
     /** NS label: "Primary Address" — custentity_eg_bill_to_address dropdown value */
@@ -26,8 +27,11 @@ export const DEPARTMENTS = {
 } as const;
 
 export const EMPLOYEES = {
-  /** NS label: nstest10 */
-  nstest10: "2436735",
+  /** NS label: "NSTest_10 NetSuite Test 10" */
+  nstest10: {
+    id: "2436735",
+    displayName: "NSTest_10 NetSuite Test 10",
+  },
 } as const;
 
 

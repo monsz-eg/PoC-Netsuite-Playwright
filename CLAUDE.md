@@ -28,7 +28,7 @@ Every test must follow the AAA pattern with a blank line separating each phase:
 test('project status is Active after creation', async ({ page }) => {
   // Arrange — set up preconditions
   const projectPage = new ProjectPage(page);
-  await base.switchRole(ROLES.egconsultant);
+  await base.switchRole(ROLES.egConsultant);
   await base.navigateTo('/app/project/...');
 
   // Act — perform the action under test
@@ -285,10 +285,10 @@ import { ROLES } from '../constants/roles';
 test('approval flow', async ({ page }) => {
   const base = new BasePage(page);
 
-  await base.switchRole(ROLES.egconsultant);
+  await base.switchRole(ROLES.egConsultant);
   await base.navigateTo('/app/accounting/transactions/...');
 
-  await base.switchRole(ROLES.egmanagerswithstaff);
+  await base.switchRole(ROLES.egManagersWithStaff);
   await base.navigateTo('/app/accounting/transactions/...');
 });
 ```

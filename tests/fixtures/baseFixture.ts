@@ -1,3 +1,4 @@
+import * as path from "path";
 import { test as base, type BrowserContext, type Page } from "@playwright/test";
 
 const USERS = ["nstest1", "nstest2", "nstest3"];
@@ -9,6 +10,7 @@ type WorkerFixtures = {
 
 type TestFixtures = {
   isolatedStorageState: string;
+  isolatedUserId: string;
   isolatedPage: Page;
 };
 
@@ -38,6 +40,9 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
   },
   isolatedStorageState: async ({ userId }, use) => {
     await use(`auth/${userId}.json`);
+  },
+  isolatedUserId: async ({ isolatedStorageState }, use) => {
+    await use(path.basename(isolatedStorageState, ".json"));
   },
   isolatedPage: async ({ browser, isolatedStorageState }, use, testInfo) => {
     testInfo.annotations.push({ type: "storageState", description: isolatedStorageState });

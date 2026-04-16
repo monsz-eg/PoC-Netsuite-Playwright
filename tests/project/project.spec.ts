@@ -6,11 +6,11 @@ import { ProjectRecord } from "../pages/ProjectRecord";
 
 test.use({ isolatedStorageState: "auth/nstest1.json" });
 
-test("project manager can create a new Customer Project @smoke", async ({ isolatedPage }) => {
+test("project manager can create a new Customer Project @smoke", async ({ isolatedPage, isolatedUserId }) => {
   // Arrange
   const projectRecord = new ProjectRecord(isolatedPage);
   const d = PROJECT_DATA.customerProject;
-  const projectName = generateProjectName();
+  const projectName = generateProjectName(isolatedUserId);
 
   await projectRecord.switchRole(ROLES.egProjectManager);
   await projectRecord.navigateToProject();
@@ -38,6 +38,6 @@ test("project manager can create a new Customer Project @smoke", async ({ isolat
   // Assert
   await projectRecord.verifyRecordCreated();
   await projectRecord.verifyCompanyName(projectName);
-  await projectRecord.verifyBillToCustomer("006954 Psykolog Louise H. Westergaard");
-  await projectRecord.verifyProjectManager("NSTest_10 NetSuite Test 10");
+  await projectRecord.verifyBillToCustomer(d.customerDisplayName);
+  await projectRecord.verifyProjectManager(d.projectManagerDisplayName);
 });
