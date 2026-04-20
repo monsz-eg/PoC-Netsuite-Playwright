@@ -1,3 +1,12 @@
+/** Returns today's date in MM.DD.YYYY format (NetSuite date format). */
+export function today(): string {
+  const d = new Date();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  const yyyy = d.getFullYear();
+  return `${mm}.${dd}.${yyyy}`;
+}
+
 /** Returns a date N months from now in MM.DD.YYYY format (NetSuite date input format). */
 export function dateMonthsFromNow(months: number): string {
   const now = new Date();
