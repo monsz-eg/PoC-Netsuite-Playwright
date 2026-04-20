@@ -1,24 +1,24 @@
 /// <reference types="node" />
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: "./tests",
+  testDir: './tests',
   timeout: 300000,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: 3,
-  reporter: [["html", { open: "never" }]],
+  reporter: [['html', { open: 'never' }]],
   use: {
-    baseURL: "https://5177942-sb3.app.netsuite.com",
+    baseURL: 'https://5177942-sb3.app.netsuite.com',
 
-    trace: "on",
+    trace: 'on',
   },
 
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
 
     // {
