@@ -14,7 +14,9 @@ export class BasePage {
 
   async waitForNetSuiteLoad(): Promise<void> {
     await this.page.waitForLoadState("load");
-    await this.page.waitForSelector(".ns-loading", { state: "hidden" }).catch(() => {});
+    await this.page
+      .waitForSelector(".ns-loading", { state: "hidden" })
+      .catch(() => {});
   }
 
   async navigateTo(url: string): Promise<void> {
@@ -22,10 +24,10 @@ export class BasePage {
     await this.waitForNetSuiteLoad();
   }
 
-  private async waitForNsApi(): Promise<void> {
+  protected async waitForNsApi(): Promise<void> {
     await this.page.waitForFunction(
-      () => typeof (globalThis as any).nlapiGetContext === 'function',
-      { timeout: 15000 }
+      () => typeof (globalThis as any).nlapiGetContext === "function",
+      { timeout: 15000 },
     );
   }
 
@@ -35,6 +37,17 @@ export class BasePage {
   async verifyFieldValue(fieldId: string, expected: string): Promise<void> {
     await this.page.waitForFunction(
       ({ id, exp }) => (globalThis as any).nlapiGetFieldValue(id) === exp,
+      { id: fieldId, exp: expected },
+      { timeout: 10000 },
+    );
+  }
+
+  // Waits for a SuiteScript-sourced field to reach the expected display label.
+  // Use this when asserting the human-readable text of a list/lookup field
+  // (e.g. "EGDK") rather than its internal ID.
+  async verifyFieldText(fieldId: string, expected: string): Promise<void> {
+    await this.page.waitForFunction(
+      ({ id, exp }) => (globalThis as any).nlapiGetFieldText(id) === exp,
       { id: fieldId, exp: expected },
       { timeout: 10000 },
     );
@@ -56,7 +69,13 @@ export class BasePage {
   }
 
   async save(): Promise<void> {
-    await this.page.locator('[id="btn_multibutton_submitter"]').click();
+    // dispatchEvent bypasses Playwright's pointer-event interception check.
+    // In headed mode NS renders a transparent <div></div> overlay after sublist
+    // commits that blocks .click() indefinitely — the event dispatch goes directly
+    // to the button element, making the overlay irrelevant.
+    const saveBtn = this.page.locator('[id="btn_multibutton_submitter"]');
+    await saveBtn.waitFor({ state: "visible" });
+    await saveBtn.dispatchEvent("click");
     await this.waitForNetSuiteLoad();
   }
 
@@ -65,8 +84,8 @@ export class BasePage {
   }
 
   async switchRole(roleId: number): Promise<void> {
-    if (!this.page.url().includes('netsuite.com')) {
-      await this.page.goto('/');
+    if (!this.page.url().includes("netsuite.com")) {
+      await this.page.goto("/");
       await this.waitForNetSuiteLoad();
     }
 
@@ -75,30 +94,33 @@ export class BasePage {
     // The null-check below catches that case and surfaces a descriptive error.
     await this.waitForNsApi();
 
-    const nsContext = await this.page.evaluate((): { empId: string; companyId: string } | null => {
-      try {
-        const ctx = (globalThis as any).nlapiGetContext();
-        return { empId: String(ctx.user), companyId: String(ctx.company) };
-      } catch {
-        return null;
-      }
-    });
+    const nsContext = await this.page.evaluate(
+      (): { empId: string; companyId: string } | null => {
+        try {
+          const ctx = (globalThis as any).nlapiGetContext();
+          return { empId: String(ctx.user), companyId: String(ctx.company) };
+        } catch {
+          return null;
+        }
+      },
+    );
 
     if (!nsContext) {
       throw new Error(
         `switchRole(${roleId}): nlapiGetContext() not available on this page. ` +
-        `Ensure a NetSuite page is fully loaded before switching roles.`
+          `Ensure a NetSuite page is fully loaded before switching roles.`,
       );
     }
 
     const { empId, companyId } = nsContext;
-    const environment = companyId.replace('_', '-').toLowerCase();
+    const environment = companyId.replace("_", "-").toLowerCase();
     const changeRoleUrl =
       `https://${environment}.app.netsuite.com/app/login/secure/changerole.nl` +
       `?id=${companyId}~${empId}~${roleId}~N`;
 
     await this.page.goto(changeRoleUrl);
     await this.waitForNetSuiteLoad();
+    await this.waitForNsApi();
 
     const activeRole = await this.page.evaluate((): number | null => {
       try {
@@ -110,8 +132,8 @@ export class BasePage {
 
     if (activeRole !== roleId) {
       throw new Error(
-        `switchRole(${roleId}): expected role ${roleId} but got ${activeRole ?? 'unknown'} — ` +
-        `role may not be assigned to this user`
+        `switchRole(${roleId}): expected role ${roleId} but got ${activeRole ?? "unknown"} — ` +
+          `role may not be assigned to this user`,
       );
     }
   }
