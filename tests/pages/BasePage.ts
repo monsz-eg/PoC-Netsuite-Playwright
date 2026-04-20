@@ -26,7 +26,7 @@ export class BasePage {
 
   protected async waitForNsApi(): Promise<void> {
     await this.page.waitForFunction(
-      () => typeof (globalThis as any).nlapiGetContext === "function",
+      () => typeof (globalThis as any).nlapiGetContext === 'function',
       { timeout: 15000 },
     );
   }
@@ -98,8 +98,8 @@ export class BasePage {
   }
 
   async switchRole(roleId: number): Promise<void> {
-    if (!this.page.url().includes("netsuite.com")) {
-      await this.page.goto("/");
+    if (!this.page.url().includes('netsuite.com')) {
+      await this.page.goto('/');
       await this.waitForNetSuiteLoad();
     }
 
@@ -127,7 +127,7 @@ export class BasePage {
     }
 
     const { empId, companyId } = nsContext;
-    const environment = companyId.replace("_", "-").toLowerCase();
+    const environment = companyId.replace('_', '-').toLowerCase();
     const changeRoleUrl =
       `https://${environment}.app.netsuite.com/app/login/secure/changerole.nl` +
       `?id=${companyId}~${empId}~${roleId}~N`;
@@ -146,7 +146,7 @@ export class BasePage {
 
     if (activeRole !== roleId) {
       throw new Error(
-        `switchRole(${roleId}): expected role ${roleId} but got ${activeRole ?? "unknown"} — ` +
+        `switchRole(${roleId}): expected role ${roleId} but got ${activeRole ?? 'unknown'} — ` +
           `role may not be assigned to this user`,
       );
     }
