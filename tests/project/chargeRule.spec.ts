@@ -47,13 +47,14 @@ test.describe
     projectId = new URL(isolatedPage.url()).searchParams.get('id')!;
   });
 
-  test('creates a Project Task on the project', async ({ isolatedPage }) => {
+  test('creates a Project Task on the project', async ({ isolatedPage, isolatedUserId }) => {
     // Arrange
     const projectTask = new ProjectTaskRecord(isolatedPage);
     const p = PROJECT_DATA.customerProject;
     const t = PROJECT_TASK_DATA.customerProjectTask;
     const taskName = generateTaskName(projectId);
 
+    await projectTask.switchRole(ROLES.egProjectManager);
     await projectTask.navigateToNewTask(projectId);
 
     // Act
