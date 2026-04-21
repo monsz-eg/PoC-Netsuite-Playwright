@@ -92,6 +92,7 @@ test.describe
     const c = CHARGE_RULE_DATA.timeBasedForCustomerProjectTask;
     const ruleName = generateChargeRuleName(isolatedUserId);
 
+    await chargeRule.switchRole(ROLES.egProjectManager);
     await chargeRule.navigateToNewTimeBased(projectId);
 
     // Act
