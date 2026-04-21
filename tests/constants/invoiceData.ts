@@ -1,11 +1,13 @@
 export const INVOICE_DATA = {
   customerId: "37214", // NS internal ID for "Priess A/S"
+  customerText: "046141 Priess A/S",
   subsidiaryId: "15", // NS internal ID for "EGDK"
   accountId: "297", // NS internal ID for "Trade receivables" (1221000)
   subsidiaryText: "EGDK",
   currencyText: "DKK",
   memo: "test memo text",
   orderedById: "3013",
+  orderedByText: "076876 Sears Manufacturing Co.",
   lineItemId: "9180",
   lineItemText: ".[Hours] Consultancy services - T&M Training",
   lineItemDescription: "test",

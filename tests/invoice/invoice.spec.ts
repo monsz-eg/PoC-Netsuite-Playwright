@@ -3,6 +3,7 @@ import { ROLES } from "../constants/roles";
 import { test } from "../fixtures/baseFixture";
 import { InvoiceRecord } from "../pages/InvoiceRecord";
 import { today } from "../utils/dateUtils";
+import { generatePoNumber } from "../utils/nameGenerators";
 
 test.use({ isolatedStorageState: "auth/nstest2.json" });
 
@@ -11,6 +12,7 @@ test("billing responsible can create a new Invoice @smoke", async ({
 }) => {
   // Arrange
   const invoiceRecord = new InvoiceRecord(isolatedPage);
+  const poNumber = generatePoNumber();
 
   await invoiceRecord.switchRole(ROLES.egBillingResponsible);
   await invoiceRecord.navigateToInvoice();
@@ -20,6 +22,7 @@ test("billing responsible can create a new Invoice @smoke", async ({
   await invoiceRecord.setSubsidiary(INVOICE_DATA.subsidiaryId);
   await invoiceRecord.setAccount(INVOICE_DATA.accountId);
   await invoiceRecord.setMemo(INVOICE_DATA.memo);
+  await invoiceRecord.setPONumber(poNumber);
   await invoiceRecord.setOrderedBy(INVOICE_DATA.orderedById);
   await invoiceRecord.addLineItem(INVOICE_DATA.lineItemText);
   await invoiceRecord.setLineItemDescription(INVOICE_DATA.lineItemDescription);
@@ -44,7 +47,11 @@ test("billing responsible can create a new Invoice @smoke", async ({
   // Assert
   // To be continued with more assertions as needed, currently just verifying that the record was created and some key fields are correct
   await invoiceRecord.verifyRecordCreated();
+  await invoiceRecord.verifyBillToCustomer(INVOICE_DATA.customerText);
   await invoiceRecord.verifySubsidiary(INVOICE_DATA.subsidiaryText);
   await invoiceRecord.verifyCurrency(INVOICE_DATA.currencyText);
+  await invoiceRecord.verifyMemo(INVOICE_DATA.memo);
+  await invoiceRecord.verifyPONumber(poNumber);
+  await invoiceRecord.verifyOrderedBy(INVOICE_DATA.orderedByText);
   await invoiceRecord.verifyTranDate();
 });
