@@ -23,6 +23,16 @@ export class InvoiceRecord extends BasePage {
     );
   }
 
+  async setPONumber(value: string): Promise<void> {
+    await this.page.locator('[name="otherrefnum"]').fill(value);
+  }
+
+  async verifyPONumber(expected: string): Promise<void> {
+    await expect(
+      this.page.locator('[data-field-name="otherrefnum"] [data-nsps-type="field_input"]'),
+    ).toHaveText(expected);
+  }
+
   async setMemo(text: string): Promise<void> {
     await this.page.evaluate(
       (v) => (globalThis as any).nlapiSetFieldValue("memo", v),
@@ -48,6 +58,24 @@ export class InvoiceRecord extends BasePage {
     );
     await this.waitForNetSuiteLoad();
     await this.ensureFormInited();
+  }
+
+  async verifyOrderedBy(expected: string): Promise<void> {
+    await expect(
+      this.page.locator('[data-field-name="custbody_eg_ordered_by"] [data-nsps-type="field_input"]'),
+    ).toHaveText(expected);
+  }
+
+  async verifyMemo(expected: string): Promise<void> {
+    await expect(
+      this.page.locator('[data-field-name="memo"] [data-nsps-type="field_input"]'),
+    ).toHaveText(expected);
+  }
+
+  async verifyBillToCustomer(expected: string): Promise<void> {
+    await expect(
+      this.page.locator('[data-field-name="entity"] [data-nsps-type="field_input"]'),
+    ).toHaveText(expected);
   }
 
   async verifySubsidiary(expected: string): Promise<void> {
