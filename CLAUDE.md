@@ -36,7 +36,7 @@ Tests exist to detect problems in the application — not to hide them. If the a
 
 - **Setup through the UI.** Page objects create prerequisites. Slow but deliberate — each Arrange step validates UI behaviour. API-based creation is rejected because it masks form bugs and skips client scripts.
 - **Assertions may use `N/search`.** Run via `page.evaluate()` — reuses the browser session, no OAuth needed. Use for cross-record verification the UI doesn't surface (GL entries, totals, related record state).
-- **No hardcoded record IDs in long-lived data.** Look up via `N/search` in setup, or regenerate after sandbox refresh.
+- **Do not scatter record IDs through specs or page objects.** Reusable IDs may live only in centralized lookup files (for example `tests/constants/lookups.ts` / `projectData.ts`). Prefer `N/search` in setup for unstable or environment-specific records, and regenerate centralized IDs after sandbox refresh when needed.
 
 ### Deferred — add when these triggers appear
 
