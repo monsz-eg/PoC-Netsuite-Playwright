@@ -1,4 +1,4 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Page } from '@playwright/test';
 
 export class BasePage {
   // Tracks pages that already have a dialog handler registered, so multiple page
@@ -8,13 +8,13 @@ export class BasePage {
   constructor(protected readonly page: Page) {
     if (!BasePage.dialogHandledPages.has(page)) {
       BasePage.dialogHandledPages.add(page);
-      this.page.on("dialog", async (dialog) => await dialog.accept());
+      this.page.on('dialog', async (dialog) => await dialog.accept());
     }
   }
 
   async waitForNetSuiteLoad(): Promise<void> {
-    await this.page.waitForLoadState("load");
-    await this.page.waitForSelector(".ns-loading", { state: "hidden" }).catch(() => {});
+    await this.page.waitForLoadState('load');
+    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
   async navigateTo(url: string): Promise<void> {
@@ -25,7 +25,17 @@ export class BasePage {
   private async waitForNsApi(): Promise<void> {
     await this.page.waitForFunction(
       () => typeof (globalThis as any).nlapiGetContext === 'function',
-      { timeout: 15000 }
+      { timeout: 15000 },
+    );
+  }
+
+  // nlapiSetFieldValue on select/dropdown fields calls NLEntryForm_querySelectText, which NS
+  // defines asynchronously after the page load event. Call this after navigating to any form
+  // page before using nlapi to set field values.
+  protected async waitForNsFormReady(): Promise<void> {
+    await this.page.waitForFunction(
+      () => typeof (globalThis as any).NLEntryForm_querySelectText === 'function',
+      { timeout: 15000 },
     );
   }
 
@@ -43,7 +53,11 @@ export class BasePage {
   // Waits for a sublist line item field to reach the expected value.
   // Use this for fields auto-populated after setting a line item value (e.g. service item
   // auto-filled after selecting a resource in the assignee sublist).
-  async verifyCurrentLineItemValue(sublistId: string, fieldId: string, expected: string): Promise<void> {
+  async verifyCurrentLineItemValue(
+    sublistId: string,
+    fieldId: string,
+    expected: string,
+  ): Promise<void> {
     await this.page.waitForFunction(
       ({ sub, id, exp }) => (globalThis as any).nlapiGetCurrentLineItemValue(sub, id) === exp,
       { sub: sublistId, id: fieldId, exp: expected },
@@ -87,7 +101,7 @@ export class BasePage {
     if (!nsContext) {
       throw new Error(
         `switchRole(${roleId}): nlapiGetContext() not available on this page. ` +
-        `Ensure a NetSuite page is fully loaded before switching roles.`
+          `Ensure a NetSuite page is fully loaded before switching roles.`,
       );
     }
 
@@ -111,7 +125,7 @@ export class BasePage {
     if (activeRole !== roleId) {
       throw new Error(
         `switchRole(${roleId}): expected role ${roleId} but got ${activeRole ?? 'unknown'} — ` +
-        `role may not be assigned to this user`
+          `role may not be assigned to this user`,
       );
     }
   }

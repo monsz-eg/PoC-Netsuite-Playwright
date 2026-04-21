@@ -35,19 +35,19 @@ export const ROLES = {
   egLeaseAccountant: 1125,
   egLeaseController: 1126,
   egManagersWithStaff: 1051,
-  egManagersWithStaffOnlyHhansmibar: 1232,       // abbreviated user names — verify if needed
+  egManagersWithStaffOnlyHhansmibar: 1232, // abbreviated user names — verify if needed
   egManagersWithStaffVendorPortalEmplWoSSO: 1243,
   egManagersWithStaffWoProjects: 1118,
   egMoveHours: 1248,
   egNetLeaseAdministratorDoNotAssign: 1124,
   egNetsuiteDeveloper: 1075,
-  egNolanAbrRole: 1115,                           // "nolan" / "abr" — verify meaning
+  egNolanAbrRole: 1115, // "nolan" / "abr" — verify meaning
   egNSOAConnector: 1101,
   egODBCConnection: 1050,
   egPayroll: 1077,
   egProcurementOfficer: 1049,
   egProductManager: 1048,
-  egProductManagerNonBoardEtSub: 1116,            // "nonboard et sub" — verify meaning
+  egProductManagerNonBoardEtSub: 1116, // "nonboard et sub" — verify meaning
   egProjectManager: 1047,
   egProjectManagerVendorPortalEmplWoSSO: 1242,
   egProjectManagerViewOnly: 1105,
