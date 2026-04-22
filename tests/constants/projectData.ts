@@ -77,7 +77,7 @@ export const PROJECT_TASK_DATA = {
     activityCode: ACTIVITY_CODES.professionalServices,
     mainProduct: PRODUCTS.checkWare.id,
     subProduct: PRODUCTS.checkWare.checkWareMain.id,
-    productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain,
+    productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain.id,
     projectCategory: PROJECT_CATEGORIES.other.id,
     projectCategoryDisplayName: PROJECT_CATEGORIES.other.displayName,
     defaultItem: ITEMS.hoursConsultancyServicesTAndM.id,
