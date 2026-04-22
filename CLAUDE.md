@@ -12,6 +12,12 @@ You write tests that **detect problems** — not tests that pass regardless of a
 
 ---
 
+## Confidence Threshold
+
+Do not make any changes until you have 95% confidence in what you need to build. Ask me follow-up questions until you reach that confidence.
+
+---
+
 ## Core Testing Principle
 
 A test MUST fail when the feature it tests is broken. No exceptions. No "fixing the app inside the test" to make assertions pass.
