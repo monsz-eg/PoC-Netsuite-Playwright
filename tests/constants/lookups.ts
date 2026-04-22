@@ -19,11 +19,42 @@ export const CUSTOMERS = {
     /** NS label: test user — custentity_eg_customercontractportalacce */
     customerContractPortalAcce: '4753595',
   },
+  /** NS label: "046141 Priess A/S" */
+  priessAS: {
+    id: '37214',
+    displayName: '046141 Priess A/S',
+    /** NS label: "EGDK" — subsidiary auto-populated from customer */
+    subsidiary: '15',
+  },
+  /** NS label: "076876 Sears Manufacturing Co." — custbody_eg_ordered_by lookup */
+  searsManufacturingCo: {
+    id: '3013',
+    displayName: '076876 Sears Manufacturing Co.',
+  },
+} as const;
+
+export const SUBSIDIARIES = {
+  egdk: { id: '15', displayName: 'EGDK' },
+} as const;
+
+export const CURRENCIES = {
+  dkk: { id: '1', displayName: 'DKK' },
+} as const;
+
+export const ACCOUNTS = {
+  /** NS label: "Trade receivables" (1221000) */
+  tradeReceivables: { id: '297' },
 } as const;
 
 export const DEPARTMENTS = {
   /** NS label: verify in NS Setup > Company > Departments */
   transfer: '236',
+  netSuite: { id: '5702', displayName: '00003 NetSuite' },
+} as const;
+
+export const REVENUE_CATEGORIES = {
+  /** NS label: "Perpetual Licenses" */
+  perpetualLicenses: { id: '805', displayName: 'Perpetual Licenses' },
 } as const;
 
 export const EMPLOYEES = {
@@ -76,32 +107,48 @@ export const ACTIVITY_CODES = {
  * Usage:
  *   mainProduct: PRODUCTS.checkWare.id,
  *   subProduct:  PRODUCTS.checkWare.checkWareMain.id,
- *   productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain,
+ *   productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain.id,
  */
 export const PRODUCTS = {
   /** cseg_eg_main_prod: "Hardware" */
   hardware: {
     id: '201',
+    displayName: 'Hardware',
     /** cseg_eg_sub_prod: "Hardware" */
     hardware: {
       id: '301',
+      displayName: 'Hardware',
       /** cseg_eg_prod_item values under Hardware > Hardware */
       items: {
-        /** "Hardware" */
-        hardware: '403',
+        hardware: { id: '403', displayName: 'Hardware' },
       },
     },
   },
   /** cseg_eg_main_prod: "CheckWare" */
   checkWare: {
     id: '3523',
+    displayName: 'CheckWare',
     /** cseg_eg_sub_prod: "CheckWare (Main)" */
     checkWareMain: {
       id: '4954',
+      displayName: 'CheckWare (Main)',
       /** cseg_eg_prod_item values under CheckWare > CheckWare (Main) */
       items: {
-        /** "CheckWare (Main)" */
-        checkWareMain: '8323',
+        checkWareMain: { id: '8323', displayName: 'CheckWare (Main)' },
+      },
+    },
+  },
+  /** cseg_eg_main_prod: "Dynaway - EAM" */
+  dynawayEAM: {
+    id: '103',
+    displayName: 'Dynaway - EAM',
+    /** cseg_eg_sub_prod: "Dynaway F&O - EAM" */
+    dynawayFoEAM: {
+      id: '105',
+      displayName: 'Dynaway F&O - EAM',
+      /** cseg_eg_prod_item values under Dynaway EAM > Dynaway F&O EAM */
+      items: {
+        advancedEnterpriseAssetManagementEAM: { id: '119', displayName: 'Advanced Enterprise Asset Management - EAM' },
       },
     },
   },
