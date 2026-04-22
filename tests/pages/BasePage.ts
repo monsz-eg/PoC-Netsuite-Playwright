@@ -13,10 +13,8 @@ export class BasePage {
   }
 
   async waitForNetSuiteLoad(): Promise<void> {
-    await this.page.waitForLoadState("load");
-    await this.page
-      .waitForSelector(".ns-loading", { state: "hidden" })
-      .catch(() => {});
+    await this.page.waitForLoadState('load');
+    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
   async navigateTo(url: string): Promise<void> {
@@ -36,7 +34,7 @@ export class BasePage {
   // navigateTo* method before returning — never call directly from tests.
   protected async waitForNsFormReady(): Promise<void> {
     await this.page.waitForFunction(
-      () => typeof (globalThis as any).NLEntryForm_querySelectText === "function",
+      () => typeof (globalThis as any).NLEntryForm_querySelectText === 'function',
       { timeout: 15000 },
     );
   }
@@ -104,8 +102,8 @@ export class BasePage {
     // commits that blocks .click() indefinitely — the event dispatch goes directly
     // to the button element, making the overlay irrelevant.
     const saveBtn = this.page.locator('[id="btn_multibutton_submitter"]');
-    await saveBtn.waitFor({ state: "visible" });
-    await saveBtn.dispatchEvent("click");
+    await saveBtn.waitFor({ state: 'visible' });
+    await saveBtn.dispatchEvent('click');
     await this.waitForNetSuiteLoad();
   }
 
@@ -124,16 +122,14 @@ export class BasePage {
     // The null-check below catches that case and surfaces a descriptive error.
     await this.waitForNsApi();
 
-    const nsContext = await this.page.evaluate(
-      (): { empId: string; companyId: string } | null => {
-        try {
-          const ctx = (globalThis as any).nlapiGetContext();
-          return { empId: String(ctx.user), companyId: String(ctx.company) };
-        } catch {
-          return null;
-        }
-      },
-    );
+    const nsContext = await this.page.evaluate((): { empId: string; companyId: string } | null => {
+      try {
+        const ctx = (globalThis as any).nlapiGetContext();
+        return { empId: String(ctx.user), companyId: String(ctx.company) };
+      } catch {
+        return null;
+      }
+    });
 
     if (!nsContext) {
       throw new Error(

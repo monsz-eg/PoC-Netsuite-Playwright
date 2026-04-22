@@ -148,7 +148,10 @@ export const PRODUCTS = {
       displayName: 'Dynaway F&O - EAM',
       /** cseg_eg_prod_item values under Dynaway EAM > Dynaway F&O EAM */
       items: {
-        advancedEnterpriseAssetManagementEAM: { id: '119', displayName: 'Advanced Enterprise Asset Management - EAM' },
+        advancedEnterpriseAssetManagementEAM: {
+          id: '119',
+          displayName: 'Advanced Enterprise Asset Management - EAM',
+        },
       },
     },
   },

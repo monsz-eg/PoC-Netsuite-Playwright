@@ -1,3 +1,4 @@
+import { dateMonthsFromNow } from '../utils/dateUtils';
 import {
   ACTIVITY_CODES,
   BILLING_CLASSES,
@@ -7,7 +8,6 @@ import {
   ITEMS,
   PRODUCTS,
 } from './lookups';
-import { dateMonthsFromNow } from '../utils/dateUtils';
 
 const FORMS = {
   /** NS label: "EG Project Form - Finance Custom" */
