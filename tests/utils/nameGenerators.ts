@@ -1,9 +1,17 @@
 export function generatePoNumber(): string {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  const suffix = Array.from({ length: 5 }, () =>
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const suffix = Array.from({ length: 10 }, () =>
     chars.charAt(Math.floor(Math.random() * chars.length)),
-  ).join("");
-  return `POtest${suffix}`;
+  ).join('');
+  return `AUTO_PO_${suffix}`;
+}
+
+export function generateMemo(): string {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const suffix = Array.from({ length: 10 }, () =>
+    chars.charAt(Math.floor(Math.random() * chars.length)),
+  ).join('');
+  return `AUTO_memo_${suffix}`;
 }
 
 export function generateProjectName(userId: string): string {
