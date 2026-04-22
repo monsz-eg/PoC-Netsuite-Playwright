@@ -34,6 +34,8 @@ export function dateMonthsFromNow(months: number): string {
   const targetDay = Math.min(currentDay, lastDayOfTargetMonth);
 
   const d = new Date(targetYear, targetMonth, targetDay);
-  const parts = getCetDateParts(d);
-  return `${parts.dd}.${parts.mm}.${parts.yyyy}`;
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  const yyyy = d.getFullYear();
+  return `${mm}.${dd}.${yyyy}`;
 }

@@ -1,12 +1,13 @@
-import { test } from "../fixtures/baseFixture";
-import { ROLES } from "../constants/roles";
-import { PROJECT_DATA } from "../constants/projectData";
-import { generateProjectName } from "../utils/nameGenerators";
-import { ProjectRecord } from "../pages/ProjectRecord";
+import { test } from '../fixtures/baseFixture';
+import { ROLES } from '../constants/roles';
+import { PROJECT_DATA } from '../constants/projectData';
+import { generateProjectName } from '../utils/nameGenerators';
+import { ProjectRecord } from '../pages/ProjectRecord';
 
-test.use({ isolatedStorageState: "auth/nstest1.json" });
-
-test("project manager can create a new Customer Project @smoke", async ({ isolatedPage, isolatedUserId }) => {
+test('project manager can create a new Customer Project @smoke', async ({
+  isolatedPage,
+  isolatedUserId,
+}) => {
   // Arrange
   const projectRecord = new ProjectRecord(isolatedPage);
   const d = PROJECT_DATA.customerProject;
@@ -30,7 +31,7 @@ test("project manager can create a new Customer Project @smoke", async ({ isolat
   await projectRecord.setProjectedEndDate(d.projectedEndDate);
   await projectRecord.setProjectStatus(d.projectStatus);
   await projectRecord.setBillToAddress(d.billToAddress);
-  await projectRecord.switchToTab("ServiceNow");
+  await projectRecord.switchToTab('ServiceNow');
   await projectRecord.setContactPerson(d.contactPerson);
   await projectRecord.setCustomerContractPortalAcce(d.customerContractPortalAccess);
   await projectRecord.save();

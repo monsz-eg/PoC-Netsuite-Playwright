@@ -7,9 +7,13 @@ export function generatePoNumber(): string {
 }
 
 export function generateProjectName(userId: string): string {
-  return `prj-test-automation-${Date.now()}-${userId}`;
+  return `AUTO_project_${Date.now()}-${userId}`;
 }
 
 export function generateTaskName(userId: string): string {
-  return `task-test-automation-${Date.now()}-${userId}`;
+  return `AUTO_project_task_${Date.now()}-${userId}`;
+}
+
+export function generateChargeRuleName(userId: string): string {
+  return `AUTO_charge_rule_${Date.now()}-${userId}`;
 }
