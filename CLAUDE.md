@@ -12,15 +12,17 @@ Do not make any changes until you have 95% confidence in what you need to build.
 
 ---
 
-## Confidence Threshold
-
-Do not make any changes until you have 95% confidence in what you need to build. Ask me follow-up questions until you reach that confidence.
-
----
-
 ## Core Testing Principle
 
 A test MUST fail when the feature it tests is broken. No exceptions. **A passing test that hides a broken feature is worse than no test at all.**
+
+---
+
+## Tech Stack
+
+- **Playwright + TypeScript** — test runner, Page Object Model, fixtures
+- **NetSuite SuiteCloud** — SuiteScript client API (`nlapiSetFieldValue`, `nlapiGetContext`, `N/search`)
+- **ts-node** — script execution (`scripts/setup-auth.ts`)
 
 ---
 
@@ -33,14 +35,6 @@ A test MUST fail when the feature it tests is broken. No exceptions. **A passing
 | `npm run test:debug` | Run in debug mode |
 | `npm run auth:setup` | Generate session files from `.env` credentials |
 | `npm run format` | Prettier format all TS/JSON |
-
----
-
-## Tech Stack
-
-- **Playwright + TypeScript** — test runner, Page Object Model, fixtures
-- **NetSuite SuiteCloud** — SuiteScript client API (`nlapiSetFieldValue`, `nlapiGetContext`, `N/search`)
-- **ts-node** — script execution (`scripts/setup-auth.ts`)
 
 ---
 
