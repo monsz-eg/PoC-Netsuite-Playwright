@@ -10,7 +10,9 @@
     "test:report": "npx playwright show-report",
     "test:report:html": "npx playwright show-report --reporter=html",
     "test:report:json": "npx playwright show-report --reporter=json",
-    "auth:setup": "npx ts-node scripts/setup-auth.ts"
+    "auth:setup": "npx ts-node scripts/setup-auth.ts",
+    "format": "prettier --write \"**/*.{ts,json}\" --ignore-path .gitignore",
+    "format:check": "prettier --check \"**/*.{ts,json}\" --ignore-path .gitignore"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.5.2",
+    "prettier": "^3.8.3",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.2"
   }

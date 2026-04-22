@@ -1,7 +1,7 @@
-import * as path from "path";
-import { test as base, type BrowserContext, type Page } from "@playwright/test";
+import * as path from 'path';
+import { test as base, type BrowserContext, type Page } from '@playwright/test';
 
-const USERS = ["nstest1", "nstest2", "nstest3"];
+const USERS = ['nstest1', 'nstest2', 'nstest3'];
 
 type WorkerFixtures = {
   workerContext: BrowserContext;
@@ -24,16 +24,16 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
       await use(context);
       await context.close();
     },
-    { scope: "worker" },
+    { scope: 'worker' },
   ],
   userId: [
     async ({}, use, workerInfo) => {
       await use(USERS[workerInfo.workerIndex % USERS.length]);
     },
-    { scope: "worker" },
+    { scope: 'worker' },
   ],
   page: async ({ workerContext, userId }, use, testInfo) => {
-    testInfo.annotations.push({ type: "user", description: userId });
+    testInfo.annotations.push({ type: 'user', description: userId });
     const page = await workerContext.newPage();
     await use(page);
     await page.close();
@@ -42,10 +42,10 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
     await use(`auth/${userId}.json`);
   },
   isolatedUserId: async ({ isolatedStorageState }, use) => {
-    await use(path.basename(isolatedStorageState, ".json"));
+    await use(path.basename(isolatedStorageState, '.json'));
   },
   isolatedPage: async ({ browser, isolatedStorageState }, use, testInfo) => {
-    testInfo.annotations.push({ type: "storageState", description: isolatedStorageState });
+    testInfo.annotations.push({ type: 'storageState', description: isolatedStorageState });
     const context = await browser.newContext({ storageState: isolatedStorageState });
     const page = await context.newPage();
     await use(page);
@@ -53,4 +53,4 @@ export const test = base.extend<TestFixtures, WorkerFixtures>({
   },
 });
 
-export { expect } from "@playwright/test";
+export { expect } from '@playwright/test';

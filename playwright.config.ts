@@ -1,7 +1,6 @@
 /// <reference types="node" />
 import { defineConfig, devices } from '@playwright/test';
 
-
 export default defineConfig({
   testDir: './tests',
   timeout: 90000,
@@ -31,9 +30,5 @@ export default defineConfig({
     //   name: 'webkit',
     //   use: { ...devices['Desktop Safari'] },
     // },
-
-  
   ],
-
- 
 });
