@@ -1,13 +1,14 @@
-import { test } from "../fixtures/baseFixture";
-import { ROLES } from "../constants/roles";
-import { PROJECT_DATA, PROJECT_TASK_DATA } from "../constants/projectData";
-import { generateProjectName, generateTaskName } from "../utils/nameGenerators";
-import { ProjectRecord } from "../pages/ProjectRecord";
-import { ProjectTaskRecord } from "../pages/ProjectTaskRecord";
+import { test } from '../fixtures/baseFixture';
+import { ROLES } from '../constants/roles';
+import { PROJECT_DATA, PROJECT_TASK_DATA } from '../constants/projectData';
+import { generateProjectName, generateTaskName } from '../utils/nameGenerators';
+import { ProjectRecord } from '../pages/ProjectRecord';
+import { ProjectTaskRecord } from '../pages/ProjectTaskRecord';
 
-test.use({ isolatedStorageState: "auth/nstest1.json" });
-
-test("project manager can create a Project Task on a Customer Project @smoke", async ({ isolatedPage, isolatedUserId }) => {
+test('project manager can create a Project Task on a Customer Project @smoke', async ({
+  isolatedPage,
+  isolatedUserId,
+}) => {
   // Arrange — create prerequisite project, then navigate to new task form
   const projectRecord = new ProjectRecord(isolatedPage);
   const projectTask = new ProjectTaskRecord(isolatedPage);
@@ -30,13 +31,13 @@ test("project manager can create a Project Task on a Customer Project @smoke", a
   await projectRecord.setProjectedEndDate(p.projectedEndDate);
   await projectRecord.setProjectStatus(p.projectStatus);
   await projectRecord.setBillToAddress(p.billToAddress);
-  await projectRecord.switchToTab("ServiceNow");
+  await projectRecord.switchToTab('ServiceNow');
   await projectRecord.setContactPerson(p.contactPerson);
   await projectRecord.setCustomerContractPortalAcce(p.customerContractPortalAccess);
   await projectRecord.save();
   await projectRecord.verifyRecordCreated();
 
-  const projectId = new URL(isolatedPage.url()).searchParams.get("id")!;
+  const projectId = new URL(isolatedPage.url()).searchParams.get('id')!;
   await projectTask.navigateToNewTask(projectId);
 
   // Act
