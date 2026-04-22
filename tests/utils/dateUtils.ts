@@ -1,16 +1,16 @@
-const TZ = "Europe/Copenhagen";
+const TZ = 'Europe/Copenhagen';
 
 function getCetDateParts(date: Date): { dd: string; mm: string; yyyy: string } {
-  const parts = new Intl.DateTimeFormat("en-GB", {
+  const parts = new Intl.DateTimeFormat('en-GB', {
     timeZone: TZ,
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
   }).formatToParts(date);
   return {
-    dd: parts.find((p) => p.type === "day")!.value,
-    mm: parts.find((p) => p.type === "month")!.value,
-    yyyy: parts.find((p) => p.type === "year")!.value,
+    dd: parts.find((p) => p.type === 'day')!.value,
+    mm: parts.find((p) => p.type === 'month')!.value,
+    yyyy: parts.find((p) => p.type === 'year')!.value,
   };
 }
 
@@ -33,9 +33,6 @@ export function dateMonthsFromNow(months: number): string {
   const lastDayOfTargetMonth = new Date(targetYear, targetMonth + 1, 0).getDate();
   const targetDay = Math.min(currentDay, lastDayOfTargetMonth);
 
-  const d = new Date(targetYear, targetMonth, targetDay);
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  const dd = String(d.getDate()).padStart(2, '0');
-  const yyyy = d.getFullYear();
-  return `${mm}.${dd}.${yyyy}`;
+  const target = getCetDateParts(new Date(targetYear, targetMonth, targetDay));
+  return `${target.dd}.${target.mm}.${target.yyyy}`;
 }
