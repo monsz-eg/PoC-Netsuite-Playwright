@@ -41,6 +41,22 @@ export class BasePage {
     );
   }
 
+  // NS.form.isInited() returns false in Playwright because the form's initialization
+  // sequence (which sets window.isinited=true) never completes in the automated context.
+  // This blocks canAddLine(), save validation, and other form operations.
+  // Must be called after every navigation/reload that resets the flag.
+  protected async ensureFormInited(): Promise<void> {
+    await this.page.evaluate(() => (globalThis as any).NS?.form?.setInited?.(true));
+  }
+
+  // Waits for the NS form to be fully interactive: NLEntryForm_querySelectText available
+  // (required for nlapiSetFieldValue on dropdowns) and window.isinited set to true
+  // (required for canAddLine and save validation). Call after every navigateTo* method.
+  protected async waitForFormReady(): Promise<void> {
+    await this.waitForNsFormReady();
+    await this.ensureFormInited();
+  }
+
   // Waits for a SuiteScript-sourced field to reach the expected value.
   // Use this for fields auto-populated by field-change events (e.g. subsidiary after
   // setting customer) that don't trigger a page load or the NS spinner.
