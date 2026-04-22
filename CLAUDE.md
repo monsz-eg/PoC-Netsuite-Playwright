@@ -18,14 +18,6 @@ A test MUST fail when the feature it tests is broken. No exceptions. **A passing
 
 ---
 
-## Tech Stack
-
-- **Playwright + TypeScript** — test runner, Page Object Model, fixtures
-- **NetSuite SuiteCloud** — SuiteScript client API (`nlapiSetFieldValue`, `nlapiGetContext`, `N/search`)
-- **ts-node** — script execution (`scripts/setup-auth.ts`)
-
----
-
 ## Commands
 
 | Command | Purpose |
@@ -35,6 +27,14 @@ A test MUST fail when the feature it tests is broken. No exceptions. **A passing
 | `npm run test:debug` | Run in debug mode |
 | `npm run auth:setup` | Generate session files from `.env` credentials |
 | `npm run format` | Prettier format all TS/JSON |
+
+---
+
+## Tech Stack
+
+- **Playwright + TypeScript** — test runner, Page Object Model, fixtures
+- **NetSuite SuiteCloud** — SuiteScript client API (`nlapiSetFieldValue`, `nlapiGetContext`, `N/search`)
+- **ts-node** — script execution (`scripts/setup-auth.ts`)
 
 ---
 
