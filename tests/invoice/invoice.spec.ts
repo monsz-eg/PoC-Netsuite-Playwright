@@ -5,8 +5,6 @@ import { InvoiceRecord } from '../pages/InvoiceRecord';
 import { today } from '../utils/dateUtils';
 import { generateMemo, generatePoNumber } from '../utils/nameGenerators';
 
-test.use({ isolatedStorageState: 'auth/nstest2.json' });
-
 test('billing responsible can create a new Invoice @smoke', async ({ isolatedPage }) => {
   // Arrange
   const invoiceRecord = new InvoiceRecord(isolatedPage);
