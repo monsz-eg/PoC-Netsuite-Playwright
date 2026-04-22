@@ -12,6 +12,12 @@ Do not make any changes until you have 95% confidence in what you need to build.
 
 ---
 
+## Confidence Threshold
+
+Do not make any changes until you have 95% confidence in what you need to build. Ask me follow-up questions until you reach that confidence.
+
+---
+
 ## Core Testing Principle
 
 A test MUST fail when the feature it tests is broken. No exceptions. **A passing test that hides a broken feature is worse than no test at all.**
