@@ -27,13 +27,6 @@ export class InvoiceRecord extends BasePage {
     await this.page.evaluate((v) => (globalThis as any).nlapiSetFieldValue('memo', v), text);
   }
 
-  async setSubsidiary(id: string): Promise<void> {
-    await this.page.evaluate(
-      (v) => (globalThis as any).nlapiSetFieldValue('subsidiary', v, null, true),
-      id,
-    );
-  }
-
   // nlapiSetFieldValue for entity does not trigger the client-side fieldChanged chain
   // that populates Subsidiary in the Billing Responsible role — same crash category as
   // nlapiSetCurrentLineItemValue on item. Use native type-ahead instead: type into the
