@@ -30,8 +30,8 @@ export class BasePage {
   }
 
   // nlapiSetFieldValue on select/dropdown fields calls NLEntryForm_querySelectText, which NS
-  // defines asynchronously after the page load event. Call this after navigating to any form
-  // page before using nlapi to set field values.
+  // defines asynchronously after the page load event. Call at the end of every subclass
+  // navigateTo* method before returning — never call directly from tests.
   protected async waitForNsFormReady(): Promise<void> {
     await this.page.waitForFunction(
       () => typeof (globalThis as any).NLEntryForm_querySelectText === 'function',
