@@ -115,9 +115,16 @@ export class ProjectTaskRecord extends BasePage {
     await super.save();
 
     await this.waitForNetSuiteLoad();
-    await this.page
-      .waitForLoadState('networkidle', { timeout: 20000 })
-      .catch(() => {});
+    try {
+      await this.page.waitForLoadState('networkidle', { timeout: 20000 });
+    } catch (error) {
+      // Reaching network idle is best-effort here: NetSuite may continue background requests
+      // after the page is otherwise ready for assertions, so we log and continue.
+      console.warn(
+        'Timed out waiting for networkidle after saving ProjectTaskRecord; continuing because background requests may still be in progress.',
+        error,
+      );
+    }
   }
 
   async verifyTitle(expected: string): Promise<void> {
