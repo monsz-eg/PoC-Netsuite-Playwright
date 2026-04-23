@@ -15,11 +15,11 @@ test.describe
   let projectId: string;
   let projectName: string;
 
-  test('creates the parent Customer Project', async ({ isolatedPage, isolatedUserId }) => {
+  test('creates the parent Customer Project', async ({ page, userId }) => {
     // Arrange
-    const projectRecord = new ProjectRecord(isolatedPage);
+    const projectRecord = new ProjectRecord(page);
     const p = PROJECT_DATA.customerProject;
-    projectName = generateProjectName(isolatedUserId);
+    projectName = generateProjectName(userId);
 
     await projectRecord.switchRole(ROLES.egProjectManager);
     await projectRecord.navigateToProject();
@@ -44,15 +44,15 @@ test.describe
 
     // Assert
     await projectRecord.verifyRecordCreated();
-    projectId = new URL(isolatedPage.url()).searchParams.get('id')!;
+    projectId = new URL(page.url()).searchParams.get('id')!;
   });
 
-  test('creates a Project Task on the project', async ({ isolatedPage, isolatedUserId }) => {
+  test('creates a Project Task on the project', async ({ page, userId }) => {
     // Arrange
-    const projectTask = new ProjectTaskRecord(isolatedPage);
+    const projectTask = new ProjectTaskRecord(page);
     const p = PROJECT_DATA.customerProject;
     const t = PROJECT_TASK_DATA.customerProjectTask;
-    const taskName = generateTaskName(projectId);
+    const taskName = generateTaskName(userId);
 
     await projectTask.switchRole(ROLES.egProjectManager);
     await projectTask.navigateToNewTask(projectId);
@@ -83,14 +83,11 @@ test.describe
     await projectTask.verifyCustomerCopy(p.customerDisplayName);
   });
 
-  test('creates a time-based charge rule linked to the project task', async ({
-    isolatedPage,
-    isolatedUserId,
-  }) => {
+  test('creates a time-based charge rule linked to the project task', async ({ page, userId }) => {
     // Arrange
-    const chargeRule = new ChargeRuleRecord(isolatedPage);
+    const chargeRule = new ChargeRuleRecord(page);
     const c = CHARGE_RULE_DATA.timeBasedForCustomerProjectTask;
-    const ruleName = generateChargeRuleName(isolatedUserId);
+    const ruleName = generateChargeRuleName(userId);
 
     await chargeRule.switchRole(ROLES.egProjectManager);
     await chargeRule.navigateToNewTimeBased(projectId);
