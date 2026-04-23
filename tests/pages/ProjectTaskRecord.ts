@@ -113,7 +113,7 @@ export class ProjectTaskRecord extends BasePage {
   // that XHR complete before any assertions run.
   override async save(): Promise<void> {
     await super.save();
-    await this.page.reload();
+
     await this.waitForNetSuiteLoad();
     await this.page
       .waitForLoadState('networkidle', { timeout: 20000 })

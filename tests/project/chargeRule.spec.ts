@@ -52,7 +52,7 @@ test.describe
     const projectTask = new ProjectTaskRecord(page);
     const p = PROJECT_DATA.customerProject;
     const t = PROJECT_TASK_DATA.customerProjectTask;
-    const taskName = generateTaskName(userId);
+    const taskName = generateTaskName(projectId);
 
     await projectTask.switchRole(ROLES.egProjectManager);
     await projectTask.navigateToNewTask(projectId);
