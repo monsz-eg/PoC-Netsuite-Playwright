@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { test as base, type BrowserContext, type Page } from '@playwright/test';
 
-const USERS = ['nstest1', 'nstest2', 'nstest3'];
+const USERS = (process.env.TEST_USERS ?? 'nstest1,nstest2,nstest3').split(',');
 
 type WorkerFixtures = {
   workerContext: BrowserContext;

@@ -3,7 +3,7 @@
 // The baseFixture maps one user per worker; using it here would only test one user per run.
 import { expect, test } from '@playwright/test';
 
-const USERS = ['nstest1', 'nstest2', 'nstest3'] as const;
+const USERS = ['nstest1', 'nstest2', 'nstest3','nstest4','nstest5','nstest6'] as const;
 
 for (const userId of USERS) {
   test.describe(userId, () => {
