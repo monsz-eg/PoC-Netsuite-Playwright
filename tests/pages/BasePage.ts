@@ -22,7 +22,7 @@ export class BasePage {
     await this.waitForNetSuiteLoad();
   }
 
-  private async waitForNsApi(): Promise<void> {
+  protected async waitForNsApi(): Promise<void> {
     await this.page.waitForFunction(
       () => typeof (globalThis as any).nlapiGetContext === 'function',
       { timeout: 15000 },
@@ -39,12 +39,39 @@ export class BasePage {
     );
   }
 
+  // NS.form.isInited() returns false in Playwright because the form's initialization
+  // sequence (which sets window.isinited=true) never completes in the automated context.
+  // This blocks canAddLine(), save validation, and other form operations.
+  // Must be called after every navigation/reload that resets the flag.
+  protected async ensureFormInited(): Promise<void> {
+    await this.page.evaluate(() => (globalThis as any).NS?.form?.setInited?.(true));
+  }
+
+  // Waits for the NS form to be fully interactive: NLEntryForm_querySelectText available
+  // (required for nlapiSetFieldValue on dropdowns) and window.isinited set to true
+  // (required for canAddLine and save validation). Call after every navigateTo* method.
+  protected async waitForFormReady(): Promise<void> {
+    await this.waitForNsFormReady();
+    await this.ensureFormInited();
+  }
+
   // Waits for a SuiteScript-sourced field to reach the expected value.
   // Use this for fields auto-populated by field-change events (e.g. subsidiary after
   // setting customer) that don't trigger a page load or the NS spinner.
   async verifyFieldValue(fieldId: string, expected: string): Promise<void> {
     await this.page.waitForFunction(
       ({ id, exp }) => (globalThis as any).nlapiGetFieldValue(id) === exp,
+      { id: fieldId, exp: expected },
+      { timeout: 10000 },
+    );
+  }
+
+  // Waits for a SuiteScript-sourced field to reach the expected display label.
+  // Use this when asserting the human-readable text of a list/lookup field
+  // (e.g. "EGDK") rather than its internal ID.
+  async verifyFieldText(fieldId: string, expected: string): Promise<void> {
+    await this.page.waitForFunction(
+      ({ id, exp }) => (globalThis as any).nlapiGetFieldText(id) === exp,
       { id: fieldId, exp: expected },
       { timeout: 10000 },
     );
@@ -70,7 +97,13 @@ export class BasePage {
   }
 
   async save(): Promise<void> {
-    await this.page.locator('[id="btn_multibutton_submitter"]').click();
+    // dispatchEvent bypasses Playwright's pointer-event interception check.
+    // In headed mode NS renders a transparent <div></div> overlay after sublist
+    // commits that blocks .click() indefinitely — the event dispatch goes directly
+    // to the button element, making the overlay irrelevant.
+    const saveBtn = this.page.locator('[id="btn_multibutton_submitter"]');
+    await saveBtn.waitFor({ state: 'visible' });
+    await saveBtn.dispatchEvent('click');
     await this.waitForNetSuiteLoad();
   }
 
@@ -113,6 +146,7 @@ export class BasePage {
 
     await this.page.goto(changeRoleUrl);
     await this.waitForNetSuiteLoad();
+    await this.waitForNsApi();
 
     const activeRole = await this.page.evaluate((): number | null => {
       try {
