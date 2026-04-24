@@ -1,9 +1,13 @@
-// Intentionally imports from @playwright/test (not baseFixture) so that all 3 users
+// Intentionally imports from @playwright/test (not baseFixture) so that all configured users
 // are tested unconditionally — independent of which worker runs this file.
 // The baseFixture maps one user per worker; using it here would only test one user per run.
 import { expect, test } from '@playwright/test';
 
-const USERS = ['nstest1', 'nstest2', 'nstest3', 'nstest4', 'nstest5', 'nstest6'] as const;
+const DEFAULT_USERS = ['nstest1', 'nstest2', 'nstest3', 'nstest4', 'nstest5', 'nstest6'] as const;
+const USERS =
+  process.env.TEST_USERS?.split(',')
+    .map((userId) => userId.trim())
+    .filter(Boolean) ?? DEFAULT_USERS;
 
 for (const userId of USERS) {
   test.describe(userId, () => {

@@ -10,7 +10,7 @@ export function loadEnv(path = '.env'): void {
     const key = trimmed.slice(0, eq).trim();
     const raw = trimmed.slice(eq + 1);
     const quoted = /^(['"])(.*)\1$/.exec(raw);
-    const value = quoted ? quoted[2] : raw;
+    const value = quoted ? quoted[2] : raw.trim();
     if (key && !(key in process.env)) process.env[key] = value;
   }
 }

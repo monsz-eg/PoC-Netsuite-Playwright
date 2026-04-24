@@ -7,11 +7,14 @@ const AUTH_DIR = 'auth';
 
 loadEnv();
 
-const USERS = (process.env.TEST_USERS ?? 'nstest1,nstest2,nstest3').split(',').map((id) => ({
-  id,
-  email: process.env[`${id.toUpperCase()}_EMAIL`] ?? `${id}@eg.dk`,
-  password: process.env[`${id.toUpperCase()}_PASSWORD`],
-}));
+const USERS = (process.env.TEST_USERS ?? 'nstest1,nstest2,nstest3').split(',').map((id) => {
+  const trimmedId = id.trim();
+  return {
+    id: trimmedId,
+    email: process.env[`${trimmedId.toUpperCase()}_EMAIL`] ?? `${trimmedId}@eg.dk`,
+    password: process.env[`${trimmedId.toUpperCase()}_PASSWORD`],
+  };
+});
 
 async function saveSession(
   userId: string,
@@ -42,7 +45,7 @@ async function saveSession(
 
       // MS may skip the email field when login_hint is supplied — handle both cases
       const emailInput = page.locator('input[type="email"]');
-      if (await emailInput.isVisible({ timeout: 5000 }).catch(() => false)) {
+      if (await emailInput.isVisible({ timeout: 10000 }).catch(() => false)) {
         await emailInput.fill(email);
         await page.click('input[type="submit"]', { timeout: 5000 });
       }
