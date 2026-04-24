@@ -23,10 +23,23 @@ export class BasePage {
   }
 
   protected async waitForNsApi(): Promise<void> {
-    await this.page.waitForFunction(
-      () => typeof (globalThis as any).nlapiGetContext === 'function',
-      { timeout: 15000 },
-    );
+    // NS occasionally replaces the JS context via document.open() or a similar mechanism.
+    // Playwright briefly reports "Target closed" during the replacement window — the page
+    // is still alive. Retry once after a short pause to let the new context attach.
+    const deadline = Date.now() + 20000;
+    while (true) {
+      try {
+        await this.page.waitForFunction(
+          () => typeof (globalThis as any).nlapiGetContext === 'function',
+          { timeout: 15000 },
+        );
+        return;
+      } catch (e: any) {
+        if (!(e?.message ?? '').includes('closed') || Date.now() >= deadline) throw e;
+        // page.waitForTimeout also uses CDP — use a plain timer that survives the closed window.
+        await new Promise((r) => setTimeout(r, 1000));
+      }
+    }
   }
 
   // nlapiSetFieldValue on select/dropdown fields calls NLEntryForm_querySelectText, which NS

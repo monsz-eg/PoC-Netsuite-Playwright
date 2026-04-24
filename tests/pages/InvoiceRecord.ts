@@ -37,11 +37,24 @@ export class InvoiceRecord extends BasePage {
     const entityInput = this.page.locator('[id="entity_display"]');
     await entityInput.click();
     await entityInput.pressSequentially(displayText, { delay: 50 });
-    await this.page.waitForLoadState('networkidle');
-    await this.page.keyboard.press('Tab');
-    // Tab triggers a full page reload. waitForNsApi polls through the unload/reload
-    // cycle — nlapiGetContext throws while the page is navigating, so it naturally
-    // waits until the new form is ready before we poll for subsidiary.
+    // NS sometimes auto-commits on a single typeahead match and replaces the JS context
+    // before we reach Tab. Detect this by catching only the "closed" error from
+    // waitForLoadState; real timeouts are re-thrown. If closed, Tab is skipped — NS
+    // already committed the selection. waitForNsApi retries through the context-replacement
+    // window in either path.
+    let needsTab = true;
+    try {
+      await this.page.waitForLoadState('networkidle');
+    } catch (e: any) {
+      if ((e?.message ?? '').includes('closed')) {
+        needsTab = false;
+      } else {
+        throw e;
+      }
+    }
+    if (needsTab) {
+      await this.page.keyboard.press('Tab');
+    }
     await this.waitForNsApi();
     await this.page.waitForFunction(
       () => {
@@ -285,16 +298,26 @@ export class InvoiceRecord extends BasePage {
     await addBtn.click();
     await this.page.waitForLoadState('networkidle');
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
-    await this.page.waitForFunction(
-      () => {
-        try {
-          return (globalThis as any).nlapiGetLineItemCount('item') >= 1;
-        } catch {
-          return false;
-        }
-      },
-      { timeout: 30000 },
-    );
+    // NS may replace the JS context during Add processing — retry on "Target closed".
+    const deadline = Date.now() + 20000;
+    while (true) {
+      try {
+        await this.page.waitForFunction(
+          () => {
+            try {
+              return (globalThis as any).nlapiGetLineItemCount('item') >= 1;
+            } catch {
+              return false;
+            }
+          },
+          { timeout: 15000 },
+        );
+        break;
+      } catch (e: any) {
+        if (!(e?.message ?? '').includes('closed') || Date.now() >= deadline) throw e;
+        await new Promise((r) => setTimeout(r, 1000));
+      }
+    }
     await this.page.waitForLoadState('networkidle');
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
@@ -320,7 +343,10 @@ export class InvoiceRecord extends BasePage {
     const saveBtn = this.page.locator('[id="btn_multibutton_submitter"]');
     await saveBtn.waitFor({ state: 'visible' });
     await saveBtn.click({ force: true });
-    await this.waitForNetSuiteLoad();
+    // NS save posts the form and redirects to the saved record URL (?id=).
+    // waitForNetSuiteLoad may return before that navigation starts — wait for the URL directly.
+    await this.page.waitForURL(/[?&]id=\d+/, { timeout: 60000 });
+    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
   async setOrderedBy(id: string): Promise<void> {
