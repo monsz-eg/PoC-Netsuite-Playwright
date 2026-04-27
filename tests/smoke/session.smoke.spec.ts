@@ -15,9 +15,12 @@ const DEFAULT_USERS = [
   'nstest9',
 ] as const;
 const USERS =
-  process.env.TEST_USERS?.split(',')
-    .map((userId) => userId.trim())
-    .filter(Boolean) ?? DEFAULT_USERS;
+  process.env.TEST_USERS?.trim()
+    ? process.env.TEST_USERS
+        .split(',')
+        .map((userId) => userId.trim())
+        .filter(Boolean)
+    : DEFAULT_USERS;
 
 for (const userId of USERS) {
   test.describe(userId, () => {
