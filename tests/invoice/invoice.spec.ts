@@ -36,7 +36,6 @@ test('billing responsible can create a new Invoice @smoke', async ({ isolatedPag
   await invoiceRecord.save();
 
   // Assert
-  // To be continued with more assertions as needed, currently just verifying that the record was created and some key fields are correct
   await invoiceRecord.verifyRecordCreated();
   await invoiceRecord.verifyBillToCustomer(INVOICE_DATA.customerText);
   await invoiceRecord.verifySubsidiary(INVOICE_DATA.subsidiaryText);
