@@ -11,9 +11,9 @@ test.describe.serial('billinge responsible credits an invoice', () => {
   let invoiceNumber: string;
   let memo: string;
 
-  test('billing responsible can create a new Invoice @smoke', async ({ isolatedPage }) => {
+  test('billing responsible can create a new Invoice @smoke', async ({ page }) => {
     // Arrange
-    const invoiceRecord = new InvoiceRecord(isolatedPage);
+    const invoiceRecord = new InvoiceRecord(page);
     const poNumber = generatePoNumber();
     const memo = generateMemo();
 
@@ -43,13 +43,13 @@ test.describe.serial('billinge responsible credits an invoice', () => {
 
     // Assert
     await invoiceRecord.verifyRecordCreated();
-    invoiceId = new URL(isolatedPage.url()).searchParams.get('id')!;
+    invoiceId = new URL(page.url()).searchParams.get('id')!;
     invoiceNumber = await invoiceRecord.getInvoiceNumber();
   });
 
-  test('billing responsible can credit an invoice', async ({ isolatedPage }) => {
+  test('billing responsible can credit an invoice', async ({ page }) => {
     // Arrange
-    const creditMemo = new CreditMemo(isolatedPage);
+    const creditMemo = new CreditMemo(page);
     await creditMemo.switchRole(ROLES.egBillingResponsible);
     await creditMemo.navigateToInvoice(invoiceId);
 
