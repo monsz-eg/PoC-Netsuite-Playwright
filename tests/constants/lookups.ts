@@ -42,8 +42,8 @@ export const CURRENCIES = {
 } as const;
 
 export const ACCOUNTS = {
-  /** NS label: "Trade receivables" (1221000) */
-  tradeReceivables: { id: '297' },
+  /** NS label: "Trade receivables" (1221200) */
+  tradeReceivables: { id: '122' },
 } as const;
 
 export const DEPARTMENTS = {

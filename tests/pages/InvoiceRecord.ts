@@ -361,4 +361,10 @@ export class InvoiceRecord extends BasePage {
       this.page.locator('[data-field-name="trandate"] [data-nsps-type="field_input"]'),
     ).toHaveText(today());
   }
+
+  async getInvoiceNumber(): Promise<string> {
+    return this.page
+      .locator('[data-field-name="tranid"] [data-nsps-type="field_input"]')
+      .innerText();
+  }
 }
