@@ -51,7 +51,7 @@ test.describe.serial('billinge responsible credits an invoice', () => {
     // Arrange
     const creditMemo = new CreditMemo(isolatedPage);
     await creditMemo.switchRole(ROLES.egBillingResponsible);
-    await creditMemo.navigateTo(`/app/accounting/transactions/custinvc.nl?id=${invoiceId}`);
+    await creditMemo.navigateToInvoice(invoiceId);
 
     // Act
     await creditMemo.clickCreditButton();

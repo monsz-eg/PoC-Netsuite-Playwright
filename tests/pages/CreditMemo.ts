@@ -19,6 +19,10 @@ export class CreditMemo extends BasePage {
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
+  async navigateToInvoice(invoiceId: string): Promise<void> {
+    await this.navigateTo(`/app/accounting/transactions/custinvc.nl?id=${invoiceId}`);
+  }
+
   async clickCreditButton(): Promise<void> {
     const creditBtn = this.page.locator('[id="credit"]');
     await creditBtn.waitFor({ state: 'visible' });
