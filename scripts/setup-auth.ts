@@ -1,42 +1,20 @@
 import { chromium } from '@playwright/test';
 import * as fs from 'fs';
+import { loadEnv } from '../utils/loadEnv';
 
 const BASE_URL = 'https://5177942-sb3.app.netsuite.com';
 const AUTH_DIR = 'auth';
 
-// Parse .env without requiring the dotenv package
-if (fs.existsSync('.env')) {
-  for (const line of fs.readFileSync('.env', 'utf-8').split('\n')) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith('#')) continue;
-    const eq = trimmed.indexOf('=');
-    if (eq === -1) continue;
-    const key = trimmed.slice(0, eq).trim();
-    const value = trimmed
-      .slice(eq + 1)
-      .trim()
-      .replace(/^["']|["']$/g, '');
-    if (key && !(key in process.env)) process.env[key] = value;
-  }
-}
+loadEnv();
 
-const USERS = [
-  {
-    id: 'nstest1',
-    email: process.env.NSTEST1_EMAIL ?? 'nstest1@eg.dk',
-    password: process.env.NSTEST1_PASSWORD,
-  },
-  {
-    id: 'nstest2',
-    email: process.env.NSTEST2_EMAIL ?? 'nstest2@eg.dk',
-    password: process.env.NSTEST2_PASSWORD,
-  },
-  {
-    id: 'nstest3',
-    email: process.env.NSTEST3_EMAIL ?? 'nstest3@eg.dk',
-    password: process.env.NSTEST3_PASSWORD,
-  },
-];
+const USERS = (process.env.TEST_USERS ?? 'nstest1,nstest2,nstest3').split(',').map((id) => {
+  const trimmedId = id.trim();
+  return {
+    id: trimmedId,
+    email: process.env[`${trimmedId.toUpperCase()}_EMAIL`] ?? `${trimmedId}@eg.dk`,
+    password: process.env[`${trimmedId.toUpperCase()}_PASSWORD`],
+  };
+});
 
 async function saveSession(
   userId: string,
@@ -53,12 +31,26 @@ async function saveSession(
 
   if (password) {
     try {
-      // Wait for Microsoft SSO email field
+      // Wait for the Microsoft SSO redirect. Azure AD seamless SSO will auto-select
+      // the current Windows user (madob@eg.dk) at this point — that is expected.
       await page.waitForURL('**/login.microsoftonline.com/**', { timeout: 10000 });
-      await page.fill('input[type="email"]', email, { timeout: 10000 });
-      await page.click('input[type="submit"]', { timeout: 5000 });
 
-      // Wait for password field on next screen
+      // Re-navigate to the same MS URL (which already carries all the OAuth parameters
+      // from NetSuite) but with login_hint pointing at the target account and
+      // prompt=login to bypass the seamless-SSO token and force interactive auth.
+      const msUrl = new URL(page.url());
+      msUrl.searchParams.set('login_hint', email);
+      msUrl.searchParams.set('prompt', 'login');
+      await page.goto(msUrl.toString());
+
+      // MS may skip the email field when login_hint is supplied — handle both cases
+      const emailInput = page.locator('input[type="email"]');
+      if (await emailInput.isVisible({ timeout: 10000 }).catch(() => false)) {
+        await emailInput.fill(email);
+        await page.click('input[type="submit"]', { timeout: 5000 });
+      }
+
+      // Password field
       await page.fill('input[type="password"]', password, { timeout: 10000 });
       await page.click('input[type="submit"]', { timeout: 5000 });
 

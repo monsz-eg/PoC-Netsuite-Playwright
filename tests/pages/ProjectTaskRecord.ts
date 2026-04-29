@@ -108,6 +108,25 @@ export class ProjectTaskRecord extends BasePage {
     await this.page.locator('[name="assignee_addedit"]').click();
   }
 
+  // custevent_eg_project_customer_copy is populated by scriptlet.nl (script=21592) which
+  // fires client-side after the view-mode page loads. waitForLoadState('networkidle') lets
+  // that XHR complete before any assertions run.
+  override async save(): Promise<void> {
+    await super.save();
+
+    await this.waitForNetSuiteLoad();
+    try {
+      await this.page.waitForLoadState('networkidle', { timeout: 20000 });
+    } catch (error) {
+      // Reaching network idle is best-effort here: NetSuite may continue background requests
+      // after the page is otherwise ready for assertions, so we log and continue.
+      console.warn(
+        'Timed out waiting for networkidle after saving ProjectTaskRecord; continuing because background requests may still be in progress.',
+        error,
+      );
+    }
+  }
+
   async verifyTitle(expected: string): Promise<void> {
     await expect(
       this.page.locator('[data-field-name="title"] [data-nsps-type="field_input"]'),
