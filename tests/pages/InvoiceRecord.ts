@@ -367,4 +367,33 @@ export class InvoiceRecord extends BasePage {
       .locator('[data-field-name="tranid"] [data-nsps-type="field_input"]')
       .innerText();
   }
+
+  async printInCustomerLocale(): Promise<string> {
+    const printMenu = this.page.locator('[data-automation-id="button-menu-print"]').first();
+    const localePrintButton = this.page.getByRole('button', {
+      name: "Print in Customer's Locale",
+      exact: true,
+    });
+    const pdfUrlPattern = /hotprint\.nl\/.*incustlocale=T/;
+
+    await printMenu.locator('a:has(img[src*="print.svg"])').first().hover();
+    await expect(localePrintButton).toBeVisible();
+
+    const [pdfPage, pdfResponse] = await Promise.all([
+      this.page.context().waitForEvent('page'),
+      this.page.context().waitForEvent('response', {
+        predicate: (response) => {
+          const contentType = response.headers()['content-type'] ?? '';
+          return contentType.includes('application/pdf');
+        },
+      }),
+      localePrintButton.click(),
+    ]);
+
+    if (pdfUrlPattern.test(pdfPage.url())) {
+      return pdfPage.url();
+    }
+
+    return pdfResponse.url();
+  }
 }
