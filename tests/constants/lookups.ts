@@ -81,6 +81,10 @@ export const ITEMS = {
     id: '9180',
     displayName: '.[Hours] Consultancy services - T&M Training',
   },
+  hoursConsultancyServicesFixedFee: {
+    id: '1083',
+    displayName: '.[Hours] Consultancy services - Fixed Fee',
+  },
 } as const;
 
 export const BILLING_CLASSES = {
