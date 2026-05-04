@@ -9,6 +9,21 @@ export class ProjectTaskRecord extends BasePage {
   async navigateToNewTask(projectId: string): Promise<void> {
     await this.navigateTo(`/app/accounting/project/projecttask.nl?company=${projectId}`);
     await this.waitForNsFormReady();
+    // Wait for the form's own initialization XHRs (slaving, dropdown population) to
+    // complete before calling nlapiSetFieldValue. Without this, the synchronous XHRs
+    // triggered by firefieldchanged=true compete with in-flight form requests and fail
+    // with NetworkError when running inside a serial suite after a prior test.
+    try {
+      await this.page.waitForLoadState('networkidle', { timeout: 15000 });
+    } catch {
+      // NS may keep background requests open; proceed once form is otherwise ready.
+    }
+  }
+
+  // View-mode page — NLEntryForm_querySelectText is edit-only; use waitForNsApi instead.
+  async navigateToSavedTask(taskId: string): Promise<void> {
+    await this.navigateTo(`/app/accounting/project/projecttask.nl?id=${taskId}`);
+    await this.waitForNsApi();
   }
 
   // Two elements share name="title" (task name + notes sublist title) — .first() targets the task name.
@@ -181,5 +196,11 @@ export class ProjectTaskRecord extends BasePage {
         '[data-field-name="custevent_eg_project_customer_copy"] [data-nsps-type="field_input"]',
       ),
     ).toContainText(expected);
+  }
+
+  async verifyNonBillableTask(expected: boolean): Promise<void> {
+    await expect(
+      this.page.locator('[data-field-name="nonbillabletask"] img.checkboximage'),
+    ).toHaveAttribute('alt', expected ? 'Checked' : 'Unchecked');
   }
 }

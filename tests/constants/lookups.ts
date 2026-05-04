@@ -55,6 +55,12 @@ export const DEPARTMENTS = {
 export const REVENUE_CATEGORIES = {
   /** NS label: "Perpetual Licenses" */
   perpetualLicenses: { id: '805', displayName: 'Perpetual Licenses' },
+  /** NS label: "Revenue : Professional Services : Professional Services" (custcol_eg_def_rev_cat_item id 708) */
+  revenueProfessionalServices: { id: '708', displayName: 'Revenue : Professional Services : Professional Services' },
+} as const;
+
+export const JOB_GROUPS = {
+  rAndD2: { id: '42', displayName: 'R&D 2' },
 } as const;
 
 export const EMPLOYEES = {
@@ -95,8 +101,7 @@ export const BILLING_CLASSES = {
 } as const;
 
 export const ACTIVITY_CODES = {
-  /** NS label: "Professional services : Professional services" — cseg_paactivitycode segment */
-  professionalServices: '328',
+  professionalServices: { id: '328', displayName: 'Professional services : Professional services' },
 } as const;
 
 /**

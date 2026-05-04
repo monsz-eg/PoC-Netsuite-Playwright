@@ -74,7 +74,7 @@ const TASK_STATUS_LABELS = {
 
 export const PROJECT_TASK_DATA = {
   customerProjectTask: {
-    activityCode: ACTIVITY_CODES.professionalServices,
+    activityCode: ACTIVITY_CODES.professionalServices.id,
     mainProduct: PRODUCTS.checkWare.id,
     subProduct: PRODUCTS.checkWare.checkWareMain.id,
     productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain.id,
@@ -82,6 +82,7 @@ export const PROJECT_TASK_DATA = {
     projectCategoryDisplayName: PROJECT_CATEGORIES.other.displayName,
     defaultItem: ITEMS.hoursConsultancyServicesTAndM.id,
     defaultItemDisplayName: ITEMS.hoursConsultancyServicesTAndM.displayName,
+    nonBillableTask: false,
     status: TASK_STATUSES.notStarted,
     statusDisplayName: TASK_STATUS_LABELS.notStarted,
     plannedWork: '1',

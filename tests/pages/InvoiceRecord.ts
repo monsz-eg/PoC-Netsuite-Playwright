@@ -336,7 +336,7 @@ export class InvoiceRecord extends BasePage {
     }, id);
   }
 
-  async save(): Promise<void> {
+  override async save(): Promise<void> {
     await this.ensureFormInited();
     await this.page.waitForLoadState('networkidle');
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
