@@ -2,6 +2,20 @@ import { expect, Page } from '@playwright/test';
 import { today } from '../utils/dateUtils';
 import { BasePage } from './BasePage';
 
+type InvoiceLineInput = {
+  itemText: string;
+  description: string;
+  quantity: string;
+  rate: string;
+  mainProductId: string;
+  subProductId: string;
+  productItemId: string;
+  revenueCategoryId: string;
+  departmentId: string;
+  revStartDate: string;
+  revEndDate: string;
+};
+
 export class InvoiceRecord extends BasePage {
   constructor(page: Page) {
     super(page);
@@ -116,21 +130,46 @@ export class InvoiceRecord extends BasePage {
     await itemInput.pressSequentially(itemText, { delay: 50 });
     // NS debounces ~300ms after the last keystroke, then fires an AJAX search.
     // networkidle resolves once all pending requests complete + 500ms of silence,
-    // ensuring the type-ahead dropdown has results before Tab selects from it.
+    // ensuring the type-ahead dropdown has results before selection.
     await this.page.waitForLoadState('networkidle');
+    // Tab commits the typeahead. For items where multiple entries share the same
+    // prefix, NS opens a disambiguation popup with results pre-loaded after Tab.
     await this.page.keyboard.press('Tab');
-    // After Tab, NS fires AJAX to load item details and auto-populate dependent
-    // fields. Wait for Tax Code, then networkidle for full initialization.
-    await this.page.waitForFunction(
-      () => {
-        try {
-          return !!(globalThis as any).nlapiGetCurrentLineItemValue('item', 'taxcode');
-        } catch {
-          return false;
-        }
-      },
-      { timeout: 15000 },
-    );
+    await this.page.waitForLoadState('networkidle');
+    // Tab opens a disambiguation popup when multiple items share the same prefix.
+    // Detect it by input[value="Search"]#Search which only appears in the popup.
+    // Use Playwright's native click on the exact link — calling onclick from
+    // evaluate does not trigger the full NS commit chain in headless Playwright.
+    // const popupSearch = this.page.locator('input[value="Search"]#Search');
+    // if (await popupSearch.isVisible({ timeout: 2000 }).catch(() => false)) {
+    //   const escapedText = itemText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    //   await this.page
+    //     .locator('a.smalltextnolink')
+    //     .filter({ hasText: new RegExp(`^${escapedText}$`) })
+    //     .click();
+    // }
+    // After commit (Tab or popup row), NS fires AJAX to load item details and
+    // auto-populate dependent fields. The popup-commit path replaces the JS
+    // execution context mid-AJAX; retry on "Target closed" until the deadline.
+    const taxcodeDeadline = Date.now() + 20000;
+    while (true) {
+      try {
+        await this.page.waitForFunction(
+          () => {
+            try {
+              return !!(globalThis as any).nlapiGetCurrentLineItemValue('item', 'taxcode');
+            } catch {
+              return false;
+            }
+          },
+          { timeout: 15000 },
+        );
+        break;
+      } catch (e: any) {
+        if (!(e?.message ?? '').includes('closed') || Date.now() >= taxcodeDeadline) throw e;
+        await new Promise((r) => setTimeout(r, 1000));
+      }
+    }
     await this.page.waitForLoadState('networkidle');
     await this.ensureFormInited();
   }
@@ -285,20 +324,8 @@ export class InvoiceRecord extends BasePage {
     await this.page.waitForTimeout(1000);
   }
 
-  // After the Add click, NS commits the line and runs async item-options
-  // initialization. Wait for the committed line count to confirm the commit
-  // completed, then wait for any post-commit AJAX to settle before saving.
-  async addItem(): Promise<void> {
-    // Flush any pending field events from the last setter before committing.
-    await this.page.waitForLoadState('networkidle');
-    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
-    await this.ensureFormInited();
-    const addBtn = this.page.locator('[name="item_addedit"]');
-    await addBtn.scrollIntoViewIfNeeded();
-    await addBtn.click();
-    await this.page.waitForLoadState('networkidle');
-    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
-    // NS may replace the JS context during Add processing — retry on "Target closed".
+  // NS may replace the JS context during Add processing — retry on "Target closed".
+  private async waitForLineItemAdded(): Promise<void> {
     const deadline = Date.now() + 20000;
     while (true) {
       try {
@@ -318,8 +345,38 @@ export class InvoiceRecord extends BasePage {
         await new Promise((r) => setTimeout(r, 1000));
       }
     }
+  }
+
+  // After the Add click, NS commits the line and runs async item-options
+  // initialization. Wait for the committed line count to confirm the commit
+  // completed, then wait for any post-commit AJAX to settle before saving.
+  async addItem(): Promise<void> {
     await this.page.waitForLoadState('networkidle');
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
+    await this.ensureFormInited();
+    const addBtn = this.page.locator('[name="item_addedit"]');
+    await addBtn.scrollIntoViewIfNeeded();
+    await addBtn.click();
+    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
+    await this.waitForLineItemAdded();
+    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
+  }
+
+  async addConfiguredLineItem(line: InvoiceLineInput): Promise<void> {
+    await this.addLineItem(line.itemText);
+    await this.setLineItemDescription(line.description);
+    await this.setLineItemQuantity(line.quantity);
+    await this.setLineItemRate(line.rate);
+    await this.setLineItemMainProduct(line.mainProductId);
+    await this.setLineItemSubProduct(line.subProductId);
+    await this.setLineItemProductItem(line.productItemId);
+    await this.setLineItemRevenueCategory(line.revenueCategoryId);
+    await this.setLineItemDepartment(line.departmentId);
+    await this.setLineItemRevStartDate(line.revStartDate);
+    await this.setLineItemRevEndDate(line.revEndDate);
+    await this.addItem();
   }
 
   // The A/R account field is on the lazy-loaded Accounting tab — nlapiSetFieldValue
@@ -379,8 +436,13 @@ export class InvoiceRecord extends BasePage {
     await printMenu.locator('a:has(img[src*="print.svg"])').first().hover();
     await expect(localePrintButton).toBeVisible();
 
+    const pdfPagePromise = this.page
+      .context()
+      .waitForEvent('page', { timeout: 10000 })
+      .catch(() => null);
+
     const [pdfPage, pdfResponse] = await Promise.all([
-      this.page.context().waitForEvent('page'),
+      pdfPagePromise,
       this.page.context().waitForEvent('response', {
         predicate: (response) => {
           const contentType = response.headers()['content-type'] ?? '';
@@ -390,7 +452,7 @@ export class InvoiceRecord extends BasePage {
       localePrintButton.click(),
     ]);
 
-    if (pdfUrlPattern.test(pdfPage.url())) {
+    if (pdfPage && pdfUrlPattern.test(pdfPage.url())) {
       return pdfPage.url();
     }
 
