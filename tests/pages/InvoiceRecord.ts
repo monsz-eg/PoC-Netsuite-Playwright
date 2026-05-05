@@ -136,19 +136,7 @@ export class InvoiceRecord extends BasePage {
     // prefix, NS opens a disambiguation popup with results pre-loaded after Tab.
     await this.page.keyboard.press('Tab');
     await this.page.waitForLoadState('networkidle');
-    // Tab opens a disambiguation popup when multiple items share the same prefix.
-    // Detect it by input[value="Search"]#Search which only appears in the popup.
-    // Use Playwright's native click on the exact link — calling onclick from
-    // evaluate does not trigger the full NS commit chain in headless Playwright.
-    // const popupSearch = this.page.locator('input[value="Search"]#Search');
-    // if (await popupSearch.isVisible({ timeout: 2000 }).catch(() => false)) {
-    //   const escapedText = itemText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    //   await this.page
-    //     .locator('a.smalltextnolink')
-    //     .filter({ hasText: new RegExp(`^${escapedText}$`) })
-    //     .click();
-    // }
-    // After commit (Tab or popup row), NS fires AJAX to load item details and
+    // After commit, NS fires AJAX to load item details and
     // auto-populate dependent fields. The popup-commit path replaces the JS
     // execution context mid-AJAX; retry on "Target closed" until the deadline.
     const taxcodeDeadline = Date.now() + 20000;
