@@ -40,7 +40,7 @@ export const TIME_ENTRY_DATA = {
     },
     /** Fields auto-populated on the timebill form when project task is set */
     projectTaskDefaults: {
-      defaultRevenueCategoryItem: REVENUE_CATEGORIES.revenueProfessionalServices,
+      defaultRevenueCategoryItem: REVENUE_CATEGORIES.professionalServices,
       mainProduct: PRODUCTS.checkWare,
       subProduct: PRODUCTS.checkWare.checkWareMain,
       productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain,

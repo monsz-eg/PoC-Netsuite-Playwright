@@ -6,6 +6,13 @@
  */
 
 export const CUSTOMERS = {
+  /** NS label: "110276 HK Danmark" */
+  hkDanmark: {
+    id: '65211',
+    displayName: '110276 HK Danmark',
+    /** NS label: "EGDK" — subsidiary auto-populated from customer */
+    subsidiary: '15',
+  },
   /** NS label: "006954 Psykolog Louise H. Westergaard" */
   psykologLouiseWestergaard: {
     id: '142832',
@@ -50,13 +57,17 @@ export const DEPARTMENTS = {
   /** NS label: verify in NS Setup > Company > Departments */
   transfer: '236',
   netSuite: { id: '5702', displayName: '00003 NetSuite' },
+  finance: { id: '13', displayName: '00071 Nordic Finance' },
 } as const;
 
 export const REVENUE_CATEGORIES = {
   /** NS label: "Perpetual Licenses" */
   perpetualLicenses: { id: '805', displayName: 'Perpetual Licenses' },
   /** NS label: "Revenue : Professional Services : Professional Services" (custcol_eg_def_rev_cat_item id 708) */
-  revenueProfessionalServices: { id: '708', displayName: 'Revenue : Professional Services : Professional Services' },
+  professionalServices: {
+    id: '708',
+    displayName: 'Revenue : Professional Services : Professional Services',
+  },
 } as const;
 
 export const JOB_GROUPS = {
@@ -72,6 +83,11 @@ export const EMPLOYEES = {
 } as const;
 
 export const ITEMS = {
+  /** NS label: "[POOL] Prepaid Pool Increase" — Service for Sale item type */
+  poolPrepaidPoolIncrease: {
+    id: '9184',
+    displayName: '[POOL] Prepaid Pool Increase',
+  },
   hoursConsultancyServicesTAndM: {
     id: '582',
     /** NS item label shown in type-ahead and view mode (dot prefix = NS item hierarchy) */
@@ -135,6 +151,20 @@ export const ACTIVITY_CODES = {
  *   productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain.id,
  */
 export const PRODUCTS = {
+  /** cseg_eg_main_prod: "Other" */
+  other: {
+    id: '302',
+    displayName: 'Other',
+    /** cseg_eg_sub_prod: "Other" */
+    other: {
+      id: '402',
+      displayName: 'Other',
+      /** cseg_eg_prod_item values under Other > Other */
+      items: {
+        other: { id: '604', displayName: 'Other' },
+      },
+    },
+  },
   /** cseg_eg_main_prod: "Hardware" */
   hardware: {
     id: '201',
