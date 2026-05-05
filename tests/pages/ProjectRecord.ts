@@ -143,6 +143,20 @@ export class ProjectRecord extends BasePage {
     );
   }
 
+  // Switches to the Preferences tab and checks the Allow Time Entry checkbox if not already set.
+  // Field ID 'allowtime' is the standard NS project field controlling whether time can be logged.
+  async enableAllowTimeEntry(): Promise<void> {
+    await this.switchToTab('Preferences');
+    const isChecked = await this.page.evaluate(
+      () => (globalThis as any).nlapiGetFieldValue('allowtime'),
+    );
+    if (isChecked !== 'T') {
+      await this.page.evaluate(
+        () => (globalThis as any).nlapiSetFieldValue('allowtime', 'T', null, true),
+      );
+    }
+  }
+
   async verifyCompanyName(expected: string): Promise<void> {
     await expect(
       this.page.locator('[data-field-name="companyname"] [data-nsps-type="field_input"]'),

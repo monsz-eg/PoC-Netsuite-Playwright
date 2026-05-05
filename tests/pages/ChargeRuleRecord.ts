@@ -75,7 +75,7 @@ export class ChargeRuleRecord extends BasePage {
   }
 
   // This form has no multi-button submitter — Save is a plain input#submitter.
-  async save(): Promise<void> {
+  override async save(): Promise<void> {
     await this.page.locator('#submitter').click();
     await this.waitForNetSuiteLoad();
   }
