@@ -160,12 +160,11 @@ export class RequisitionRecord extends BasePage {
   }
 
   async verifyQuantityDefaulted(): Promise<void> {
-    // Poll via NS API — quantity is editable (no hddn_*_fs equivalent).
     const deadline = Date.now() + 15000;
     while (Date.now() < deadline) {
       try {
         const qty = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'quantity'),
+          (globalThis as any).nlapiGetLineItemValue('item', 'quantity', 1),
         );
         if (qty === '1') return;
       } catch {
@@ -205,10 +204,9 @@ export class RequisitionRecord extends BasePage {
         return;
       }
     }
-    await this.page.keyboard.type(text);
-    await this.page.keyboard.press('Tab');
-    await this.page.waitForLoadState('networkidle');
-    await this.page.waitForTimeout(300);
+    throw new Error(
+      'setLineItemExternalDescription: External Description TEXTAREA not found within 6 Tab presses',
+    );
   }
 
   // PDF Step 11: field DOM id is "description" (standard NS field, not custcol_*).
@@ -217,7 +215,7 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const v = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'description'),
+          (globalThis as any).nlapiGetLineItemValue('item', 'description', 1),
         );
         if (v === text) return;
       } catch {
@@ -251,7 +249,7 @@ export class RequisitionRecord extends BasePage {
     } else {
       // Focus was reset (context replacement) — use NS API as fallback
       await this.page.evaluate((v: string) => {
-        (globalThis as any).nlapiSetCurrentLineItemValue('item', 'custcol_estimatedrate', v, true);
+        (globalThis as any).nlapiSetCurrentLineItemValue('item', 'estimatedrate', v, true);
       }, rate);
     }
     await this.page.waitForLoadState('networkidle');
@@ -265,7 +263,7 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const v = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'estimatedrate'),
+          (globalThis as any).nlapiGetLineItemValue('item', 'estimatedrate', 1),
         );
         if (v != null && parseFloat(v) === parseFloat(rate)) return;
       } catch {
@@ -283,7 +281,7 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const v = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'estimatedamount'),
+          (globalThis as any).nlapiGetLineItemValue('item', 'estimatedamount', 1),
         );
         if (v != null && parseFloat(v) === parseFloat(expectedAmount)) return;
       } catch {
@@ -294,12 +292,20 @@ export class RequisitionRecord extends BasePage {
     throw new Error(`verifyEstimatedAmountCalculated: expected ${expectedAmount}`);
   }
 
-  // Department is line-level — hidden input pattern from InvoiceRecord.setLineItemDepartment
   async verifyDepartmentPrepopulated(): Promise<void> {
-    await this.page
-      .locator('#hddn_item_department_fs')
-      .waitFor({ state: 'attached', timeout: 10000 });
-    await expect(this.page.locator('#hddn_item_department_fs')).not.toHaveValue('');
+    const deadline = Date.now() + 15000;
+    while (Date.now() < deadline) {
+      try {
+        const dept = await this.page.evaluate(() =>
+          (globalThis as any).nlapiGetLineItemValue('item', 'department', 1),
+        );
+        if (dept) return;
+      } catch {
+        /* context replaced — retry */
+      }
+      await new Promise((r) => setTimeout(r, 300));
+    }
+    throw new Error('verifyDepartmentPrepopulated: department is not set on line 1');
   }
 
   async addItem(): Promise<void> {
@@ -365,8 +371,12 @@ export class RequisitionRecord extends BasePage {
   }
 
   async verifyNextApproverSet(): Promise<void> {
+    // toHaveText('') normalizes whitespace — the span renders as "\n  \n" when empty,
+    // which collapses to "" and makes not.toHaveText('') fail spuriously.
+    // toHaveText(/.+/) requires at least one visible character after normalization.
+    // 15 s timeout: NS approval workflow assigns the approver asynchronously post-save.
     await expect(
       this.page.locator('[data-field-name="nextapprover"] [data-nsps-type="field_input"]'),
-    ).not.toHaveText('');
+    ).toHaveText(/.+/, { timeout: 15000 });
   }
 }
