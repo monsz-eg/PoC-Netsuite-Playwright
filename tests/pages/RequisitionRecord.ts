@@ -166,7 +166,7 @@ export class RequisitionRecord extends BasePage {
         const qty = await this.page.evaluate(() =>
           (globalThis as any).nlapiGetLineItemValue('item', 'quantity', 1),
         );
-        if (qty === '1') return;
+        if (qty != null && parseFloat(qty) === 1) return;
       } catch {
         /* context replaced — retry */
       }
