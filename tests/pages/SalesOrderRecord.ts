@@ -12,14 +12,6 @@ export class SalesOrderRecord extends BasePage {
     await this.waitForFormReady();
   }
 
-  // custbody_eg_is_pool_provision — verify field ID via NS Field Help (click field label)
-  async setPoolProvisionSalesOrder(): Promise<void> {
-    await this.page.evaluate(
-      () =>
-        (globalThis as any).nlapiSetFieldValue('custbody_eg_is_pool_provision', 'T', null, true),
-    );
-  }
-
   // nlapiSetFieldValue for entity does not trigger the client-side fieldChanged chain
   // that populates Subsidiary — use native type-ahead instead: type into the display input,
   // wait for networkidle, then Tab to confirm. Poll Subsidiary as confirmation that all

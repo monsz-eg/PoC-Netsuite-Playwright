@@ -57,7 +57,6 @@ export const DEPARTMENTS = {
   /** NS label: verify in NS Setup > Company > Departments */
   transfer: '236',
   netSuite: { id: '5702', displayName: '00003 NetSuite' },
-  finance: { id: '13', displayName: '00071 Nordic Finance' },
 } as const;
 
 export const REVENUE_CATEGORIES = {
@@ -83,11 +82,6 @@ export const EMPLOYEES = {
 } as const;
 
 export const ITEMS = {
-  /** NS label: "[POOL] Prepaid Pool Increase" — Service for Sale item type */
-  poolPrepaidPoolIncrease: {
-    id: '9184',
-    displayName: '[POOL] Prepaid Pool Increase',
-  },
   hoursConsultancyServicesTAndM: {
     id: '582',
     /** NS item label shown in type-ahead and view mode (dot prefix = NS item hierarchy) */
@@ -151,20 +145,6 @@ export const ACTIVITY_CODES = {
  *   productItem: PRODUCTS.checkWare.checkWareMain.items.checkWareMain.id,
  */
 export const PRODUCTS = {
-  /** cseg_eg_main_prod: "Other" */
-  other: {
-    id: '302',
-    displayName: 'Other',
-    /** cseg_eg_sub_prod: "Other" */
-    other: {
-      id: '402',
-      displayName: 'Other',
-      /** cseg_eg_prod_item values under Other > Other */
-      items: {
-        other: { id: '604', displayName: 'Other' },
-      },
-    },
-  },
   /** cseg_eg_main_prod: "Hardware" */
   hardware: {
     id: '201',
