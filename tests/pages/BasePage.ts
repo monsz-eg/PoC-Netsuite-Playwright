@@ -83,11 +83,19 @@ export class BasePage {
   // Use this when asserting the human-readable text of a list/lookup field
   // (e.g. "EGDK") rather than its internal ID.
   async verifyFieldText(fieldId: string, expected: string): Promise<void> {
-    await this.page.waitForFunction(
-      ({ id, exp }) => (globalThis as any).nlapiGetFieldText(id) === exp,
-      { id: fieldId, exp: expected },
-      { timeout: 10000 },
-    );
+    try {
+      await this.page.waitForFunction(
+        ({ id, exp }) => (globalThis as any).nlapiGetFieldText(id) === exp,
+        { id: fieldId, exp: expected },
+        { timeout: 10000 },
+      );
+    } catch {
+      const actual = await this.page.evaluate(
+        (id) => (globalThis as any).nlapiGetFieldText?.(id),
+        fieldId,
+      );
+      throw new Error(`verifyFieldText('${fieldId}'): expected '${expected}', got '${actual}'`);
+    }
   }
 
   // Waits for a sublist line item field to reach the expected value.
@@ -130,19 +138,23 @@ export class BasePage {
       await this.waitForNetSuiteLoad();
     }
 
-    // waitForNsApi() guarantees nlapiGetContext exists as a function, but the function
-    // itself may still throw (e.g. not yet initialised for this page context).
-    // The null-check below catches that case and surfaces a descriptive error.
     await this.waitForNsApi();
 
-    const nsContext = await this.page.evaluate((): { empId: string; companyId: string } | null => {
-      try {
-        const ctx = (globalThis as any).nlapiGetContext();
-        return { empId: String(ctx.user), companyId: String(ctx.company) };
-      } catch {
-        return null;
-      }
-    });
+    // nlapiGetContext() may throw transiently after waitForNsApi resolves — NS replaces
+    // the JS context via document.open() and the function exists briefly before the new
+    // context object is ready. Only user+company are required here: the NS center/home page
+    // returns role=0, so requiring role in this poll would exhaust on home-page navigations.
+    const nsContext = await this.pollEvaluate(
+      (): { empId: string; companyId: string } | null => {
+        try {
+          const ctx = (globalThis as any).nlapiGetContext();
+          if (!ctx?.user || !ctx?.company) return null;
+          return { empId: String(ctx.user), companyId: String(ctx.company) };
+        } catch {
+          return null;
+        }
+      },
+    );
 
     if (!nsContext) {
       throw new Error(
@@ -150,6 +162,21 @@ export class BasePage {
           `Ensure a NetSuite page is fully loaded before switching roles.`,
       );
     }
+
+    // Best-effort check: skip changerole if already on the target role.
+    // Not retried — if the role is transiently unavailable we fall through to changerole.
+    // Calling changerole.nl with the already-active role redirects back to changerole.nl
+    // itself (no-op), leaving the page in a state where role verification fails.
+    const currentRole = await this.page
+      .evaluate((): number => {
+        try {
+          return Number((globalThis as any).nlapiGetContext()?.role) || 0;
+        } catch {
+          return 0;
+        }
+      })
+      .catch(() => 0);
+    if (currentRole === roleId) return;
 
     const { empId, companyId } = nsContext;
     const environment = companyId.replace('_', '-').toLowerCase();
@@ -161,9 +188,11 @@ export class BasePage {
     await this.waitForNetSuiteLoad();
     await this.waitForNsApi();
 
-    const activeRole = await this.page.evaluate((): number | null => {
+    // Same transient-context race can occur after the changerole redirect.
+    const activeRole = await this.pollEvaluate((): number | null => {
       try {
-        return Number((globalThis as any).nlapiGetContext().role);
+        const role = Number((globalThis as any).nlapiGetContext()?.role);
+        return isNaN(role) || role === 0 ? null : role;
       } catch {
         return null;
       }
@@ -175,5 +204,17 @@ export class BasePage {
           `role may not be assigned to this user`,
       );
     }
+  }
+
+  // Retries page.evaluate until the callback returns a non-null value or the deadline passes.
+  // Guards against NS's transient JS context replacement window.
+  private async pollEvaluate<T>(fn: () => T | null, timeoutMs = 10000): Promise<T | null> {
+    const deadline = Date.now() + timeoutMs;
+    while (Date.now() < deadline) {
+      const result = await this.page.evaluate(fn);
+      if (result !== null) return result;
+      await new Promise((r) => setTimeout(r, 500));
+    }
+    return null;
   }
 }
