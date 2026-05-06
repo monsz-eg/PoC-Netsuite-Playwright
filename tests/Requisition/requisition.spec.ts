@@ -17,7 +17,7 @@ test('employee can create a MWD purchase requisition', async ({ isolatedPage }) 
 
   // Act
   await requisition.checkForElectronicBankPayment();
-  await requisition.verifyForElectronicBankPaymentChecked(); // edit-mode checkbox — not present in view mode
+  await requisition.verifyForElectronicBankPaymentChecked(); // edit-mode only — checkbox removed from DOM in view mode
   await requisition.addLineItem(REQUISITION_DATA.lineItemText);
   await requisition.verifyQuantityDefaulted(); // edit-mode only — nlapiGetCurrentLineItemValue not available post-save
   await requisition.verifyDepartmentPrepopulated(); // edit-mode only
@@ -25,7 +25,7 @@ test('employee can create a MWD purchase requisition', async ({ isolatedPage }) 
   await requisition.verifyExternalDescriptionFilled(externalDescription); // edit-mode only
   await requisition.setLineItemEstimatedRate(REQUISITION_DATA.lineItemRate);
   await requisition.verifyEstimatedRateFilled(REQUISITION_DATA.lineItemRate); // edit-mode only
-  await requisition.verifyEstimatedAmountCalculated('3000'); // edit-mode only
+  await requisition.verifyEstimatedAmountCalculated(REQUISITION_DATA.lineItemRate); // edit-mode only
   await requisition.addItem();
   await requisition.switchToTab('Custom');
   await requisition.verifyTransactionCreatedBy(); // edit-mode field — must be checked before save

@@ -80,7 +80,6 @@ export class RequisitionRecord extends BasePage {
     await this.page.waitForTimeout(500);
   }
 
-  // PDF Step 8: Verify the For Electronic Bank Payment checkbox is ticked.
   // DOM-based — survives egEmployeeCenter context replacement.
   async verifyForElectronicBankPaymentChecked(): Promise<void> {
     await expect(
