@@ -1,4 +1,4 @@
-import { BrowserContext, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
 import { PDFParse } from 'pdf-parse';
 
 type PdfValidationOptions = {
@@ -15,18 +15,13 @@ function normalizePdfText(text: string): string {
 }
 
 export async function validatePdfPage(
-  browserContext: BrowserContext,
   pdfUrl: string,
+  pdfBody: Buffer,
   { expectedText, minimumBytes = 1000 }: PdfValidationOptions = {},
 ): Promise<void> {
   expect(pdfUrl).toMatch(/hotprint\.nl/);
   expect(pdfUrl).toMatch(/incustlocale=T/);
 
-  const pdfResponse = await browserContext.request.get(pdfUrl);
-  expect(pdfResponse.ok()).toBeTruthy();
-  expect(pdfResponse.headers()['content-type']).toContain('application/pdf');
-
-  const pdfBody = await pdfResponse.body();
   expect(pdfBody.length).toBeGreaterThan(minimumBytes);
 
   if (!expectedText) {

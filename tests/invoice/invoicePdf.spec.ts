@@ -54,10 +54,10 @@ test('billing responsible can print invoice as PDF in customer locale @smoke', a
   const invoiceNumber = await invoiceRecord.getInvoiceNumber();
 
   // Act
-  const pdfUrl = await invoiceRecord.printInCustomerLocale();
+  const { url: pdfUrl, body: pdfBody } = await invoiceRecord.printInCustomerLocale();
 
   // Assert
-  await validatePdfPage(isolatedPage.context(), pdfUrl, {
+  await validatePdfPage(pdfUrl, pdfBody, {
     expectedText: [
       'Faktura',
       invoiceNumber,

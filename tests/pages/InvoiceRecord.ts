@@ -1,4 +1,4 @@
-import { expect, Page } from '@playwright/test';
+import { expect, Page, Route } from '@playwright/test';
 import { today } from '../utils/dateUtils';
 import { BasePage } from './BasePage';
 
@@ -389,8 +389,22 @@ export class InvoiceRecord extends BasePage {
     await saveBtn.waitFor({ state: 'visible' });
     await saveBtn.click({ force: true });
     // NS save posts the form and redirects to the saved record URL (?id=).
-    // waitForNetSuiteLoad may return before that navigation starts — wait for the URL directly.
-    await this.page.waitForURL(/[?&]id=\d+/, { timeout: 60000 });
+    // Race against known NS error pages so we fail fast instead of waiting 60s.
+    await Promise.race([
+      this.page.waitForURL(/[?&]id=\d+/, { timeout: 60000 }),
+      this.page
+        .locator('text=Your connection has timed out')
+        .waitFor({ state: 'visible', timeout: 60000 })
+        .then(() => {
+          throw new Error('NetSuite session timed out during save — re-run auth setup');
+        }),
+      this.page
+        .locator('text=An unexpected error has occurred')
+        .waitFor({ state: 'visible', timeout: 60000 })
+        .then(() => {
+          throw new Error('NetSuite unexpected error during save');
+        }),
+    ]);
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
@@ -413,37 +427,38 @@ export class InvoiceRecord extends BasePage {
       .innerText();
   }
 
-  async printInCustomerLocale(): Promise<string> {
+  async printInCustomerLocale(): Promise<{ url: string; body: Buffer }> {
     const printMenu = this.page.locator('[data-automation-id="button-menu-print"]').first();
     const localePrintButton = this.page.getByRole('button', {
       name: "Print in Customer's Locale",
       exact: true,
     });
-    const pdfUrlPattern = /hotprint\.nl\/.*incustlocale=T/;
 
     await printMenu.locator('a:has(img[src*="print.svg"])').first().hover();
     await expect(localePrintButton).toBeVisible();
 
-    const pdfPagePromise = this.page
-      .context()
-      .waitForEvent('page', { timeout: 10000 })
-      .catch(() => null);
+    // route.fetch() performs a Node-side request that gets the full PDF body before
+    // Chrome's PDF viewer consumes the response — CDP response.body() only returns
+    // a partial buffer (~536 bytes) for PDFs rendered by the native viewer.
+    let resolvePdf!: (result: { url: string; body: Buffer }) => void;
+    const pdfPromise = new Promise<{ url: string; body: Buffer }>((resolve) => {
+      resolvePdf = resolve;
+    });
 
-    const [pdfPage, pdfResponse] = await Promise.all([
-      pdfPagePromise,
-      this.page.context().waitForEvent('response', {
-        predicate: (response) => {
-          const contentType = response.headers()['content-type'] ?? '';
-          return contentType.includes('application/pdf');
-        },
-      }),
-      localePrintButton.click(),
-    ]);
+    const routeHandler = async (route: Route) => {
+      const response = await route.fetch();
+      const body = await response.body();
+      if ((response.headers()['content-type'] ?? '').includes('application/pdf')) {
+        resolvePdf({ url: route.request().url(), body });
+      }
+      await route.fulfill({ status: response.status(), headers: response.headers(), body });
+    };
 
-    if (pdfPage && pdfUrlPattern.test(pdfPage.url())) {
-      return pdfPage.url();
-    }
+    await this.page.context().route('**/hotprint.nl**', routeHandler);
+    await localePrintButton.click();
+    const result = await pdfPromise;
+    await this.page.context().unroute('**/hotprint.nl**', routeHandler);
 
-    return pdfResponse.url();
+    return result;
   }
 }
