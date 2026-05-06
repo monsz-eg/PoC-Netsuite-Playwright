@@ -164,9 +164,9 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const qty = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetLineItemValue('item', 'quantity', 1),
+          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'quantity'),
         );
-        if (qty != null && parseFloat(qty) === 1) return;
+        if (qty === '1') return;
       } catch {
         /* context replaced — retry */
       }
@@ -215,7 +215,7 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const v = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetLineItemValue('item', 'description', 1),
+          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'description'),
         );
         if (v === text) return;
       } catch {
@@ -263,7 +263,7 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const v = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetLineItemValue('item', 'estimatedrate', 1),
+          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'estimatedrate'),
         );
         if (v != null && parseFloat(v) === parseFloat(rate)) return;
       } catch {
@@ -281,7 +281,7 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const v = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetLineItemValue('item', 'estimatedamount', 1),
+          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'estimatedamount'),
         );
         if (v != null && parseFloat(v) === parseFloat(expectedAmount)) return;
       } catch {
@@ -297,7 +297,7 @@ export class RequisitionRecord extends BasePage {
     while (Date.now() < deadline) {
       try {
         const dept = await this.page.evaluate(() =>
-          (globalThis as any).nlapiGetLineItemValue('item', 'department', 1),
+          (globalThis as any).nlapiGetCurrentLineItemValue('item', 'department'),
         );
         if (dept) return;
       } catch {
