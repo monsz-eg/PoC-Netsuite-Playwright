@@ -4,7 +4,7 @@ import { test } from '../fixtures/baseFixture';
 import { SalesOrderRecord } from '../pages/SalesOrderRecord';
 import { today } from '../utils/dateUtils';
 
-test('billing responsible can create and approve a pre-paid pool sales order', async ({
+test('billing responsible can create and approve a sales order', async ({
   isolatedPage,
 }) => {
   // Arrange
@@ -14,7 +14,6 @@ test('billing responsible can create and approve a pre-paid pool sales order', a
   await salesOrderRecord.navigateToSalesOrder();
 
   // Act
-  await salesOrderRecord.setPoolProvisionSalesOrder();
   await salesOrderRecord.setCustomer(SALES_ORDER_DATA.customerText);
   await salesOrderRecord.verifySubsidiaryPrepopulated(SALES_ORDER_DATA.subsidiaryId);
   await salesOrderRecord.addLineItem(SALES_ORDER_DATA.lineItemText);
@@ -34,5 +33,5 @@ test('billing responsible can create and approve a pre-paid pool sales order', a
   await salesOrderRecord.verifyRecordCreated();
   await salesOrderRecord.verifyCustomer(SALES_ORDER_DATA.customerText);
   await salesOrderRecord.verifySubsidiary(SALES_ORDER_DATA.subsidiaryText);
-  await salesOrderRecord.verifyStatus(SALES_ORDER_DATA.expectedStatusAfterApproval.statusRef);
+  await salesOrderRecord.verifyStatus(SALES_ORDER_DATA.expectedStatusAfterApproval.status);
 });

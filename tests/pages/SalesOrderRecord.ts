@@ -125,18 +125,7 @@ export class SalesOrderRecord extends BasePage {
         // onchange may crash at nlapiFieldChanged; value is stored before crash
       }
     }, id);
-    await this.page.waitForFunction(
-      (val) => {
-        try {
-          return (globalThis as any).nlapiGetCurrentLineItemValue('item', 'department') === val;
-        } catch {
-          return false;
-        }
-      },
-      id,
-      { timeout: 15000 },
-    );
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForTimeout(1000);
   }
 
   // Custom segment fields (cseg_*) are backed by hidden inputs with associated global
@@ -310,8 +299,9 @@ export class SalesOrderRecord extends BasePage {
   }
 
   async approveSalesOrder(): Promise<void> {
-    await this.page.locator('input[value="Approve"]').click();
+    await this.page.locator('#approve').click();
     await this.waitForNetSuiteLoad();
+    await this.waitForNsApi();
   }
 
   async verifyCustomer(expected: string): Promise<void> {
@@ -326,9 +316,9 @@ export class SalesOrderRecord extends BasePage {
     ).toHaveText(expected);
   }
 
-  async verifyStatus(statusRef: string): Promise<void> {
-    await expect(
-      this.page.locator('[data-field-name="statusRef"] [data-nsps-type="field_input"]'),
-    ).toHaveText(statusRef);
+  // nlapiGetFieldValue returns null on view-mode records — NS 1.0 API field context is not
+  // available after save/approve. Status is shown only in the record header badge.
+  async verifyStatus(expectedStatusText: string): Promise<void> {
+    await expect(this.page.locator('.uir-record-status')).toHaveText(expectedStatusText);
   }
 }

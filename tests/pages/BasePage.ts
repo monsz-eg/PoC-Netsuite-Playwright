@@ -168,17 +168,27 @@ export class BasePage {
     // the JS context via document.open() and the function exists briefly before the new
     // context object is ready. Only user+company are required here: the NS center/home page
     // returns role=0, so requiring role in this poll would exhaust on home-page navigations.
-    const nsContext = await this.pollEvaluate(
-      (): { empId: string; companyId: string } | null => {
-        try {
-          const ctx = (globalThis as any).nlapiGetContext();
-          if (!ctx?.user || !ctx?.company) return null;
-          return { empId: String(ctx.user), companyId: String(ctx.company) };
-        } catch {
-          return null;
-        }
-      },
-    );
+    const pollContext = (): { empId: string; companyId: string } | null => {
+      try {
+        const ctx = (globalThis as any).nlapiGetContext();
+        if (!ctx?.user || !ctx?.company) return null;
+        return { empId: String(ctx.user), companyId: String(ctx.company) };
+      } catch {
+        return null;
+      }
+    };
+
+    let nsContext = await this.pollEvaluate(pollContext);
+
+    // If the auth session restored to a page where NS hasn't fully initialised the context
+    // object (user/company missing), navigate to the home page and retry once. The page IS
+    // on netsuite.com (the URL check above passed) but the context population is async.
+    if (!nsContext) {
+      await this.page.goto('/');
+      await this.waitForNetSuiteLoad();
+      await this.waitForNsApi();
+      nsContext = await this.pollEvaluate(pollContext, 20000);
+    }
 
     if (!nsContext) {
       throw new Error(
