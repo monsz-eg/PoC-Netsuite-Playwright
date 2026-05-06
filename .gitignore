@@ -12,5 +12,5 @@ node_modules/
 .playwright-mcp/
 .playwright-cli/
 .claude/
-.claude/settings.local.json
+
 
