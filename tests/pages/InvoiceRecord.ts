@@ -131,11 +131,11 @@ export class InvoiceRecord extends BasePage {
     // NS debounces ~300ms after the last keystroke, then fires an AJAX search.
     // networkidle resolves once all pending requests complete + 500ms of silence,
     // ensuring the type-ahead dropdown has results before selection.
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     // Tab commits the typeahead. For items where multiple entries share the same
     // prefix, NS opens a disambiguation popup with results pre-loaded after Tab.
     await this.page.keyboard.press('Tab');
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     // After commit, NS fires AJAX to load item details and
     // auto-populate dependent fields. The popup-commit path replaces the JS
     // execution context mid-AJAX; retry on "Target closed" until the deadline.
@@ -158,7 +158,7 @@ export class InvoiceRecord extends BasePage {
         await new Promise((r) => setTimeout(r, 1000));
       }
     }
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.ensureFormInited();
   }
 
@@ -339,16 +339,16 @@ export class InvoiceRecord extends BasePage {
   // initialization. Wait for the committed line count to confirm the commit
   // completed, then wait for any post-commit AJAX to settle before saving.
   async addItem(): Promise<void> {
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
     await this.ensureFormInited();
     const addBtn = this.page.locator('[name="item_addedit"]');
     await addBtn.scrollIntoViewIfNeeded();
     await addBtn.click();
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
     await this.waitForLineItemAdded();
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
