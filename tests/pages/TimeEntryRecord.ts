@@ -51,8 +51,8 @@ export class TimeEntryRecord extends BasePage {
   }
 
   // NS entity-field cascades (subsidiary, billing class, dept) only fire when the typeahead
-  // selection is completed via UI. After networkidle the dropdown is rendered — clicking the
-  // full display name (which the input doesn't contain yet) targets the suggestion uniquely.
+  // selection is completed via UI. Suggestions render inside .popupsuggest td.autosuggcell —
+  // scoping to that container avoids matching other page text with the same display name.
   async setEmployee(displayName: string): Promise<void> {
     const input = this.page.locator('#employee_display');
     const suggestion = this.page.getByText(displayName, { exact: true }).first();
@@ -120,8 +120,11 @@ export class TimeEntryRecord extends BasePage {
   // NS redirects to a new blank entry form after saving a timebill (time-tracking workflow).
   // The saved record URL is never surfaced in the browser. After save, search for the most
   // recently created timebill for this employee+project+task and navigate to it.
+  // waitForNsFormReady() ensures the AMD loader is available on the redirected blank form
+  // before require(['N/search']) is called — waitForNetSuiteLoad() alone is insufficient.
   async saveTimeEntry(employeeId: string, projectId: string, taskId: string): Promise<string> {
     await this.save();
+    await this.waitForNsFormReady();
     const recId = await this.page.evaluate(
       ({ emp, proj, task }) =>
         new Promise<string>((resolve, reject) =>
@@ -159,7 +162,7 @@ export class TimeEntryRecord extends BasePage {
   async approve(): Promise<void> {
     const id = new URL(this.page.url()).searchParams.get('id')!;
     await this.navigateTo(`/app/accounting/transactions/timebill.nl?id=${id}&e=T`);
-    await this.waitForNsFormReady();
+    await this.waitForFormReady();
     await this.page.evaluate(
       (v) => (globalThis as any).nlapiSetFieldValue('approvalstatus', v, null, true),
       '3',

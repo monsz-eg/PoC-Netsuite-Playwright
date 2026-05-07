@@ -229,7 +229,18 @@ export class SalesOrderRecord extends BasePage {
         g.nlapiFieldChanged = orig;
       }
     }, date);
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForFunction(
+      ({ field, val }) => {
+        try {
+          return (globalThis as any).nlapiGetCurrentLineItemValue('item', field) === val;
+        } catch {
+          return false;
+        }
+      },
+      { field: 'custcol_eg_rev_rec_start', val: date },
+      { timeout: 15000 },
+    );
+    await this.page.waitForLoadState('networkidle');
   }
 
   async setLineItemRevEndDate(date: string): Promise<void> {
@@ -243,7 +254,18 @@ export class SalesOrderRecord extends BasePage {
         g.nlapiFieldChanged = orig;
       }
     }, date);
-    await this.page.waitForTimeout(1000);
+    await this.page.waitForFunction(
+      ({ field, val }) => {
+        try {
+          return (globalThis as any).nlapiGetCurrentLineItemValue('item', field) === val;
+        } catch {
+          return false;
+        }
+      },
+      { field: 'custcol_eg_rev_rec_end', val: date },
+      { timeout: 15000 },
+    );
+    await this.page.waitForLoadState('networkidle');
   }
 
   async addItem(): Promise<void> {
