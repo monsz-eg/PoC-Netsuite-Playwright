@@ -29,10 +29,12 @@ export const INVOICE_DATA = {
   lineItemTextConsultancyServicesTAndMTraining:
     ITEMS.hoursConsultancyServicesTAndMTraining.itemName,
   lineItemTextConsultancyServicesTAndM: ITEMS.hoursConsultancyServicesTAndM.itemName,
+  lineItemTextTransport: ITEMS.hoursTransport.itemName,
   lineItemPdfNameFixedFee: ITEMS.hoursConsultancyServicesFixedFee.displayName,
   lineItemPdfNameConsultancyServicesTAndMTraining:
     ITEMS.hoursConsultancyServicesTAndMTraining.displayName,
   lineItemPdfNameConsultancyServicesTAndM: ITEMS.hoursConsultancyServicesTAndM.displayName,
+  lineItemPdfNameTransport: ITEMS.hoursTransport.displayName,
   lineItemDescription: LINE_ITEM_DEFAULTS.description,
   lineItemQuantity: LINE_ITEM_DEFAULTS.quantity,
   lineItemRate: LINE_ITEM_DEFAULTS.rate,

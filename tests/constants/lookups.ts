@@ -89,6 +89,11 @@ export const ITEMS = {
     itemName: '.[Hours] Consultancy services - Fixed Fee',
     displayName: 'Fixed Fee',
   },
+  hoursTransport: {
+    id: '586',
+    itemName: '.[Hours] Transport',
+    displayName: 'Transport',
+  },
 } as const;
 
 export const TAX_RATES = {

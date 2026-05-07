@@ -50,6 +50,19 @@ test('billing responsible can print invoice as PDF in customer locale @smoke', a
     revStartDate: lineDates,
     revEndDate: lineDates,
   });
+  await invoiceRecord.addConfiguredLineItem({
+    itemText: INVOICE_DATA.lineItemTextTransport,
+    description: INVOICE_DATA.lineItemDescription,
+    quantity: INVOICE_DATA.lineItemQuantity,
+    rate: INVOICE_DATA.lineItemRate,
+    mainProductId: INVOICE_DATA.lineItemMainProductId,
+    subProductId: INVOICE_DATA.lineItemSubProductId,
+    productItemId: INVOICE_DATA.lineItemProductItemId,
+    revenueCategoryId: INVOICE_DATA.lineItemRevenueCategoryId,
+    departmentId: INVOICE_DATA.lineItemDepartmentId,
+    revStartDate: lineDates,
+    revEndDate: lineDates,
+  });
   await invoiceRecord.save();
   const invoiceNumber = await invoiceRecord.getInvoiceNumber();
 
@@ -65,6 +78,7 @@ test('billing responsible can print invoice as PDF in customer locale @smoke', a
       INVOICE_DATA.currencyText,
       `${INVOICE_DATA.lineItemDescription} ${INVOICE_DATA.lineItemQuantity} ${formatPdfAmount(INVOICE_DATA.lineItemRate)} ${INVOICE_DATA.lineItemTaxRate} % ${formatPdfAmount(INVOICE_DATA.lineItemRate)}`,
       `${INVOICE_DATA.lineItemDescription} ${INVOICE_DATA.lineItemQuantity} Time(r) ${formatPdfAmount(INVOICE_DATA.lineItemRate)} ${INVOICE_DATA.lineItemTaxRate} % ${formatPdfAmount(INVOICE_DATA.lineItemRate)}`,
+      `${INVOICE_DATA.lineItemPdfNameTransport} ${INVOICE_DATA.lineItemDescription} ${INVOICE_DATA.lineItemQuantity} Time(r) ${formatPdfAmount(INVOICE_DATA.lineItemRate)} ${INVOICE_DATA.lineItemTaxRate} % ${formatPdfAmount(INVOICE_DATA.lineItemRate)}`,
       ...PDF_FOOTER_TEXT,
     ],
   });
