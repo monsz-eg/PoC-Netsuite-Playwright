@@ -1,6 +1,20 @@
-import { expect, Page } from '@playwright/test';
+import { expect, Page, Route } from '@playwright/test';
 import { today } from '../utils/dateUtils';
 import { BasePage } from './BasePage';
+
+type InvoiceLineInput = {
+  itemText: string;
+  description: string;
+  quantity: string;
+  rate: string;
+  mainProductId: string;
+  subProductId: string;
+  productItemId: string;
+  revenueCategoryId: string;
+  departmentId: string;
+  revStartDate: string;
+  revEndDate: string;
+};
 
 export class InvoiceRecord extends BasePage {
   constructor(page: Page) {
@@ -116,22 +130,35 @@ export class InvoiceRecord extends BasePage {
     await itemInput.pressSequentially(itemText, { delay: 50 });
     // NS debounces ~300ms after the last keystroke, then fires an AJAX search.
     // networkidle resolves once all pending requests complete + 500ms of silence,
-    // ensuring the type-ahead dropdown has results before Tab selects from it.
-    await this.page.waitForLoadState('networkidle');
+    // ensuring the type-ahead dropdown has results before selection.
+    await this.waitForNetworkIdle();
+    // Tab commits the typeahead. For items where multiple entries share the same
+    // prefix, NS opens a disambiguation popup with results pre-loaded after Tab.
     await this.page.keyboard.press('Tab');
-    // After Tab, NS fires AJAX to load item details and auto-populate dependent
-    // fields. Wait for Tax Code, then networkidle for full initialization.
-    await this.page.waitForFunction(
-      () => {
-        try {
-          return !!(globalThis as any).nlapiGetCurrentLineItemValue('item', 'taxcode');
-        } catch {
-          return false;
-        }
-      },
-      { timeout: 15000 },
-    );
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
+    // After commit, NS fires AJAX to load item details and
+    // auto-populate dependent fields. The popup-commit path replaces the JS
+    // execution context mid-AJAX; retry on "Target closed" until the deadline.
+    const taxcodeDeadline = Date.now() + 20000;
+    while (true) {
+      try {
+        await this.page.waitForFunction(
+          () => {
+            try {
+              return !!(globalThis as any).nlapiGetCurrentLineItemValue('item', 'taxcode');
+            } catch {
+              return false;
+            }
+          },
+          { timeout: 15000 },
+        );
+        break;
+      } catch (e: any) {
+        if (!(e?.message ?? '').includes('closed') || Date.now() >= taxcodeDeadline) throw e;
+        await new Promise((r) => setTimeout(r, 1000));
+      }
+    }
+    await this.waitForNetworkIdle();
     await this.ensureFormInited();
   }
 
@@ -285,20 +312,8 @@ export class InvoiceRecord extends BasePage {
     await this.page.waitForTimeout(1000);
   }
 
-  // After the Add click, NS commits the line and runs async item-options
-  // initialization. Wait for the committed line count to confirm the commit
-  // completed, then wait for any post-commit AJAX to settle before saving.
-  async addItem(): Promise<void> {
-    // Flush any pending field events from the last setter before committing.
-    await this.page.waitForLoadState('networkidle');
-    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
-    await this.ensureFormInited();
-    const addBtn = this.page.locator('[name="item_addedit"]');
-    await addBtn.scrollIntoViewIfNeeded();
-    await addBtn.click();
-    await this.page.waitForLoadState('networkidle');
-    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
-    // NS may replace the JS context during Add processing — retry on "Target closed".
+  // NS may replace the JS context during Add processing — retry on "Target closed".
+  private async waitForLineItemAdded(): Promise<void> {
     const deadline = Date.now() + 20000;
     while (true) {
       try {
@@ -318,8 +333,38 @@ export class InvoiceRecord extends BasePage {
         await new Promise((r) => setTimeout(r, 1000));
       }
     }
-    await this.page.waitForLoadState('networkidle');
+  }
+
+  // After the Add click, NS commits the line and runs async item-options
+  // initialization. Wait for the committed line count to confirm the commit
+  // completed, then wait for any post-commit AJAX to settle before saving.
+  async addItem(): Promise<void> {
+    await this.waitForNetworkIdle();
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
+    await this.ensureFormInited();
+    const addBtn = this.page.locator('[name="item_addedit"]');
+    await addBtn.scrollIntoViewIfNeeded();
+    await addBtn.click();
+    await this.waitForNetworkIdle();
+    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
+    await this.waitForLineItemAdded();
+    await this.waitForNetworkIdle();
+    await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
+  }
+
+  async addConfiguredLineItem(line: InvoiceLineInput): Promise<void> {
+    await this.addLineItem(line.itemText);
+    await this.setLineItemDescription(line.description);
+    await this.setLineItemQuantity(line.quantity);
+    await this.setLineItemRate(line.rate);
+    await this.setLineItemMainProduct(line.mainProductId);
+    await this.setLineItemSubProduct(line.subProductId);
+    await this.setLineItemProductItem(line.productItemId);
+    await this.setLineItemRevenueCategory(line.revenueCategoryId);
+    await this.setLineItemDepartment(line.departmentId);
+    await this.setLineItemRevStartDate(line.revStartDate);
+    await this.setLineItemRevEndDate(line.revEndDate);
+    await this.addItem();
   }
 
   // The A/R account field is on the lazy-loaded Accounting tab — nlapiSetFieldValue
@@ -344,8 +389,22 @@ export class InvoiceRecord extends BasePage {
     await saveBtn.waitFor({ state: 'visible' });
     await saveBtn.click({ force: true });
     // NS save posts the form and redirects to the saved record URL (?id=).
-    // waitForNetSuiteLoad may return before that navigation starts — wait for the URL directly.
-    await this.page.waitForURL(/[?&]id=\d+/, { timeout: 60000 });
+    // Race against known NS error pages so we fail fast instead of waiting 60s.
+    await Promise.race([
+      this.page.waitForURL(/[?&]id=\d+/, { timeout: 60000 }),
+      this.page
+        .locator('text=Your connection has timed out')
+        .waitFor({ state: 'visible', timeout: 60000 })
+        .then(() => {
+          throw new Error('NetSuite session timed out during save — re-run auth setup');
+        }),
+      this.page
+        .locator('text=An unexpected error has occurred')
+        .waitFor({ state: 'visible', timeout: 60000 })
+        .then(() => {
+          throw new Error('NetSuite unexpected error during save');
+        }),
+    ]);
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
@@ -366,5 +425,40 @@ export class InvoiceRecord extends BasePage {
     return this.page
       .locator('[data-field-name="tranid"] [data-nsps-type="field_input"]')
       .innerText();
+  }
+
+  async printInCustomerLocale(): Promise<{ url: string; body: Buffer }> {
+    const printMenu = this.page.locator('[data-automation-id="button-menu-print"]').first();
+    const localePrintButton = this.page.getByRole('button', {
+      name: "Print in Customer's Locale",
+      exact: true,
+    });
+
+    await printMenu.locator('a:has(img[src*="print.svg"])').first().hover();
+    await expect(localePrintButton).toBeVisible();
+
+    // route.fetch() performs a Node-side request that gets the full PDF body before
+    // Chrome's PDF viewer consumes the response — CDP response.body() only returns
+    // a partial buffer (~536 bytes) for PDFs rendered by the native viewer.
+    let resolvePdf!: (result: { url: string; body: Buffer }) => void;
+    const pdfPromise = new Promise<{ url: string; body: Buffer }>((resolve) => {
+      resolvePdf = resolve;
+    });
+
+    const routeHandler = async (route: Route) => {
+      const response = await route.fetch();
+      const body = await response.body();
+      if ((response.headers()['content-type'] ?? '').includes('application/pdf')) {
+        resolvePdf({ url: route.request().url(), body });
+      }
+      await route.fulfill({ status: response.status(), headers: response.headers(), body });
+    };
+
+    await this.page.context().route('**/hotprint.nl**', routeHandler);
+    await localePrintButton.click();
+    const result = await pdfPromise;
+    await this.page.context().unroute('**/hotprint.nl**', routeHandler);
+
+    return result;
   }
 }

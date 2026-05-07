@@ -17,6 +17,30 @@ export class BasePage {
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
   }
 
+  // Waits for networkidle while polling for the NS logout overlay every second.
+  // When NS invalidates the session mid-test, background polling prevents networkidle
+  // from ever resolving — this throws immediately with a clear error instead of
+  // silently hanging until the test timeout.
+  protected async waitForNetworkIdle(timeout = 30000): Promise<void> {
+    const aborted = { value: false };
+    const logoutPoller = (async () => {
+      while (!aborted.value) {
+        if (await this.page.getByText('You have been logged out.').isVisible()) {
+          throw new Error('NetSuite session expired — re-run: npm run auth:setup');
+        }
+        await new Promise<void>((r) => setTimeout(r, 1000));
+      }
+    })();
+    try {
+      await Promise.race([
+        this.page.waitForLoadState('networkidle', { timeout }),
+        logoutPoller,
+      ]);
+    } finally {
+      aborted.value = true;
+    }
+  }
+
   async navigateTo(url: string): Promise<void> {
     await this.page.goto(url);
     await this.waitForNetSuiteLoad();

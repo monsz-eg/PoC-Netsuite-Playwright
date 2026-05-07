@@ -74,12 +74,32 @@ export const EMPLOYEES = {
 export const ITEMS = {
   hoursConsultancyServicesTAndM: {
     id: '582',
-    /** Display label shown in view mode (dot prefix = NS item hierarchy) */
-    displayName: '.[Hours] Consultancy services - T&M',
+    /** NS item label shown in type-ahead and view mode (dot prefix = NS item hierarchy) */
+    itemName: '.[Hours] Consultancy services - T&M',
+    /** Label rendered on printed PDF documents */
+    displayName: 'Consultancy services',
   },
   hoursConsultancyServicesTAndMTraining: {
     id: '9180',
-    displayName: '.[Hours] Consultancy services - T&M Training',
+    itemName: '.[Hours] Consultancy services - T&M Training',
+    displayName: 'Consultancy services - Training',
+  },
+  hoursConsultancyServicesFixedFee: {
+    id: '1083',
+    itemName: '.[Hours] Consultancy services - Fixed Fee',
+    displayName: 'Fixed Fee',
+  },
+  hoursTransport: {
+    id: '586',
+    itemName: '.[Hours] Transport',
+    displayName: 'Transport',
+  },
+} as const;
+
+export const TAX_RATES = {
+  denmark: {
+    /** NS label: "Standard Rate" — Danish standard VAT */
+    standardRate: { rate: 25, displayName: 'Standard Rate' },
   },
 } as const;
 

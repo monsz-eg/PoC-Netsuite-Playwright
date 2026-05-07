@@ -81,7 +81,7 @@ export const PROJECT_TASK_DATA = {
     projectCategory: PROJECT_CATEGORIES.other.id,
     projectCategoryDisplayName: PROJECT_CATEGORIES.other.displayName,
     defaultItem: ITEMS.hoursConsultancyServicesTAndM.id,
-    defaultItemDisplayName: ITEMS.hoursConsultancyServicesTAndM.displayName,
+    defaultItemDisplayName: ITEMS.hoursConsultancyServicesTAndM.itemName,
     nonBillableTask: false,
     status: TASK_STATUSES.notStarted,
     statusDisplayName: TASK_STATUS_LABELS.notStarted,

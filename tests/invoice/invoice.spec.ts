@@ -21,7 +21,7 @@ test('billing responsible can create a new Invoice @smoke', async ({ isolatedPag
   await invoiceRecord.setMemo(memo);
   await invoiceRecord.setPONumber(poNumber);
   await invoiceRecord.setOrderedBy(INVOICE_DATA.orderedById);
-  await invoiceRecord.addLineItem(INVOICE_DATA.lineItemText);
+  await invoiceRecord.addLineItem(INVOICE_DATA.lineItemTextFixedFee);
   await invoiceRecord.setLineItemDescription(INVOICE_DATA.lineItemDescription);
   await invoiceRecord.setLineItemQuantity(INVOICE_DATA.lineItemQuantity);
   await invoiceRecord.setLineItemRate(INVOICE_DATA.lineItemRate);

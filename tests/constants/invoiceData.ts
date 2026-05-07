@@ -7,6 +7,7 @@ import {
   PRODUCTS,
   REVENUE_CATEGORIES,
   SUBSIDIARIES,
+  TAX_RATES,
 } from './lookups';
 
 const LINE_ITEM_DEFAULTS = {
@@ -24,10 +25,20 @@ export const INVOICE_DATA = {
   currencyText: CURRENCIES.dkk.displayName,
   orderedById: CUSTOMERS.searsManufacturingCo.id,
   orderedByText: CUSTOMERS.searsManufacturingCo.displayName,
-  lineItemText: ITEMS.hoursConsultancyServicesTAndMTraining.displayName,
+  lineItemTextFixedFee: ITEMS.hoursConsultancyServicesFixedFee.itemName,
+  lineItemTextConsultancyServicesTAndMTraining:
+    ITEMS.hoursConsultancyServicesTAndMTraining.itemName,
+  lineItemTextConsultancyServicesTAndM: ITEMS.hoursConsultancyServicesTAndM.itemName,
+  lineItemTextTransport: ITEMS.hoursTransport.itemName,
+  lineItemPdfNameFixedFee: ITEMS.hoursConsultancyServicesFixedFee.displayName,
+  lineItemPdfNameConsultancyServicesTAndMTraining:
+    ITEMS.hoursConsultancyServicesTAndMTraining.displayName,
+  lineItemPdfNameConsultancyServicesTAndM: ITEMS.hoursConsultancyServicesTAndM.displayName,
+  lineItemPdfNameTransport: ITEMS.hoursTransport.displayName,
   lineItemDescription: LINE_ITEM_DEFAULTS.description,
   lineItemQuantity: LINE_ITEM_DEFAULTS.quantity,
   lineItemRate: LINE_ITEM_DEFAULTS.rate,
+  lineItemTaxRate: TAX_RATES.denmark.standardRate.rate,
   lineItemRevenueCategoryId: REVENUE_CATEGORIES.perpetualLicenses.id,
   lineItemRevenueCategoryText: REVENUE_CATEGORIES.perpetualLicenses.displayName,
   lineItemDepartmentId: DEPARTMENTS.netSuite.id,
