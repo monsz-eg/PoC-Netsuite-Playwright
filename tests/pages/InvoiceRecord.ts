@@ -27,6 +27,18 @@ export class InvoiceRecord extends BasePage {
     await this.waitForFormReady();
   }
 
+  async navigateToSavedInvoice(invoiceId: string): Promise<void> {
+    await this.navigateTo(`/app/accounting/transactions/custinvc.nl?id=${invoiceId}`);
+  }
+
+  async clickGenerateInvRefNo(): Promise<void> {
+    await this.page.locator('[id="custpageworkflow8228"]').click();
+    // Wait for the e-document button to appear, confirming the ref no was populated
+    await this.page
+      .locator('[id="custpage_generate_ei_button"]')
+      .waitFor({ state: 'visible', timeout: 30_000 });
+  }
+
   async setPONumber(value: string): Promise<void> {
     await this.page.locator('[name="otherrefnum"]').fill(value);
   }
