@@ -3,6 +3,7 @@ import { ROLES } from '../constants/roles';
 import { PROJECT_DATA } from '../constants/projectData';
 import { generateProjectName } from '../utils/nameGenerators';
 import { ProjectRecord } from '../pages/ProjectRecord';
+import JobFields from '../../docs/ns-object/job.json';
 
 test('project manager can create a new Customer Project @smoke', async ({
   isolatedPage,
@@ -18,27 +19,33 @@ test('project manager can create a new Customer Project @smoke', async ({
 
   // Act
   await projectRecord.setCustomForm(d.form);
-  await projectRecord.setProjectCategory(d.projectCategory);
+  await projectRecord.setFields([[JobFields.projectCategory, d.projectCategory]]);
   await projectRecord.setBillToCustomer(d.customer);
-  await projectRecord.verifySubsidiaryPrepopulated(d.subsidiary);
-  await projectRecord.setJobType(d.jobType);
-  await projectRecord.setCompanyName(projectName);
-  await projectRecord.setProjectManager(d.projectManager);
-  await projectRecord.setDefaultItemAutoAss(d.defaultItem);
-  await projectRecord.setServiceItemForTimeBased(d.serviceItemTimeBased);
-  await projectRecord.setDepartment(d.department);
-  await projectRecord.verifySchedulingMethodPrepopulated(d.schedulingMethod);
-  await projectRecord.setProjectedEndDate(d.projectedEndDate);
-  await projectRecord.setProjectStatus(d.projectStatus);
-  await projectRecord.setBillToAddress(d.billToAddress);
+  await projectRecord.verifyNsField(JobFields.subsidiary, d.subsidiary);
+  await projectRecord.setFields([
+    [JobFields.jobType,               d.jobType],
+    [JobFields.companyName,           projectName],
+    [JobFields.projectManager,        d.projectManager],
+    [JobFields.defaultItemAutoAss,    d.defaultItem],
+    [JobFields.serviceItemForTimeBased, d.serviceItemTimeBased],
+    [JobFields.department,            d.department],
+  ]);
+  await projectRecord.verifyNsField(JobFields.schedulingMethod, d.schedulingMethod);
+  await projectRecord.setFields([
+    [JobFields.projectedEndDate, d.projectedEndDate],
+    [JobFields.projectStatus,   d.projectStatus],
+    [JobFields.billToAddress,   d.billToAddress],
+  ]);
   await projectRecord.switchToTab('ServiceNow');
-  await projectRecord.setContactPerson(d.contactPerson);
-  await projectRecord.setCustomerContractPortalAcce(d.customerContractPortalAccess);
+  await projectRecord.setFields([
+    [JobFields.contactPerson,                d.contactPerson],
+    [JobFields.customerContractPortalAccess, d.customerContractPortalAccess],
+  ]);
   await projectRecord.save();
 
   // Assert
   await projectRecord.verifyRecordCreated();
-  await projectRecord.verifyCompanyName(projectName);
-  await projectRecord.verifyBillToCustomer(d.customerDisplayName);
-  await projectRecord.verifyProjectManager(d.projectManagerDisplayName);
+  await projectRecord.verifyDisplayField(JobFields.companyName,    projectName);
+  await projectRecord.verifyDisplayField(JobFields.billToCustomer, d.customerDisplayName);
+  await projectRecord.verifyDisplayField(JobFields.projectManager, d.projectManagerDisplayName);
 });

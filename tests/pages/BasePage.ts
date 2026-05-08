@@ -1,5 +1,7 @@
 import { expect, Page } from '@playwright/test';
 
+type NsField = { id: string; label: string; input: string };
+
 export class BasePage {
   // Tracks pages that already have a dialog handler registered, so multiple page
   // objects sharing the same page don't register duplicate handlers.
@@ -88,6 +90,36 @@ export class BasePage {
       { id: fieldId, exp: expected },
       { timeout: 10000 },
     );
+  }
+
+  async setField(field: NsField, value: string): Promise<void> {
+    if (field.input === 'nlapi') {
+      await this.page.evaluate(
+        ({ id, v }) => (globalThis as any).nlapiSetFieldValue(id, v, null, true),
+        { id: field.id, v: value },
+      );
+    } else {
+      await this.page.locator(`[name="${field.id}"]`).fill(value);
+    }
+  }
+
+  // Sets multiple fields sequentially. NS field-change events must not overlap.
+  async setFields(entries: [NsField, string][]): Promise<void> {
+    for (const [field, value] of entries) {
+      await this.setField(field, value);
+    }
+  }
+
+  // Edit-mode assertion (before save) — uses nlapiGetFieldValue.
+  async verifyNsField(field: NsField, expected: string): Promise<void> {
+    await this.verifyFieldValue(field.id, expected);
+  }
+
+  // View-mode assertion (after save) — uses the read-only data-field-name element.
+  async verifyDisplayField(field: NsField, expected: string): Promise<void> {
+    await expect(
+      this.page.locator(`[data-field-name="${field.id}"] [data-nsps-type="field_input"]`),
+    ).toHaveText(expected);
   }
 
   // Waits for a sublist line item field to reach the expected value.
