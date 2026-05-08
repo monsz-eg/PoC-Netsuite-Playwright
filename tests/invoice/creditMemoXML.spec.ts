@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import { CUSTOMERS } from '../constants/lookups';
 import { INVOICE_DATA } from '../constants/invoiceData';
 import { ROLES } from '../constants/roles';
@@ -6,6 +7,7 @@ import { CreditMemo } from '../pages/CreditMemo';
 import { InvoiceRecord } from '../pages/InvoiceRecord';
 import { today } from '../utils/dateUtils';
 import { generateMemo, generatePoNumber } from '../utils/nameGenerators';
+import { parsePeppolCreditNote } from '../utils/peppolValidator';
 
 const RANDERSBOLIG = CUSTOMERS.randersbolig;
 
@@ -30,6 +32,7 @@ test.describe.serial('billing responsible credits a Randersbolig invoice and val
     await invoiceRecord.setMemo(memo);
     await invoiceRecord.setPONumber(poNumber);
     await invoiceRecord.setOrderedBy(INVOICE_DATA.orderedById);
+    await invoiceRecord.setShipToAddress(RANDERSBOLIG.shipAddressId);
     await invoiceRecord.addConfiguredLineItem({
       itemText: INVOICE_DATA.lineItemTextFixedFee,
       description: INVOICE_DATA.lineItemDescription,
@@ -68,7 +71,7 @@ test.describe.serial('billing responsible credits a Randersbolig invoice and val
     await creditMemo.verifyCreatedFrom(invoiceNumber);
   });
 
-  test('billing responsible can generate XML e-document with invoice reference', async ({ page }) => {
+  test('billing responsible can generate PEPPOL-compliant XML e-document with invoice reference', async ({ page }) => {
     // Arrange
     const creditMemo = new CreditMemo(page);
     await creditMemo.switchRole(ROLES.egBillingResponsible);
@@ -78,10 +81,19 @@ test.describe.serial('billing responsible credits a Randersbolig invoice and val
     // Act
     await creditMemo.clickGenerateEDocument();
     await creditMemo.openEDocumentTab();
-    const xmlPage = await creditMemo.openXmlPreview();
+    const xml = await creditMemo.downloadXml();
+    fs.writeFileSync('test-results/debug-credit-memo.xml', xml, 'utf-8');
+    const peppol = parsePeppolCreditNote(xml);
 
     // Assert
-    const xmlContent = await xmlPage.content();
-    expect(xmlContent).toContain(invoiceNumber);
+    expect(peppol.customizationId).toBe(
+      'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0',
+    );
+    expect(peppol.profileId).toBe('urn:fdc:peppol.eu:2017:poacc:billing:01:1.0');
+    expect(peppol.creditNoteTypeCode).toBe('381');
+    expect(peppol.documentCurrencyCode).not.toBe('');
+    expect(peppol.billingReferenceId).toBe(invoiceNumber);
+    expect(peppol.hasSupplierParty).toBe(true);
+    expect(peppol.hasCustomerParty).toBe(true);
   });
 });

@@ -37,6 +37,8 @@ export const CUSTOMERS = {
     displayName: '116205 Randersbolig',
     /** NS label: "EG DK" — subsidiary auto-populated from customer */
     subsidiary: '15',
+    /** shipaddresslist address book entry ID — GLN 5790002130182, Marsvej 1, Randers SØ */
+    shipAddressId: '60329',
   },
 } as const;
 

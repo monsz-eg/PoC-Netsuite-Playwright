@@ -415,6 +415,14 @@ export class InvoiceRecord extends BasePage {
     );
   }
 
+  async setShipToAddress(addressId: string): Promise<void> {
+    await this.page.evaluate(
+      (v) => (globalThis as any).nlapiSetFieldValue('shipaddresslist', v, null, true),
+      addressId,
+    );
+    await this.waitForNetSuiteLoad();
+  }
+
   async verifyTranDate(): Promise<void> {
     await expect(
       this.page.locator('[data-field-name="trandate"] [data-nsps-type="field_input"]'),

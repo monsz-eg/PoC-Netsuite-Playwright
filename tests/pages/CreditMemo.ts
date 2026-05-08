@@ -62,12 +62,16 @@ export class CreditMemo extends BasePage {
     await this.waitForNetSuiteLoad();
   }
 
-  async openXmlPreview(): Promise<Page> {
-    // The preview link navigates in the same tab (no target=_blank); wait for that navigation
-    await Promise.all([
-      this.page.waitForURL(/command=preview/, { timeout: 30_000 }),
-      this.page.getByRole('link', { name: /preview creditmemo/i }).click(),
+  async downloadXml(): Promise<string> {
+    const [download] = await Promise.all([
+      this.page.waitForEvent('download'),
+      this.page.getByRole('link', { name: 'download' }).click(),
     ]);
-    return this.page;
+    const stream = await download.createReadStream();
+    const chunks: Buffer[] = [];
+    for await (const chunk of stream) {
+      chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    }
+    return Buffer.concat(chunks).toString('utf-8');
   }
 }
