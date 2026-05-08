@@ -1,0 +1,1760 @@
+{
+  "companyName": {
+    "id": "companyname",
+    "label": "Project Name",
+    "input": "text",
+    "source": "native"
+  },
+  "parent": {
+    "id": "parent",
+    "label": "Parent Record",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "subsidiary": {
+    "id": "subsidiary",
+    "label": "Subsidiary",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "jobType": {
+    "id": "jobtype",
+    "label": "Project Type",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "projectManager": {
+    "id": "projectmanager",
+    "label": "Job Manager",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "schedulingMethod": {
+    "id": "schedulingmethod",
+    "label": "Scheduling Method",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "projectedEndDate": {
+    "id": "projectedenddate",
+    "label": "Estimated End Date",
+    "input": "text",
+    "source": "native"
+  },
+  "entityStatus": {
+    "id": "entitystatus",
+    "label": "Status",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "approvedForTest": {
+    "id": "custentity_approved_for_test",
+    "label": "EG - Approved for Test",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "gcalCalendarId": {
+    "id": "custentity_avt_gcal_calendar_id",
+    "label": "AVT Google Calendar Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "manIsworkcenter": {
+    "id": "custentity_avt_man_isworkcenter",
+    "label": "Is WorkCenter",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "manWorkCenterStarttime": {
+    "id": "custentity_avt_man_work_center_starttime",
+    "label": "Work Center Start Time",
+    "input": "text",
+    "source": "custom"
+  },
+  "mscalCalendarId": {
+    "id": "custentity_avt_mscal_calendar_id",
+    "label": "AVT Microsoft Calendar Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "outlookSyncFailedDate": {
+    "id": "custentity_avt_outlook_sync_failed_date",
+    "label": "Outlook Sync Failed Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "schGroups": {
+    "id": "custentity_avt_sch_groups",
+    "label": "AVT Groups",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schIconImage": {
+    "id": "custentity_avt_sch_icon_image",
+    "label": "Icon Image",
+    "input": "text",
+    "source": "custom"
+  },
+  "schPlannedEndDate": {
+    "id": "custentity_avt_sch_planned_end_date",
+    "label": "Planned End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "schRegions": {
+    "id": "custentity_avt_sch_regions",
+    "label": "AVT Regions",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schResourceAvailability": {
+    "id": "custentity_avt_sch_resource_availability",
+    "label": "AVT Resource Availability",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schSkills": {
+    "id": "custentity_avt_sch_skills",
+    "label": "AVT Skills",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schSkillCode": {
+    "id": "custentity_avt_sch_skill_code",
+    "label": "Skill Code",
+    "input": "text",
+    "source": "custom"
+  },
+  "schWorkcal": {
+    "id": "custentity_avt_sch_workcal",
+    "label": "Sch Work Calendar",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schWorkCenterCapacity": {
+    "id": "custentity_avt_sch_work_center_capacity",
+    "label": "Work Center Capacity (Hour)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "chargeSublistPreferred": {
+    "id": "custentity_charge_sublist_preferred",
+    "label": "Charge Sublist - Preferred Charge Stage",
+    "input": "text",
+    "source": "custom"
+  },
+  "chargeSublistPreferredUse": {
+    "id": "custentity_charge_sublist_preferred_use",
+    "label": "Charge Sublist - Preferred Charge Use",
+    "input": "text",
+    "source": "custom"
+  },
+  "actualAcceptanceTest": {
+    "id": "custentity_eg_actual_acceptance_test",
+    "label": "EG - Actual Approval of User Acceptance Test",
+    "input": "text",
+    "source": "custom"
+  },
+  "actualGoLiveDate": {
+    "id": "custentity_eg_actual_go_live_date",
+    "label": "EG - Actual Go Live Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "addressSelectBillTo": {
+    "id": "custentity_eg_address_select_bill_to",
+    "label": "EG - Address Select (Bill To)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectOrderBy": {
+    "id": "custentity_eg_address_select_order_by",
+    "label": "EG - Address Select (Ordered By)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectPartnerRes": {
+    "id": "custentity_eg_address_select_partner_res",
+    "label": "EG - Address Select (Partner/Reseller)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "adjustedEstimate": {
+    "id": "custentity_eg_adjusted_estimate",
+    "label": "EG - Adjusted Estimate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "aggrInvLayout": {
+    "id": "custentity_eg_aggr_inv_layout",
+    "label": "EG - Aggregated Invoice Layout?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "allowMainProdEdits": {
+    "id": "custentity_eg_allow_main_prod_edits",
+    "label": "EG - Allow Main Product Edits",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "allowProdItemEdits": {
+    "id": "custentity_eg_allow_prod_item_edits",
+    "label": "EG - Allow Product Item Edits",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "allowSubProdEdits": {
+    "id": "custentity_eg_allow_sub_prod_edits",
+    "label": "EG - Allow Sub Product Edits",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "allTasksNonBillable": {
+    "id": "custentity_eg_all_tasks_non_billable",
+    "label": "EG - All Tasks Non-Billable",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "amountToContract": {
+    "id": "custentity_eg_amount_to_contract",
+    "label": "EG - Amount According to Contract",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "approvedFromInterfaceNs": {
+    "id": "custentity_eg_approved_from_interface_ns",
+    "label": "EG - Approved for Interface in NetSuite",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "aproject": {
+    "id": "custentity_eg_aproject",
+    "label": "EG - A-Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "asyncProjCreation": {
+    "id": "custentity_eg_async_proj_creation",
+    "label": "EG – Async Project Creation",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "autoRecognisedRevenue": {
+    "id": "custentity_eg_auto_recognised_revenue",
+    "label": "EG - Automatically Recognised Revenue",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "belongsToSub": {
+    "id": "custentity_eg_belongs_to_sub",
+    "label": "EG - Belongs To Sub",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billtoentityoncustomer": {
+    "id": "custentity_eg_billtoentityoncustomer",
+    "label": "EG - Bill To Entity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billTo": {
+    "id": "custentity_eg_bill_to",
+    "label": "EG - Bill To",
+    "input": "text",
+    "source": "custom"
+  },
+  "billToAddress": {
+    "id": "custentity_eg_bill_to_address",
+    "label": "EG - Bill to Address",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billToAddressKey": {
+    "id": "custentity_eg_bill_to_address_key",
+    "label": "EG - Bill To Address Key",
+    "input": "text",
+    "source": "custom"
+  },
+  "blockedIndicator": {
+    "id": "custentity_eg_blocked_indicator",
+    "label": "EG - Blocked Indicator",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "blockedIndCust": {
+    "id": "custentity_eg_blocked_ind_cust",
+    "label": "EG - Blocked Indicator (Customer)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "blockIntAdmProject": {
+    "id": "custentity_eg_block_int_adm_project",
+    "label": "EG - Block Internal Administration Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "branchOrMainOffice": {
+    "id": "custentity_eg_branch_or_main_office",
+    "label": "EG - Branch or Main Office",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "businessArea": {
+    "id": "custentity_eg_business_area",
+    "label": "EG -  Business Area",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "celigoCalendarId": {
+    "id": "custentity_eg_celigo_calendar_id",
+    "label": "Calendar Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "chain": {
+    "id": "custentity_eg_chain",
+    "label": "EG - Chain",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "closedByScript": {
+    "id": "custentity_eg_closed_by_script",
+    "label": "Closed by MR - Close CSP",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "closeIndefinitely": {
+    "id": "custentity_eg_close_indefinitely",
+    "label": "EG - Close Indefinitely",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "collectiacase": {
+    "id": "custentity_eg_collectiacase",
+    "label": "EG - Collectia Case",
+    "input": "text",
+    "source": "custom"
+  },
+  "companyDunsInd": {
+    "id": "custentity_eg_company_duns_ind",
+    "label": "EG - DUNS Indicator",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "companyDunsNum": {
+    "id": "custentity_eg_company_duns_num",
+    "label": "EG - DUNS Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "contactperson": {
+    "id": "custentity_eg_contactperson",
+    "label": "EG - Contact Person",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contractItemLink": {
+    "id": "custentity_eg_contract_item_link",
+    "label": "EG - Contract Item Link",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contractOrder": {
+    "id": "custentity_eg_contract_order",
+    "label": "EG - Contract/Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "controller": {
+    "id": "custentity_eg_controller",
+    "label": "EG - Controller",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "controllerApprovedDate": {
+    "id": "custentity_eg_controller_approved_date",
+    "label": "EG - Controller Approved Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "controllerApprovedStatus": {
+    "id": "custentity_eg_controller_approved_status",
+    "label": "EG - Controller Approved Status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "copyEmployee": {
+    "id": "custentity_eg_copy_employee",
+    "label": "EG - Copy Employee",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "copyTaxRegNum": {
+    "id": "custentity_eg_copy_tax_reg_num",
+    "label": "EG - Copy TAX REG. NUMBER (SAF-T)",
+    "input": "text",
+    "source": "custom"
+  },
+  "createdfromempl": {
+    "id": "custentity_eg_createdfromempl",
+    "label": "EG - Created from Empl",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "createdfromven": {
+    "id": "custentity_eg_createdfromven",
+    "label": "EG - Created from Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "crmTasksDatesChanges": {
+    "id": "custentity_eg_crm_tasks_dates_changes",
+    "label": "EG - CRM Tasks Dates Changes",
+    "input": "text",
+    "source": "custom"
+  },
+  "customercontrac2": {
+    "id": "custentity_eg_customercontrac2",
+    "label": "EG - Customer Contact Portal Access 2",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customercontrac3": {
+    "id": "custentity_eg_customercontrac3",
+    "label": "EG - Customer Contact Portal Access 3",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customercontractportalacce": {
+    "id": "custentity_eg_customercontractportalacce",
+    "label": "EG - Customer Contact Portal Access 1",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerHasGlnAddress": {
+    "id": "custentity_eg_customer_has_gln_address",
+    "label": "EG - Customer has a GLN address",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerProjectCopy": {
+    "id": "custentity_eg_customer_project_copy",
+    "label": "EG - Project Customer (Copy)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerRelationIndicato": {
+    "id": "custentity_eg_customer_relation_indicato",
+    "label": "EG - Customer Relation Indicator",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dataProtectionAgr": {
+    "id": "custentity_eg_data_protection_agr",
+    "label": "EG - Data Protection Agreement",
+    "input": "text",
+    "source": "custom"
+  },
+  "defaultContEInvoice": {
+    "id": "custentity_eg_default_cont_e_invoice",
+    "label": "EG - Default Contact for E-Invoice",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defaultItemAutoAss": {
+    "id": "custentity_eg_default_item_auto_ass",
+    "label": "EG - Default Service Item for Auto-Assignments",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "deliveryManager": {
+    "id": "custentity_eg_delivery_manager",
+    "label": "EG - Delivery Manager",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "deparmentInternalUse": {
+    "id": "custentity_eg_deparment_internal_use",
+    "label": "EG - Department for Internal Use",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "departmentOrgCode": {
+    "id": "custentity_eg_department_org_code",
+    "label": "EG - Department Org Code",
+    "input": "text",
+    "source": "custom"
+  },
+  "departmentProject": {
+    "id": "custentity_eg_department_project",
+    "label": "EG - Department",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dunningMultiCurrency": {
+    "id": "custentity_eg_dunning_multi_currency",
+    "label": "EG - multi currency balance dunning",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dunningPauseReason": {
+    "id": "custentity_eg_dunning_pause_reason",
+    "label": "EG - Dunning Pause Reason",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dunningProcedure": {
+    "id": "custentity_eg_dunning_procedure",
+    "label": "EG - Dunning Procedure",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dunningProcedureAssign": {
+    "id": "custentity_eg_dunning_procedure_assign",
+    "label": "EG - Dunning Procedure Assignment",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dunningRecipeintEmail": {
+    "id": "custentity_eg_dunning_recipeint_email",
+    "label": "EG - Dunning recipient email",
+    "input": "text",
+    "source": "custom"
+  },
+  "dunningRecipientFromMdm": {
+    "id": "custentity_eg_dunning_recipient_from_mdm",
+    "label": "EG - Dunning Recipient From MDM",
+    "input": "text",
+    "source": "custom"
+  },
+  "edocPackNotNeeded": {
+    "id": "custentity_eg_edoc_pack_not_needed",
+    "label": "EG - E-Document Package Not Needed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "employeeCategory": {
+    "id": "custentity_eg_employee_category",
+    "label": "EG - Employee Category",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "employeeSubBeforeTime": {
+    "id": "custentity_eg_employee_sub_before_time",
+    "label": "EG - Check the Employee Subsidiary before Timesheet",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "entitToOvertime": {
+    "id": "custentity_eg_entit_to_overtime",
+    "label": "Entitled to Overtime",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "estabDate": {
+    "id": "custentity_eg_estab_date",
+    "label": "EG - Establishment Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "euVatValidatedIndicator": {
+    "id": "custentity_eg_eu_vat_validated_indicator",
+    "label": "EG - EU VAT Validated Indicator",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "excludeDunning": {
+    "id": "custentity_eg_exclude_dunning",
+    "label": "EG - Exclude from Dunning",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "exemptToVatIndicator": {
+    "id": "custentity_eg_exempt_to_vat_indicator",
+    "label": "EG - Exempt to VAT indicator",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "existsParentChildRel": {
+    "id": "custentity_eg_exists_parent_child_rel",
+    "label": "EG - Exists in Parent/Child hierarchy",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "externalId": {
+    "id": "custentity_eg_external_id",
+    "label": "EG - Master Data Reference",
+    "input": "text",
+    "source": "custom"
+  },
+  "externalVendorNo": {
+    "id": "custentity_eg_external_vendor_no",
+    "label": "EG - External Vendor Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "externalVendorNumber": {
+    "id": "custentity_eg_external_vendor_number",
+    "label": "EG - External Account Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "eDocPackageFromMdm": {
+    "id": "custentity_eg_e_doc_package_from_mdm",
+    "label": "EG - E-Document Package From MDM",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fik": {
+    "id": "custentity_eg_fik",
+    "label": "EG - FIK?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "financeInlineF": {
+    "id": "custentity_eg_finance_inline_f",
+    "label": "Finance field",
+    "input": "display",
+    "source": "custom"
+  },
+  "finChargeRecipFromMdm": {
+    "id": "custentity_eg_fin_charge_recip_from_mdm",
+    "label": "EG - Finance Charge Recipient From MDM",
+    "input": "text",
+    "source": "custom"
+  },
+  "formerCompanyName": {
+    "id": "custentity_eg_former_company_name",
+    "label": "EG - Former Company Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "fpCommunLanguage": {
+    "id": "custentity_eg_fp_commun_language",
+    "label": "EG - FarPay Communication Language",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpCustRecStatus": {
+    "id": "custentity_eg_fp_cust_rec_status",
+    "label": "EG - FarPay Customer record status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpLatestErroMsg": {
+    "id": "custentity_eg_fp_latest_erro_msg",
+    "label": "EG - Latest error message",
+    "input": "text",
+    "source": "custom"
+  },
+  "fpMandateCreatdWith": {
+    "id": "custentity_eg_fp_mandate_creatd_with",
+    "label": "EG - Mandate created with",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpMandateExpDate": {
+    "id": "custentity_eg_fp_mandate_exp_date",
+    "label": "EG - Mandate expiration date",
+    "input": "text",
+    "source": "custom"
+  },
+  "fpMandateId": {
+    "id": "custentity_eg_fp_mandate_id",
+    "label": "EG - Mandate ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "fpMandateLinkRecipient": {
+    "id": "custentity_eg_fp_mandate_link_recipient",
+    "label": "EG - Mandate link recipient",
+    "input": "text",
+    "source": "custom"
+  },
+  "fpMandateStatus": {
+    "id": "custentity_eg_fp_mandate_status",
+    "label": "EG - Mandate Status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpNoDd": {
+    "id": "custentity_eg_fp_no_dd",
+    "label": "EG - Do not wish to pay via Direct Debit (FarPay)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpPaymtType": {
+    "id": "custentity_eg_fp_paymt_type",
+    "label": "EG - Payment Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpPaymViaFarpay": {
+    "id": "custentity_eg_fp_paym_via_farpay",
+    "label": "EG - Payments via FarPay",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "frequencyToSendSurvey": {
+    "id": "custentity_eg_frequency_to_send_survey",
+    "label": "EG – Frequency to send ongoing survey (days)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "haasprocess": {
+    "id": "custentity_eg_haasprocess",
+    "label": "HAAS Process",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hourlyPaidEmployee": {
+    "id": "custentity_eg_hourly_paid_employee",
+    "label": "EG - Hourly Paid Employee",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hoursToContract": {
+    "id": "custentity_eg_hours_to_contract",
+    "label": "EG - Hours According to Contract",
+    "input": "text",
+    "source": "custom"
+  },
+  "initiateRecalculationSum": {
+    "id": "custentity_eg_initiate_recalculation_sum",
+    "label": "EG - Initiate Recalculation of Sums",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "integratetoservicenow": {
+    "id": "custentity_eg_integratetoservicenow",
+    "label": "EG - Integrate to ServiceNow",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "internaluseManual": {
+    "id": "custentity_eg_internaluse_manual",
+    "label": "EG - Webshop - Internal Use - Manual Receipt",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "internalNoteDunning": {
+    "id": "custentity_eg_internal_note_dunning",
+    "label": "EG - Internal Note",
+    "input": "text",
+    "source": "custom"
+  },
+  "intFailedFirstAtt": {
+    "id": "custentity_eg_int_failed_first_att",
+    "label": "EG - Integration Failed at first attempt",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "intLastSyncFailed": {
+    "id": "custentity_eg_int_last_sync_failed",
+    "label": "EG - Last Synchronization Failed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "invoiceRecipientFromMdm": {
+    "id": "custentity_eg_invoice_recipient_from_mdm",
+    "label": "EG - Invoice Recipient from MDM",
+    "input": "text",
+    "source": "custom"
+  },
+  "invReciMdmToCreate": {
+    "id": "custentity_eg_inv_reci_mdm_to_create",
+    "label": "EG - Invoice recipient from MDM to create",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isdummyemployee": {
+    "id": "custentity_eg_isdummyemployee",
+    "label": "EG - Is Dummy Employee?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ispiremoved": {
+    "id": "custentity_eg_ispiremoved",
+    "label": "EG - Is PI Removed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isActiveOpenair": {
+    "id": "custentity_eg_is_active_openair",
+    "label": "EG - Is Active OpenAir",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isContractor": {
+    "id": "custentity_eg_is_contractor",
+    "label": "EG - Is Contractor ?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isInternalCustomer": {
+    "id": "custentity_eg_is_internal_customer",
+    "label": "EG - Is Internal Customer?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isInternalVendor": {
+    "id": "custentity_eg_is_internal_vendor",
+    "label": "EG - Webshop - Is Internal Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isMva": {
+    "id": "custentity_eg_is_mva",
+    "label": "EG - Is MVA?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isOpenCourse": {
+    "id": "custentity_eg_is_open_course",
+    "label": "EG - Is Open Course",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isPrimarySubInterco": {
+    "id": "custentity_eg_is_primary_sub_interco",
+    "label": "EG - IS PRIMARY SUBSIDIARY FOR INTERCO",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isStandardDelivery": {
+    "id": "custentity_eg_is_standard_delivery",
+    "label": "EG - Is Standard Delivery?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "jobGroupFromMdm": {
+    "id": "custentity_eg_job_group_from_mdm",
+    "label": "EG - Job Group From MDM",
+    "input": "text",
+    "source": "custom"
+  },
+  "jobGroupVend": {
+    "id": "custentity_eg_job_group_vend",
+    "label": "EG - Job Group On Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "jobOrgcode": {
+    "id": "custentity_eg_job_orgcode",
+    "label": "EG - Organizational Code Project",
+    "input": "text",
+    "source": "custom"
+  },
+  "kid": {
+    "id": "custentity_eg_kid",
+    "label": "EG - KID?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "lastCallForDunning": {
+    "id": "custentity_eg_last_call_for_dunning",
+    "label": "EG - Last Call for Dunning",
+    "input": "text",
+    "source": "custom"
+  },
+  "lastDunEvaluationResult": {
+    "id": "custentity_eg_last_dun_evaluation_result",
+    "label": "EG - Last Dunning Evaluation Result",
+    "input": "text",
+    "source": "custom"
+  },
+  "lastEmailSent": {
+    "id": "custentity_eg_last_email_sent",
+    "label": "EG - Last Dunning Email Sent",
+    "input": "text",
+    "source": "custom"
+  },
+  "legacyEmpRecord": {
+    "id": "custentity_eg_legacy_emp_record",
+    "label": "EG - Legacy Employee Record",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "legacySystemRevenue": {
+    "id": "custentity_eg_legacy_system_revenue",
+    "label": "EG - Legacy System Revenue",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "legalEvent": {
+    "id": "custentity_eg_legal_event",
+    "label": "Legal Event",
+    "input": "text",
+    "source": "custom"
+  },
+  "legalEventDate": {
+    "id": "custentity_eg_legal_event_date",
+    "label": "Legal Event Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "legalForm": {
+    "id": "custentity_eg_legal_form",
+    "label": "EG - Legal Form",
+    "input": "text",
+    "source": "custom"
+  },
+  "legalStatus": {
+    "id": "custentity_eg_legal_status",
+    "label": "EG - Legal Status",
+    "input": "text",
+    "source": "custom"
+  },
+  "level": {
+    "id": "custentity_eg_level",
+    "label": "EG - Level",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPpProj": {
+    "id": "custentity_eg_linked_pp_proj",
+    "label": "EG - Linked Prepaid Pool (Project)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainPhoneExtension": {
+    "id": "custentity_eg_main_phone_extension",
+    "label": "EG - Main Phone Extension",
+    "input": "text",
+    "source": "custom"
+  },
+  "manualRecognisedRevenue": {
+    "id": "custentity_eg_manual_recognised_revenue",
+    "label": "EG - Manually Recognised Revenue",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "masterDataKeyEmp": {
+    "id": "custentity_eg_master_data_key_emp",
+    "label": "EG - Master Data Key",
+    "input": "text",
+    "source": "custom"
+  },
+  "masterServiceAgr": {
+    "id": "custentity_eg_master_service_agr",
+    "label": "EG - Master Service Agreement",
+    "input": "text",
+    "source": "custom"
+  },
+  "mastrDataSystmLastRcvd": {
+    "id": "custentity_eg_mastr_data_systm_last_rcvd",
+    "label": "EG - Master Data System Last Received",
+    "input": "text",
+    "source": "custom"
+  },
+  "mastrDataSystmLastSend": {
+    "id": "custentity_eg_mastr_data_systm_last_send",
+    "label": "EG - Master Data System Last Send",
+    "input": "text",
+    "source": "custom"
+  },
+  "mcpTeamsUrl": {
+    "id": "custentity_eg_mcp_teams_url",
+    "label": "EG - Multi-Customer-Project Teams URL",
+    "input": "text",
+    "source": "custom"
+  },
+  "migratedProject": {
+    "id": "custentity_eg_migrated_project",
+    "label": "EG - To update department and new charge rules",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "migratedProjectLegSys": {
+    "id": "custentity_eg_migrated_project_leg_sys",
+    "label": "EG - Migrated Project - Project Number from Legacy System",
+    "input": "text",
+    "source": "custom"
+  },
+  "multisubOnEntities": {
+    "id": "custentity_eg_multisub_on_entities",
+    "label": "(Technical) Multi Subsidiaries on Entities",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "multisubToUpdate": {
+    "id": "custentity_eg_multisub_to_update",
+    "label": "EG - Multi Subsidiaries to update",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "naceCode": {
+    "id": "custentity_eg_nace_code",
+    "label": "EG - NACE Code",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "neverRemoveInOpenair": {
+    "id": "custentity_eg_never_remove_in_openair",
+    "label": "EG - Never Remove In OpenAir",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "newEmpRecSubChange": {
+    "id": "custentity_eg_new_emp_rec_sub_change",
+    "label": "EG - New Employee Record (Sub Change)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "newSubsidiary": {
+    "id": "custentity_eg_new_subsidiary",
+    "label": "EG - New Subsidiary",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "nonDisclosureAgr": {
+    "id": "custentity_eg_non_disclosure_agr",
+    "label": "EG - Non Disclosure Agreement",
+    "input": "text",
+    "source": "custom"
+  },
+  "notReadyForTransactions": {
+    "id": "custentity_eg_not_ready_for_transactions",
+    "label": "EG - Not Ready for Transactions",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "noCustomerStatement": {
+    "id": "custentity_eg_no_customer_statement",
+    "label": "EG - Does not want Customer Statements?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "numberEmployeeInterval": {
+    "id": "custentity_eg_number_employee_interval",
+    "label": "EG - Number of Employee Interval",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "numberOfEmployee": {
+    "id": "custentity_eg_number_of_employee",
+    "label": "EG - Number of Employee",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oaErrorMessage": {
+    "id": "custentity_eg_oa_error_message",
+    "label": "EG - OpenAir - Error Message",
+    "input": "text",
+    "source": "custom"
+  },
+  "ocr": {
+    "id": "custentity_eg_ocr",
+    "label": "EG  - OCR?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "officePhoneExt": {
+    "id": "custentity_eg_office_phone_ext",
+    "label": "EG - Office Phone Extension",
+    "input": "text",
+    "source": "custom"
+  },
+  "onetimeVendor": {
+    "id": "custentity_eg_onetime_vendor",
+    "label": "EG - One time Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "openairId": {
+    "id": "custentity_eg_openair_id",
+    "label": "EG - OpenAir - ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "openForCreditmemo": {
+    "id": "custentity_eg_open_for_creditmemo",
+    "label": "EG - Open for Credit Memo",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "orderedBy": {
+    "id": "custentity_eg_ordered_by",
+    "label": "EG - Ordered By",
+    "input": "text",
+    "source": "custom"
+  },
+  "orderedByAddress": {
+    "id": "custentity_eg_ordered_by_address",
+    "label": "EG - Ordered by Address",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "orderedByEndUser": {
+    "id": "custentity_eg_ordered_by_end_user",
+    "label": "EG - Ordered By/End User",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "organizationalcode": {
+    "id": "custentity_eg_organizationalcode",
+    "label": "EG - Organizational Code",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "originalBudgetAmount": {
+    "id": "custentity_eg_original_budget_amount",
+    "label": "EG - Original Budget Amount",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "originalBudgetExpenses": {
+    "id": "custentity_eg_original_budget_expenses",
+    "label": "EG - Original Budget Expenses",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "originalBudgetHours": {
+    "id": "custentity_eg_original_budget_hours",
+    "label": "EG - Original Budget Hours",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ourReference": {
+    "id": "custentity_eg_our_reference",
+    "label": "EG - Our Reference",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "overallStatusComments": {
+    "id": "custentity_eg_overall_status_comments",
+    "label": "EG - Overall Status Comments",
+    "input": "text",
+    "source": "custom"
+  },
+  "overtimeCalRule": {
+    "id": "custentity_eg_overtime_cal_rule",
+    "label": "Overtime Calculation Rule",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "parentProject": {
+    "id": "custentity_eg_parent_project",
+    "label": "EG - Parent Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "partnerReseller": {
+    "id": "custentity_eg_partner_reseller",
+    "label": "EG - Partner/Reseller",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "pauseDunning": {
+    "id": "custentity_eg_pause_dunning",
+    "label": "EG - Pause Dunning",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "physicalTerminationDate": {
+    "id": "custentity_eg_physical_termination_date",
+    "label": "EG - Physical Termination Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plannedWorkApprovalBy": {
+    "id": "custentity_eg_planned_work_approval_by",
+    "label": "EG - Planned work Approval By",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plannedWorkApprovalDate": {
+    "id": "custentity_eg_planned_work_approval_date",
+    "label": "EG - Planned Work Approved per Balance Sheet Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "powerToBind": {
+    "id": "custentity_eg_power_to_bind",
+    "label": "EG - Power to Bind",
+    "input": "text",
+    "source": "custom"
+  },
+  "poNumberProject": {
+    "id": "custentity_eg_po_number_project",
+    "label": "EG - PO Number (Project)",
+    "input": "text",
+    "source": "custom"
+  },
+  "previousRoles": {
+    "id": "custentity_eg_previous_roles",
+    "label": "EG - Previously Assigned Roles",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "pricingModel": {
+    "id": "custentity_eg_pricing_model",
+    "label": "EG - Pricing Model",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "primaryCountry": {
+    "id": "custentity_eg_primary_country",
+    "label": "EG - Primary Country",
+    "input": "text",
+    "source": "custom"
+  },
+  "printOrderedBy": {
+    "id": "custentity_eg_print_ordered_by",
+    "label": "EG - Print Ordered By",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "printShipTo": {
+    "id": "custentity_eg_print_ship_to",
+    "label": "EG - Print Ship To",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "productItemSupplier": {
+    "id": "custentity_eg_product_item_supplier",
+    "label": "EG - Product Item Supplier",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemIsMainProd": {
+    "id": "custentity_eg_prod_item_is_main_prod",
+    "label": "EG - Is Main Product?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemIsSubProd": {
+    "id": "custentity_eg_prod_item_is_sub_prod",
+    "label": "EG - Is Sub Product?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectClosedDate": {
+    "id": "custentity_eg_project_closed_date",
+    "label": "EG - Project Closed Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectCommitteChairman": {
+    "id": "custentity_eg_project_committe_chairman",
+    "label": "EG - Project Steering Committee Chairman",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectDescription": {
+    "id": "custentity_eg_project_description",
+    "label": "EG - Project Description",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectGovCat": {
+    "id": "custentity_eg_project_gov_cat",
+    "label": "EG - Project Governance Category",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectShortName": {
+    "id": "custentity_eg_project_short_name",
+    "label": "EG - Project Short Description (20 Char)",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectTasksExportFile": {
+    "id": "custentity_eg_project_tasks_export_file",
+    "label": "EG - Project Tasks Export File",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectTemplateSub": {
+    "id": "custentity_eg_project_template_sub",
+    "label": "EG - Project Template Subsidiary",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projLinkPrepPool": {
+    "id": "custentity_eg_proj_link_prep_pool",
+    "label": "EG - Project Linked to Prepaid Pool",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "rating": {
+    "id": "custentity_eg_rating",
+    "label": "EG - Rating",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "realTerminationDate": {
+    "id": "custentity_eg_real_termination_date",
+    "label": "EG - Real Termination Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "reasonBlocked": {
+    "id": "custentity_eg_reason_blocked",
+    "label": "EG - Blocking Reason",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "recalculateSums": {
+    "id": "custentity_eg_recalculate_sums",
+    "label": "EG - Recalculate Sums",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "regCountry": {
+    "id": "custentity_eg_reg_country",
+    "label": "EG - Company Registration Country",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "regNumber": {
+    "id": "custentity_eg_reg_number",
+    "label": "EG - Company Registration Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "remainingWork": {
+    "id": "custentity_eg_remaining_work",
+    "label": "EG - Remaining Work",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revAllocFromParent": {
+    "id": "custentity_eg_rev_alloc_from_parent",
+    "label": "EG - Revenue Allocation % from Parent",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "roundingMinutes": {
+    "id": "custentity_eg_rounding_minutes",
+    "label": "EG - Rounding Minutes",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "roundingType": {
+    "id": "custentity_eg_rounding_type",
+    "label": "EG - Rounding Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "salesRepInitials": {
+    "id": "custentity_eg_sales_rep_initials",
+    "label": "EG - Sales Rep Initials",
+    "input": "text",
+    "source": "custom"
+  },
+  "sbCurrency": {
+    "id": "custentity_eg_sb_currency",
+    "label": "EG - Silverbucket Currency",
+    "input": "text",
+    "source": "custom"
+  },
+  "sbProjectType": {
+    "id": "custentity_eg_sb_project_type",
+    "label": "EG - Silverbucket Project Type",
+    "input": "text",
+    "source": "custom"
+  },
+  "scheduledAcceptanceTest": {
+    "id": "custentity_eg_scheduled_acceptance_test",
+    "label": "EG - Scheduled Approval of User Acceptance Test",
+    "input": "text",
+    "source": "custom"
+  },
+  "scheduledGoLiveDate": {
+    "id": "custentity_eg_scheduled_go_live_date",
+    "label": "EG - Scheduled Go Live Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "sdReadyForBilling": {
+    "id": "custentity_eg_sd_ready_for_billing",
+    "label": "EG - Standard Delivery Ready for Billing?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sendsurveyPr": {
+    "id": "custentity_eg_sendsurvey_pr",
+    "label": "EG - Send Final Survey from ServiceNow",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sendReopenNotification": {
+    "id": "custentity_eg_send_reopen_notification",
+    "label": "EG - Send Project Re-Open Notification Mail",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sendTransactionViaEmail": {
+    "id": "custentity_eg_send_transaction_via_email",
+    "label": "EG - Send Transaction via Email",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "serviceitemfortimebased": {
+    "id": "custentity_eg_serviceitemfortimebased",
+    "label": "EG - Service Item for Time-based and Purchase rules",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "servicenowdescription": {
+    "id": "custentity_eg_servicenowdescription",
+    "label": "EG - ServiceNow Description",
+    "input": "text",
+    "source": "custom"
+  },
+  "setProjecttaskToExport": {
+    "id": "custentity_eg_set_projecttask_to_export",
+    "label": "EG - Set Project Task To Export",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "shipTo": {
+    "id": "custentity_eg_ship_to",
+    "label": "EG - Ship To",
+    "input": "text",
+    "source": "custom"
+  },
+  "shipToAddressKey": {
+    "id": "custentity_eg_ship_to_address_key",
+    "label": "EG - Ship To Address Key",
+    "input": "text",
+    "source": "custom"
+  },
+  "shipToEntity": {
+    "id": "custentity_eg_ship_to_entity",
+    "label": "EG - Ship to Entity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "skiFrameAgreement": {
+    "id": "custentity_eg_ski_frame_agreement",
+    "label": "EG - SKI Frame Agreement",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ssProjectTaskExport": {
+    "id": "custentity_eg_ss_project_task_export",
+    "label": "EG - Saved Search For Project Tasks Export",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "statementRecipFromMdm": {
+    "id": "custentity_eg_statement_recip_from_mdm",
+    "label": "EG - Statement Recipient from MDM",
+    "input": "text",
+    "source": "custom"
+  },
+  "subsidiaryName": {
+    "id": "custentity_eg_subsidiary_name",
+    "label": "EG - Subsidiary Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "subAgreement": {
+    "id": "custentity_eg_sub_agreement",
+    "label": "EG - SKI Sub Agreement",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sumupfrombutton": {
+    "id": "custentity_eg_sumupfrombutton",
+    "label": "Status Sum Up of Project amount/hours from button",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "supervisor": {
+    "id": "custentity_eg_supervisor",
+    "label": "EG - Supervisor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "supervisorInitials": {
+    "id": "custentity_eg_supervisor_initials",
+    "label": "EG - Supervisor initials",
+    "input": "text",
+    "source": "custom"
+  },
+  "supportTemplate": {
+    "id": "custentity_eg_support_template",
+    "label": "EG - Is Support Template?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "teamsGroupIdExt": {
+    "id": "custentity_eg_teams_group_id_ext",
+    "label": "EG - Teams Group Id - External",
+    "input": "text",
+    "source": "custom"
+  },
+  "teamsGroupIdInt": {
+    "id": "custentity_eg_teams_group_id_int",
+    "label": "EG - Teams Group Id - Internal",
+    "input": "text",
+    "source": "custom"
+  },
+  "technicalUser": {
+    "id": "custentity_eg_technical_user",
+    "label": "EG - Technical User - DO NOT DELETE",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "todaydatevendor": {
+    "id": "custentity_eg_todaydatevendor",
+    "label": "EG - Today date (Vendor)",
+    "input": "text",
+    "source": "custom"
+  },
+  "totalRecognisedRevenue": {
+    "id": "custentity_eg_total_recognised_revenue",
+    "label": "EG - Total Recognised Revenue",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "toBeUsedOnSalesOrders": {
+    "id": "custentity_eg_to_be_used_on_sales_orders",
+    "label": "EG - To Be Used on Sales Orders",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "trackLegalNameChanges": {
+    "id": "custentity_eg_track_legal_name_changes",
+    "label": "EG - Legal Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "trainingStartDate": {
+    "id": "custentity_eg_training_start_date",
+    "label": "EG - Training Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "transferassignmenttovenemp": {
+    "id": "custentity_eg_transferassignmenttovenemp",
+    "label": "EG - Transfer Assignment to Vendor/Employee",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "transferAssignNewSub": {
+    "id": "custentity_eg_transfer_assign_new_sub",
+    "label": "EG - Transfer Assignement On New Sub.",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "transferInProgress": {
+    "id": "custentity_eg_transfer_in_progress",
+    "label": "EG - Transfer of Project Task Assignement in Progress",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "transferToEntityErr": {
+    "id": "custentity_eg_transfer_to_entity_err",
+    "label": "EG - Transfer in Error",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "triggerChargeRun": {
+    "id": "custentity_eg_trigger_charge_run",
+    "label": "EG - Trigger Charge Run",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendorapprovalstatus": {
+    "id": "custentity_eg_vendorapprovalstatus",
+    "label": "EG - Vendor Approval Status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendorsupervisor": {
+    "id": "custentity_eg_vendorsupervisor",
+    "label": "EG - Supervisor Non Onboarded Employee",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopBillCurrency": {
+    "id": "custentity_eg_webshop_bill_currency",
+    "label": "EG - Webshop Bill Currency",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopInternalCustomer": {
+    "id": "custentity_eg_webshop_internal_customer",
+    "label": "EG - Webshop Internal Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopLocation": {
+    "id": "custentity_eg_webshop_location",
+    "label": "EG - Webshop Location",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "workerNumber": {
+    "id": "custentity_eg_worker_number",
+    "label": "EG - Worker Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "yourReference": {
+    "id": "custentity_eg_your_reference",
+    "label": "EG - Your Reference",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "custInfUptd": {
+    "id": "custentity_fp_cust_inf_uptd",
+    "label": "EG - Customer info last updated:",
+    "input": "text",
+    "source": "custom"
+  },
+  "copyFieldProjectType": {
+    "id": "custentity_oa_copy_field_project_type",
+    "label": "EG OA Copy Field Project Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "allowedKsefAutomation": {
+    "id": "custentity_plp_allowed_ksef_automation",
+    "label": "PLP Allow automation for KSeF",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "bankAccountNumber": {
+    "id": "custentity_plp_bank_account_number",
+    "label": "PLP Primary Bank Account Number",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "bic": {
+    "id": "custentity_plp_bic",
+    "label": "PLP BIC",
+    "input": "text",
+    "source": "custom"
+  },
+  "bpOmitWhitelistCheck": {
+    "id": "custentity_plp_bp_omit_whitelist_check",
+    "label": "PLP Omit in Whitelist Checking",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "class": {
+    "id": "custentity_plp_class",
+    "label": "PLP Class",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defaultBillingAddressee": {
+    "id": "custentity_plp_default_billing_addressee",
+    "label": "PLP Default billing addressee",
+    "input": "text",
+    "source": "custom"
+  },
+  "department": {
+    "id": "custentity_plp_department",
+    "label": "PLP Department",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fullLengthName": {
+    "id": "custentity_plp_full_length_name",
+    "label": "PLP Full Length Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "iban": {
+    "id": "custentity_plp_iban",
+    "label": "PLP IBAN",
+    "input": "text",
+    "source": "custom"
+  },
+  "ksefImportDefaultAcct": {
+    "id": "custentity_plp_ksef_import_default_acct",
+    "label": "PLP KSeF Import Default Account",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ksefImportDefaultItem": {
+    "id": "custentity_plp_ksef_import_default_item",
+    "label": "KSeF Default Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "lastBalanceConfirm": {
+    "id": "custentity_plp_last_balance_confirm",
+    "label": "PLP Last Balance Confirmation",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "lastVatValid": {
+    "id": "custentity_plp_last_vat_valid",
+    "label": "PLP Last VAT valid on",
+    "input": "text",
+    "source": "custom"
+  },
+  "location": {
+    "id": "custentity_plp_location",
+    "label": "PLP Location",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "regon": {
+    "id": "custentity_plp_regon",
+    "label": "PLP Regon",
+    "input": "text",
+    "source": "custom"
+  },
+  "response": {
+    "id": "custentity_plp_response",
+    "label": "PLP Whitelist Status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "responseVat": {
+    "id": "custentity_plp_response_vat",
+    "label": "PLP VAT Validity status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "selfRecordEntity": {
+    "id": "custentity_plp_self_record_entity",
+    "label": "PLP Self record (entity)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subordLocalGovUnit": {
+    "id": "custentity_plp_subord_local_gov_unit",
+    "label": "PLP Subordinate unit of a local government unit",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vatRegCountry": {
+    "id": "custentity_plp_vat_reg_country",
+    "label": "PLP VAT registration country",
+    "input": "text",
+    "source": "custom"
+  },
+  "vatStatus": {
+    "id": "custentity_plp_vat_status",
+    "label": "PLP VAT Validation status",
+    "input": "text",
+    "source": "custom"
+  },
+  "vatValidity": {
+    "id": "custentity_plp_vat_validity",
+    "label": "PLP VAT Validity Last Check",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectCategory": {
+    "id": "custentity_project_category",
+    "label": "EG - Project Category",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "transfertoemplVen": {
+    "id": "custentity_transfertoempl_ven",
+    "label": "EG - To Transfer to Empl/Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  }
+}

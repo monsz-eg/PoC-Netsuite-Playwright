@@ -1,0 +1,1484 @@
+{
+  "title": {
+    "id": "title",
+    "label": "Name",
+    "input": "text",
+    "source": "native"
+  },
+  "startDate": {
+    "id": "startdate",
+    "label": "Start Date",
+    "input": "text",
+    "source": "inferred"
+  },
+  "finishByDate": {
+    "id": "finishbydate",
+    "label": "Finish No Later Than",
+    "input": "text",
+    "source": "native"
+  },
+  "plannedWork": {
+    "id": "plannedwork",
+    "label": "Planned Work",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "status": {
+    "id": "status",
+    "label": "Status",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "company": {
+    "id": "company",
+    "label": "Project",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "activityCode": {
+    "id": "cseg_paactivitycode",
+    "label": "PA - Activity Code",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "mainProduct": {
+    "id": "cseg_eg_main_prod",
+    "label": "EG - Main Product",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProduct": {
+    "id": "cseg_eg_sub_prod",
+    "label": "EG - Sub Product",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "productItem": {
+    "id": "cseg_eg_prod_item",
+    "label": "EG - Product Item",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "projectCategory": {
+    "id": "custevent_project_category",
+    "label": "EG - Project Category",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defaultItemAutoAss": {
+    "id": "custevent_eg_default_item_auto_ass",
+    "label": "EG - Default Service Item for Auto-Assignments",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectCustomerCopy": {
+    "id": "custevent_eg_project_customer_copy",
+    "label": "EG - Project Customer (Copy)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "toBeIfrsAdjust": {
+    "id": "custeventcustevent_eg_to_be_ifrs_adjust",
+    "label": "EG - To be IFRS adjusted",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "celigoOutlookEventId": {
+    "id": "custeventeg_celigo_outlook_event_id",
+    "label": "Outlook Event Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "actualtime": {
+    "id": "custevent_avt_actualtime",
+    "label": "Actual Time",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "calEventMarkToDelete": {
+    "id": "custevent_avt_cal_event_mark_to_delete",
+    "label": "AVT Outlook Event Marked to Delete",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "calOutlookLastmodifie": {
+    "id": "custevent_avt_cal_outlook_lastmodifie",
+    "label": "AVT Last Modified Date Time (Outlook Event)",
+    "input": "text",
+    "source": "custom"
+  },
+  "calOwner": {
+    "id": "custevent_avt_cal_owner",
+    "label": "AVT Owner",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "calSeriesmasterid": {
+    "id": "custevent_avt_cal_seriesmasterid",
+    "label": "Event Series Master Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "calShowAs": {
+    "id": "custevent_avt_cal_show_as",
+    "label": "Show As",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "company2": {
+    "id": "custevent_avt_company",
+    "label": "Company",
+    "input": "text",
+    "source": "custom"
+  },
+  "endtimeCopy": {
+    "id": "custevent_avt_endtime_copy",
+    "label": "End Time (Copy)",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalCalendarEventJson": {
+    "id": "custevent_avt_gcal_calendar_event_json",
+    "label": "AVT Calendar Event Resource Status",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalCalendarEventSent": {
+    "id": "custevent_avt_gcal_calendar_event_sent",
+    "label": "AVT Google Calendar Event Sent",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalCalendarId": {
+    "id": "custevent_avt_gcal_calendar_id",
+    "label": "AVT Google Calendar Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalEventAttendees": {
+    "id": "custevent_avt_gcal_event_attendees",
+    "label": "AVT Calendar Event - Additional Attendees",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalEventDescription": {
+    "id": "custevent_avt_gcal_event_description",
+    "label": "AVT Calendar Event - Description",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "gcalEventId": {
+    "id": "custevent_avt_gcal_event_id",
+    "label": "AVT Google Calendar Event Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalEventLocation": {
+    "id": "custevent_avt_gcal_event_location",
+    "label": "AVT Calendar Event - Location",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalEventSummary": {
+    "id": "custevent_avt_gcal_event_summary",
+    "label": "AVT Calendar Event - Summary",
+    "input": "text",
+    "source": "custom"
+  },
+  "gcalEventSyncRequired": {
+    "id": "custevent_avt_gcal_event_sync_required",
+    "label": "AVT Google Calendar Event Sync Required",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isprocessed": {
+    "id": "custevent_avt_isprocessed",
+    "label": "Is mass update processed?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mscalCalendarEventSent": {
+    "id": "custevent_avt_mscal_calendar_event_sent",
+    "label": "AVT Microsoft Calendar Event Sent",
+    "input": "text",
+    "source": "custom"
+  },
+  "mscalCalendarId": {
+    "id": "custevent_avt_mscal_calendar_id",
+    "label": "AVT Microsoft Calendar Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "mscalEventId": {
+    "id": "custevent_avt_mscal_event_id",
+    "label": "AVT Microsoft Calendar Event Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "mscalEventInError": {
+    "id": "custevent_avt_mscal_event_in_error",
+    "label": "AVT Microsoft Calendar Event in Error",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mscalEventObject": {
+    "id": "custevent_avt_mscal_event_object",
+    "label": "AVT Microsoft Calendar Event Object",
+    "input": "text",
+    "source": "custom"
+  },
+  "mscalEventSyncRequired": {
+    "id": "custevent_avt_mscal_event_sync_required",
+    "label": "AVT Microsoft Calendar Event Sync Required",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mscalTaskChangeControl": {
+    "id": "custevent_avt_mscal_task_change_control",
+    "label": "AVT Task Change Control",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "resourceinitials": {
+    "id": "custevent_avt_resourceinitials",
+    "label": "Resource Initials",
+    "input": "text",
+    "source": "custom"
+  },
+  "schActDuration": {
+    "id": "custevent_avt_sch_act_duration",
+    "label": "Actual Duration (Hour)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schBudgetedDuration": {
+    "id": "custevent_avt_sch_budgeted_duration",
+    "label": "Calculated Duration (Hour)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schDailyAllocation": {
+    "id": "custevent_avt_sch_daily_allocation",
+    "label": "Daily Allocation",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schDailyDurationJson": {
+    "id": "custevent_avt_sch_daily_duration_json",
+    "label": "Daily Duration (JSON String)",
+    "input": "text",
+    "source": "custom"
+  },
+  "schDaysOfWeek": {
+    "id": "custevent_avt_sch_days_of_week",
+    "label": "Booking Day",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schDuration": {
+    "id": "custevent_avt_sch_duration",
+    "label": "Duration (Hour)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schEndTime": {
+    "id": "custevent_avt_sch_end_time",
+    "label": "Scheduler End Time",
+    "input": "text",
+    "source": "custom"
+  },
+  "schIncludeHolidays": {
+    "id": "custevent_avt_sch_include_holidays",
+    "label": "Include holidays",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schIncludeWeekends": {
+    "id": "custevent_avt_sch_include_weekends",
+    "label": "Include Weekends",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schLinkedProjectTask": {
+    "id": "custevent_avt_sch_linked_project_task",
+    "label": "Linked Project Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schMonthlyDurationJson": {
+    "id": "custevent_avt_sch_monthly_duration_json",
+    "label": "Monthly Duration (JSON string)",
+    "input": "text",
+    "source": "custom"
+  },
+  "schPlannedDuration": {
+    "id": "custevent_avt_sch_planned_duration",
+    "label": "Planned Duration (Hours)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schPlannedEndDate": {
+    "id": "custevent_avt_sch_planned_end_date",
+    "label": "Planned End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "schPlannedStartDate": {
+    "id": "custevent_avt_sch_planned_start_date",
+    "label": "Planned Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "schSupportcaseId": {
+    "id": "custevent_avt_sch_supportcase_id",
+    "label": "Support Case (Copy)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schTaskCategory": {
+    "id": "custevent_avt_sch_task_category",
+    "label": "Scheduler Task Category",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schTaskExpMaster": {
+    "id": "custevent_avt_sch_task_exp_master",
+    "label": "Sch Exception JSON Master",
+    "input": "text",
+    "source": "custom"
+  },
+  "schTaskPriority": {
+    "id": "custevent_avt_sch_task_priority",
+    "label": "Scheduler Task Priority",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schTaskStage": {
+    "id": "custevent_avt_sch_task_stage",
+    "label": "Scheduler Task Stage",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schTaskTitleTemplate": {
+    "id": "custevent_avt_sch_task_title_template",
+    "label": "Task Title Template",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "schTimesheetMemo": {
+    "id": "custevent_avt_sch_timesheet_memo",
+    "label": "Timesheet Memo",
+    "input": "text",
+    "source": "custom"
+  },
+  "egasOaTaskIntId": {
+    "id": "custevent_egas_oa_task_int_id",
+    "label": "OpenAir Project Task Id",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "absenceCode": {
+    "id": "custevent_eg_absence_code",
+    "label": "EG - Absence Code",
+    "input": "text",
+    "source": "custom"
+  },
+  "absenceTask": {
+    "id": "custevent_eg_absence_task",
+    "label": "EG - Absence Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "acceptanceRequestSentOn": {
+    "id": "custevent_eg_acceptance_request_sent_on",
+    "label": "EG - Acceptance Request Sent On",
+    "input": "text",
+    "source": "custom"
+  },
+  "acceptanceStatus": {
+    "id": "custevent_eg_acceptance_status",
+    "label": "EG - Acceptance Status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectBillTo": {
+    "id": "custevent_eg_address_select_bill_to",
+    "label": "EG - Address Select (Bill To)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectIntCustome": {
+    "id": "custevent_eg_address_select_int_custome",
+    "label": "EG - Address Select (Internal Customer)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectOrderBy": {
+    "id": "custevent_eg_address_select_order_by",
+    "label": "EG - Address Select (Ordered By)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectPartnerRes": {
+    "id": "custevent_eg_address_select_partner_res",
+    "label": "EG - Address Select (Partner/Reseller)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "adjustedEstimate": {
+    "id": "custevent_eg_adjusted_estimate",
+    "label": "EG - Adjusted Estimate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "agreementReqExpireAfter": {
+    "id": "custevent_eg_agreement_req_expire_after",
+    "label": "EG - Agreement Req. Expire After",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "amountToContract": {
+    "id": "custevent_eg_amount_to_contract",
+    "label": "EG - Amount According to Contract",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "approvedInItsm": {
+    "id": "custevent_eg_approved_in_itsm",
+    "label": "EG - Approved in Service Now",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "assigneeEmail": {
+    "id": "custevent_eg_assignee_email",
+    "label": "Assignee Email",
+    "input": "text",
+    "source": "custom"
+  },
+  "billingAddressDisclaim": {
+    "id": "custevent_eg_billing_address_disclaim",
+    "label": "EG - Billing Address Disclaimer",
+    "input": "display",
+    "source": "custom"
+  },
+  "billToCrm": {
+    "id": "custevent_eg_bill_to_crm",
+    "label": "EG - Bill To (CRM Task)",
+    "input": "text",
+    "source": "custom"
+  },
+  "billToPt": {
+    "id": "custevent_eg_bill_to_pt",
+    "label": "EG - Bill To (Project Task)",
+    "input": "text",
+    "source": "custom"
+  },
+  "billToTd": {
+    "id": "custevent_eg_bill_to_td",
+    "label": "EG - Bill To (Task Delivery)",
+    "input": "text",
+    "source": "custom"
+  },
+  "celigoLastmodified": {
+    "id": "custevent_eg_celigo_lastmodified",
+    "label": "Last Modified By Celigo",
+    "input": "text",
+    "source": "custom"
+  },
+  "celigoOutlookSub": {
+    "id": "custevent_eg_celigo_outlook_sub",
+    "label": "Outlook subject",
+    "input": "text",
+    "source": "custom"
+  },
+  "celigoSeriesMasterId": {
+    "id": "custevent_eg_celigo_series_master_id",
+    "label": "Series Master Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "changeRequestedDate": {
+    "id": "custevent_eg_change_requested_date",
+    "label": "EG - Change Requested Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "changeRequestFlow": {
+    "id": "custevent_eg_change_request_flow",
+    "label": "EG - Change Request Flow",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "chargeRule": {
+    "id": "custevent_eg_charge_rule",
+    "label": "EG - Charge Rule",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "childCustTaskDelivery": {
+    "id": "custevent_eg_child_cust_task_delivery",
+    "label": "EG - Child Customer Task Delivery",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ciSalesItemExternalId": {
+    "id": "custevent_eg_ci_sales_item_external_id",
+    "label": "EG - Contract Item - Sales Item External Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "closeAllSubtasks": {
+    "id": "custevent_eg_close_all_subtasks",
+    "label": "EG - Close all subtasks",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contactForCustAccept": {
+    "id": "custevent_eg_contact_for_cust_accept",
+    "label": "EG - Contact For Customer Acceptance",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contactNameFromItsm": {
+    "id": "custevent_eg_contact_name_from_itsm",
+    "label": "EG - Contact Name From ITSM",
+    "input": "text",
+    "source": "custom"
+  },
+  "contractItemCustomer": {
+    "id": "custevent_eg_contract_item_customer",
+    "label": "EG - Contract Item Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contractItemDepartment": {
+    "id": "custevent_eg_contract_item_department",
+    "label": "EG - Contract Item Department",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contractItemDescription": {
+    "id": "custevent_eg_contract_item_description",
+    "label": "EG - Contract Item - Sales Description (short)",
+    "input": "text",
+    "source": "custom"
+  },
+  "contractItemEndDate": {
+    "id": "custevent_eg_contract_item_end_date",
+    "label": "EG - Contract Item End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "contractItemExternalId": {
+    "id": "custevent_eg_contract_item_external_id",
+    "label": "EG - Contract Item External Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "contractItemItem": {
+    "id": "custevent_eg_contract_item_item",
+    "label": "EG - Contract Item - Sales Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contractItemLink": {
+    "id": "custevent_eg_contract_item_link",
+    "label": "EG - Contract Item Link",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "contractItemName": {
+    "id": "custevent_eg_contract_item_name",
+    "label": "EG - Contract Item Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "contractItemStartDate": {
+    "id": "custevent_eg_contract_item_start_date",
+    "label": "EG - Contract Item Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "createdFromEmailPlugin": {
+    "id": "custevent_eg_created_from_email_plugin",
+    "label": "EG - Created via email plugin",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "crmCase": {
+    "id": "custevent_eg_crm_case",
+    "label": "EG - CRM Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "crmTasksDatesChanges": {
+    "id": "custevent_eg_crm_tasks_dates_changes",
+    "label": "EG - CRM Tasks Dates Changes",
+    "input": "text",
+    "source": "custom"
+  },
+  "crApprovedDate": {
+    "id": "custevent_eg_cr_approved_date",
+    "label": "EG - Change Request Approved Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "customer": {
+    "id": "custevent_eg_customer",
+    "label": "EG - Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerLanguage": {
+    "id": "custevent_eg_customer_language",
+    "label": "EG - Customer Language",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerName": {
+    "id": "custevent_eg_customer_name",
+    "label": "EG - Customer Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "customerReference": {
+    "id": "custevent_eg_customer_reference",
+    "label": "EG - Customer Reference (Rekvisitionsnummer)",
+    "input": "text",
+    "source": "custom"
+  },
+  "customerVat": {
+    "id": "custevent_eg_customer_vat",
+    "label": "EG - Customer VAT",
+    "input": "text",
+    "source": "custom"
+  },
+  "dateTdReviewed": {
+    "id": "custevent_eg_date_td_reviewed",
+    "label": "EG - Date Reviewed",
+    "input": "text",
+    "source": "custom"
+  },
+  "defaultItemAutoAss2": {
+    "id": "custevent_eg_default_item_auto_ass",
+    "label": "EG - Default Service Item for Auto-Assignments",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "deliveryAddressDisclaim": {
+    "id": "custevent_eg_delivery_address_disclaim",
+    "label": "EG - Delivery Address Disclaimer",
+    "input": "display",
+    "source": "custom"
+  },
+  "deliverToEntity": {
+    "id": "custevent_eg_deliver_to_entity",
+    "label": "EG - Deliver to Entity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "docusignUuid": {
+    "id": "custevent_eg_docusign_uuid",
+    "label": "EG - DocuSign UUID Workflow",
+    "input": "text",
+    "source": "custom"
+  },
+  "docusingErrorMessage": {
+    "id": "custevent_eg_docusing_error_message",
+    "label": "EG - DocuSign Error Message",
+    "input": "text",
+    "source": "custom"
+  },
+  "egEmail": {
+    "id": "custevent_eg_eg_email",
+    "label": "EG - EG Email",
+    "input": "text",
+    "source": "custom"
+  },
+  "egSender": {
+    "id": "custevent_eg_eg_sender",
+    "label": "EG - EG Sender",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "eligibleForCap": {
+    "id": "custevent_eg_eligible_for_cap",
+    "label": "EG - Eligible for Capitalization",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "eligibleSkattefunn": {
+    "id": "custevent_eg_eligible_skattefunn",
+    "label": "EG - Eligible for skattefunn",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "endDateManual": {
+    "id": "custevent_eg_end_date_manual",
+    "label": "EG - End Date (Manual)",
+    "input": "text",
+    "source": "custom"
+  },
+  "errorMessage": {
+    "id": "custevent_eg_error_message",
+    "label": "EG - Error Message",
+    "input": "text",
+    "source": "custom"
+  },
+  "excludeTimeValidation": {
+    "id": "custevent_eg_exclude_time_validation",
+    "label": "EG - Exclude Time Validaiton",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "externalReferenceProTa": {
+    "id": "custevent_eg_external_reference_pro_ta",
+    "label": "EG - External Reference",
+    "input": "text",
+    "source": "custom"
+  },
+  "externalTeamsSite": {
+    "id": "custevent_eg_external_teams_site",
+    "label": "EG - External Teams Site",
+    "input": "text",
+    "source": "custom"
+  },
+  "failedToSynchronizeDs": {
+    "id": "custevent_eg_failed_to_synchronize_ds",
+    "label": "EG - Failed To Synchronize to DocuSign",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fieldHelpReplacedBy": {
+    "id": "custevent_eg_field_help_replaced_by",
+    "label": "EG - Field Help Replaced By",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "frameAgreementNo": {
+    "id": "custevent_eg_frame_agreement_no",
+    "label": "EG - Frame Agreement No.",
+    "input": "text",
+    "source": "custom"
+  },
+  "fromItsm": {
+    "id": "custevent_eg_from_itsm",
+    "label": "EG - From ITSM",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "helperDays": {
+    "id": "custevent_eg_helper_days",
+    "label": "EG - Days",
+    "input": "display",
+    "source": "custom"
+  },
+  "hoursToContract": {
+    "id": "custevent_eg_hours_to_contract",
+    "label": "EG - Hours According to Contract",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "incidentNumberInItsm": {
+    "id": "custevent_eg_incident_number_in_itsm",
+    "label": "EG - Incident Number from ITSM",
+    "input": "text",
+    "source": "custom"
+  },
+  "internalCustomer": {
+    "id": "custevent_eg_internal_customer",
+    "label": "EG - Internal Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "internalTeamsSite": {
+    "id": "custevent_eg_internal_teams_site",
+    "label": "EG - Internal Teams Site",
+    "input": "text",
+    "source": "custom"
+  },
+  "isinactive": {
+    "id": "custevent_eg_isinactive",
+    "label": "Is Inactive?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ispiremoved": {
+    "id": "custevent_eg_ispiremoved",
+    "label": "EG - Is PI Removed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isBillable": {
+    "id": "custevent_eg_is_billable",
+    "label": "EG - Is Billable",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isChangeRequest": {
+    "id": "custevent_eg_is_change_request",
+    "label": "EG - Is Change Request?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isClosedInItsm": {
+    "id": "custevent_eg_is_closed_in_itsm",
+    "label": "EG - Is Closed in ITSM",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isDeliveryCoordinator": {
+    "id": "custevent_eg_is_delivery_coordinator",
+    "label": "EG - Is Delivery Coordinator?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isLowestLevelTask": {
+    "id": "custevent_eg_is_lowest_level_task",
+    "label": "EG - Is Lowest Level Project Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isSoldProduct": {
+    "id": "custevent_eg_is_sold_product",
+    "label": "EG - Is Sold Product?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isSoldProductInactive": {
+    "id": "custevent_eg_is_sold_product_inactive",
+    "label": "EG - Is Sold Product Inactive?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isStandardDelivery": {
+    "id": "custevent_eg_is_standard_delivery",
+    "label": "EG - Is Standard Delivery?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isTaskDelivery": {
+    "id": "custevent_eg_is_task_delivery",
+    "label": "EG - Is Task Delivery?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isTaskForAggSubProd": {
+    "id": "custevent_eg_is_task_for_agg_sub_prod",
+    "label": "EG - Is task for aggregation on Sub Product",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isTechnicalProjectTask": {
+    "id": "custevent_eg_is_technical_project_task",
+    "label": "EG - Is Technical Project Task?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "itemCanTriggerTaskDeli": {
+    "id": "custevent_eg_item_can_trigger_task_deli",
+    "label": "EG - Contract Sales Item - time as task delivery",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "languageToTxt": {
+    "id": "custevent_eg_language_to_txt",
+    "label": "EG - Language to TXT",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedChargeRule": {
+    "id": "custevent_eg_linked_charge_rule",
+    "label": "EG - Linked Charge Rule",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedContract": {
+    "id": "custevent_eg_linked_contract",
+    "label": "EG - Linked Contract",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPtId": {
+    "id": "custevent_eg_linked_pt_id",
+    "label": "EG - Project Task Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedPtProdItem": {
+    "id": "custevent_eg_linked_pt_prod_item",
+    "label": "EG - Linked PT Product Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPtStatus": {
+    "id": "custevent_eg_linked_pt_status",
+    "label": "EG - Project Task Status",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedPtSubProduct": {
+    "id": "custevent_eg_linked_pt_sub_product",
+    "label": "EG - Linked PT Sub Product",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPtTitle": {
+    "id": "custevent_eg_linked_pt_title",
+    "label": "EG - Project Task Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedPBillTo": {
+    "id": "custevent_eg_linked_p_bill_to",
+    "label": "EG - Linked Bill to Address",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedPDepartment": {
+    "id": "custevent_eg_linked_p_department",
+    "label": "EG - Linked Department",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPOb": {
+    "id": "custevent_eg_linked_p_ob",
+    "label": "EG - Linked Ordered By",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPShipTo": {
+    "id": "custevent_eg_linked_p_ship_to",
+    "label": "EG - Linked Ship to Address",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedPSubsidiary": {
+    "id": "custevent_eg_linked_p_subsidiary",
+    "label": "EG - Linked Subsidiary",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedSubscriptionItem": {
+    "id": "custevent_eg_linked_subscription_item",
+    "label": "EG - Linked Subscription Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkWithSoldProduct": {
+    "id": "custevent_eg_link_with_sold_product",
+    "label": "EG - Link With Sold Product",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "lowestTaskToUpdate": {
+    "id": "custevent_eg_lowest_task_to_update",
+    "label": "EG - Lowest Task To Update",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "netsuiteAssignees": {
+    "id": "custevent_eg_netsuite_assignees",
+    "label": "EG - Netsuite Assignees",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "noDocusign": {
+    "id": "custevent_eg_no_docusign",
+    "label": "EG - Do Not Send DocuSign",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oaErrorMessage": {
+    "id": "custevent_eg_oa_error_message",
+    "label": "EG - OpenAir - Error Message",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaTaskStructureId": {
+    "id": "custevent_eg_oa_task_structure_id",
+    "label": "OpenAir Task Structure ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "openairAssignees": {
+    "id": "custevent_eg_openair_assignees",
+    "label": "EG - OpenAir Assignees",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "openairId": {
+    "id": "custevent_eg_openair_id",
+    "label": "EG - OpenAir - ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "openairMissingAssignees": {
+    "id": "custevent_eg_openair_missing_assignees",
+    "label": "EG - OpenAir Missing Assignees",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "parentCustProjTask": {
+    "id": "custevent_eg_parent_cust_proj_task",
+    "label": "EG - Parent Customer Project Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "parentTaskTaskDivSn": {
+    "id": "custevent_eg_parent_task_task_div_sn",
+    "label": "EG - Is Parent Project Task for Task Delivery from Service Now",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "project": {
+    "id": "custevent_eg_project",
+    "label": "EG - Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectCurrency": {
+    "id": "custevent_eg_project_currency",
+    "label": "EG - Project Currency",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectCustomerCopy2": {
+    "id": "custevent_eg_project_customer_copy",
+    "label": "EG - Project Customer (Copy)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectId": {
+    "id": "custevent_eg_project_id",
+    "label": "EG - Project ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectOrderedByCopy": {
+    "id": "custevent_eg_project_ordered_by_copy",
+    "label": "EG - Project Ordered By/End User (Copy)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectPartnerCopy": {
+    "id": "custevent_eg_project_partner_copy",
+    "label": "EG - Project Partner/Reseller (Copy)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectShortDescription": {
+    "id": "custevent_eg_project_short_description",
+    "label": "EG - Project Short Description",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectSubsidiary": {
+    "id": "custevent_eg_project_subsidiary",
+    "label": "EG - Project Subsidiary Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectTaskShortDesc": {
+    "id": "custevent_eg_project_task_short_desc",
+    "label": "EG - Project Task Short Description (40 char)",
+    "input": "text",
+    "source": "custom"
+  },
+  "projectType": {
+    "id": "custevent_eg_project_type",
+    "label": "EG - Project Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectWbsCode": {
+    "id": "custevent_eg_project_wbs_code",
+    "label": "EG - Project WBS Code",
+    "input": "text",
+    "source": "custom"
+  },
+  "projExportToOa": {
+    "id": "custevent_eg_proj_export_to_oa",
+    "label": "EG - Project Export to OA",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projIdNotUnique": {
+    "id": "custevent_eg_proj_id_not_unique",
+    "label": "EG - Project Id is not unique in Zalaris",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projTaskPriority": {
+    "id": "custevent_eg_proj_task_priority",
+    "label": "EG - Project Task Priority",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ptPoNum": {
+    "id": "custevent_eg_pt_po_num",
+    "label": "PO Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "reassignedFrom": {
+    "id": "custevent_eg_reassigned_from",
+    "label": "Reassigned From",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "reassignedTask": {
+    "id": "custevent_eg_reassigned_task",
+    "label": "Reassigned Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "recalculationInProgress": {
+    "id": "custevent_eg_recalculation_in_progress",
+    "label": "EG - Recalculation in Progress",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "remainingEstimate": {
+    "id": "custevent_eg_remaining_estimate",
+    "label": "EG - Remaining Estimate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "remainingWork": {
+    "id": "custevent_eg_remaining_work",
+    "label": "EG - Remaining Work",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "reopenParentCsp": {
+    "id": "custevent_eg_reopen_parent_csp",
+    "label": "EG - Reopen Parent CSP",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "requestExpirationDate": {
+    "id": "custevent_eg_request_expiration_date",
+    "label": "EG - Expiration Date in DocuSign",
+    "input": "text",
+    "source": "custom"
+  },
+  "reviewAcceptanceRequest": {
+    "id": "custevent_eg_review_acceptance_request",
+    "label": "EG - Review Acceptance Request",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "salesItemFromExtSystem": {
+    "id": "custevent_eg_sales_item_from_ext_system",
+    "label": "EG - Sales Item from external system",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sbResourceId": {
+    "id": "custevent_eg_sb_resource_id",
+    "label": "EG - Silverbucket Resource ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "sendsurveyTd": {
+    "id": "custevent_eg_sendsurvey_td",
+    "label": "EG - Survey send to ServiceNow",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "serviceItem": {
+    "id": "custevent_eg_service_item",
+    "label": "EG - Service Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "shipToCrm": {
+    "id": "custevent_eg_ship_to_crm",
+    "label": "EG - Ship To (CRM Task)",
+    "input": "text",
+    "source": "custom"
+  },
+  "shipToPt": {
+    "id": "custevent_eg_ship_to_pt",
+    "label": "EG - Ship To (Project Task)",
+    "input": "text",
+    "source": "custom"
+  },
+  "shipToTd": {
+    "id": "custevent_eg_ship_to_td",
+    "label": "EG - Ship To (Task Delivery)",
+    "input": "text",
+    "source": "custom"
+  },
+  "siteAddress": {
+    "id": "custevent_eg_site_address",
+    "label": "EG - Visiting Address",
+    "input": "text",
+    "source": "custom"
+  },
+  "soldProductToSync": {
+    "id": "custevent_eg_sold_product_to_sync",
+    "label": "EG - Sold Product to synchronize",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "standardproject": {
+    "id": "custevent_eg_standardproject",
+    "label": "EG - Standard Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "standarparentprojecttask": {
+    "id": "custevent_eg_standarparentprojecttask",
+    "label": "EG - Parent Project Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "stdProjectListNonStore": {
+    "id": "custevent_eg_std_project_list_non_store",
+    "label": "EG - Standard Project List (Non Stored)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subscriptionItem": {
+    "id": "custevent_eg_subscription_item",
+    "label": "EG - Subscription Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subsidiaryPhoneCall": {
+    "id": "custevent_eg_subsidiary_phone_call",
+    "label": "EG - Subsidiary Phone Call",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subtask": {
+    "id": "custevent_eg_subtask",
+    "label": "EG - Sub Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProductFromCi": {
+    "id": "custevent_eg_sub_product_from_ci",
+    "label": "EG - Sub Product - From Contract Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProductFromPpt": {
+    "id": "custevent_eg_sub_product_from_ppt",
+    "label": "EG - Sub Product - From Parent Project Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "syncServicenow": {
+    "id": "custevent_eg_sync_servicenow",
+    "label": "EG - To be Synced With ServiceNow",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDelivery": {
+    "id": "custevent_eg_task_delivery",
+    "label": "EG - Task Delivery",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDeliveryChargeType": {
+    "id": "custevent_eg_task_delivery_charge_type",
+    "label": "EG - Task Delivery Charge Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDeliveryCurrency": {
+    "id": "custevent_eg_task_delivery_currency",
+    "label": "EG - Task Delivery Currency",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDeliveryDescription": {
+    "id": "custevent_eg_task_delivery_description",
+    "label": "EG - Task Delivery Description",
+    "input": "text",
+    "source": "custom"
+  },
+  "taskDeliveryFixedPrice": {
+    "id": "custevent_eg_task_delivery_fixed_price",
+    "label": "EG - Task Delivery Fixed Price Amount",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDeliveryFlow": {
+    "id": "custevent_eg_task_delivery_flow",
+    "label": "EG - Task Delivery Flow",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDeliveryInternalNot": {
+    "id": "custevent_eg_task_delivery_internal_not",
+    "label": "EG - Task Delivery Internal Notes",
+    "input": "text",
+    "source": "custom"
+  },
+  "taskDeliveryNonBillable": {
+    "id": "custevent_eg_task_delivery_non_billable",
+    "label": "EG - Task Delivery Non-Billable",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDeliveryPlannedWork": {
+    "id": "custevent_eg_task_delivery_planned_work",
+    "label": "EG - Task Delivery Planned Work",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taskDeliverySolution": {
+    "id": "custevent_eg_task_delivery_solution",
+    "label": "EG - Task Delivery Solution",
+    "input": "text",
+    "source": "custom"
+  },
+  "taskStages": {
+    "id": "custevent_eg_task_stages",
+    "label": "Task Stages",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tdContactresponsible": {
+    "id": "custevent_eg_td_contactresponsible",
+    "label": "EG - Contact Responsible",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tdCreatecontact": {
+    "id": "custevent_eg_td_createcontact",
+    "label": "EG - Create Contact",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tdCustomer": {
+    "id": "custevent_eg_td_customer",
+    "label": "EG - Task Delivery Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tdEmail": {
+    "id": "custevent_eg_td_email",
+    "label": "EG - Email",
+    "input": "text",
+    "source": "custom"
+  },
+  "tdFirstname": {
+    "id": "custevent_eg_td_firstname",
+    "label": "EG - First Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "tdFromExtSystem": {
+    "id": "custevent_eg_td_from_ext_system",
+    "label": "EG - Task Delivery From External System",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tdIdexternalsystem": {
+    "id": "custevent_eg_td_idexternalsystem",
+    "label": "EG - Id From External System",
+    "input": "text",
+    "source": "custom"
+  },
+  "tdInformation": {
+    "id": "custevent_eg_td_information",
+    "label": "EG - Stored Agreement Location",
+    "input": "text",
+    "source": "custom"
+  },
+  "tdLastname": {
+    "id": "custevent_eg_td_lastname",
+    "label": "EG - Last Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "tdOurRef": {
+    "id": "custevent_eg_td_our_ref",
+    "label": "EG - Our Reference",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tdPhone": {
+    "id": "custevent_eg_td_phone",
+    "label": "EG - Phone",
+    "input": "text",
+    "source": "custom"
+  },
+  "tdReviewedBy": {
+    "id": "custevent_eg_td_reviewed_by",
+    "label": "EG - Reviewed By",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tdReviewedBySuper": {
+    "id": "custevent_eg_td_reviewed_by_super",
+    "label": "EG - Task Delivery Reviewed by Supervisor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "triggerIntegration": {
+    "id": "custevent_eg_trigger_integration",
+    "label": "EG - Trigger integration",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "typeOfTerms": {
+    "id": "custevent_eg_type_of_terms",
+    "label": "EG - Type of Terms",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "warTemplate": {
+    "id": "custevent_eg_war_template",
+    "label": "EG - Work at Risk Template",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "wbsReplacedBy": {
+    "id": "custevent_eg_wbs_replaced_by",
+    "label": "EG - WBS Is replaced by Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "workAtRisk": {
+    "id": "custevent_eg_work_at_risk",
+    "label": "EG - Work at Risk",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "zalarisProjectReference": {
+    "id": "custevent_eg_zalaris_project_reference",
+    "label": "EG - Zalaris Project Reference",
+    "input": "text",
+    "source": "custom"
+  },
+  "zalarisStatus": {
+    "id": "custevent_eg_zalaris_status",
+    "label": "EG - Zalaris Status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oaNsidset": {
+    "id": "custevent_oa_nsidset",
+    "label": "OpenAir: NS Id set",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plannedTimeListDone": {
+    "id": "custevent_planned_time_list_done",
+    "label": "EG - Planned Split Done",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectCategory2": {
+    "id": "custevent_project_category",
+    "label": "EG - Project Category",
+    "input": "nlapi",
+    "source": "custom"
+  }
+}

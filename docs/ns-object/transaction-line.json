@@ -1,0 +1,1544 @@
+{
+  "item": {
+    "id": "item",
+    "label": "Item",
+    "input": "typeahead",
+    "source": "native"
+  },
+  "description": {
+    "id": "description",
+    "label": "Description",
+    "input": "line-nlapi",
+    "source": "inferred"
+  },
+  "quantity": {
+    "id": "quantity",
+    "label": "Quantity",
+    "input": "line-nlapi",
+    "source": "native"
+  },
+  "rate": {
+    "id": "rate",
+    "label": "Rate",
+    "input": "line-nlapi",
+    "source": "native"
+  },
+  "department": {
+    "id": "department",
+    "label": "Department",
+    "input": "line-hidden",
+    "source": "native"
+  },
+  "revRecStart": {
+    "id": "custcol_eg_rev_rec_start",
+    "label": "EG - Rev Rec Start Date",
+    "input": "line-nlapi",
+    "source": "custom"
+  },
+  "revRecEnd": {
+    "id": "custcol_eg_rev_rec_end",
+    "label": "EG - Rev Rec End Date",
+    "input": "line-nlapi",
+    "source": "custom"
+  },
+  "mainProduct": {
+    "id": "cseg_eg_main_prod",
+    "label": "EG - Main Product",
+    "input": "line-cseg",
+    "source": "custom"
+  },
+  "subProduct": {
+    "id": "cseg_eg_sub_prod",
+    "label": "EG - Sub Product",
+    "input": "line-cseg",
+    "source": "inferred"
+  },
+  "productItem": {
+    "id": "cseg_eg_prod_item",
+    "label": "EG - Product Item",
+    "input": "line-cseg",
+    "source": "inferred"
+  },
+  "revenueCategory": {
+    "id": "cseg_eg_rev_categ",
+    "label": "EG - Revenue Category",
+    "input": "line-cseg",
+    "source": "inferred"
+  },
+  "absenceCode": {
+    "id": "custcol_eg_absence_code",
+    "label": "EG - Absence Type (Code)",
+    "input": "text",
+    "source": "custom"
+  },
+  "accountForInternaluse": {
+    "id": "custcol_eg_account_for_internaluse",
+    "label": "EG - Account For Internal Use",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "activityCodeProjectTask": {
+    "id": "custcol_eg_activity_code_project_task",
+    "label": "EG - Default Activity Code (Project Task)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "actCodeMandatAcco": {
+    "id": "custcol_eg_act_code_mandat_acco",
+    "label": "EG - Activity Code Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "actCodeProhibAcco": {
+    "id": "custcol_eg_act_code_prohib_acco",
+    "label": "EG - Activity Code Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "amortscheduleRso": {
+    "id": "custcol_eg_amortschedule_rso",
+    "label": "EG - Amortization schedule RSO",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "amortstartdateRso": {
+    "id": "custcol_eg_amortstartdate_rso",
+    "label": "EG - Amortization Start Date RSO",
+    "input": "text",
+    "source": "custom"
+  },
+  "assettocreate": {
+    "id": "custcol_eg_assettocreate",
+    "label": "EG - Asset to create",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billabilityModifiedByPm": {
+    "id": "custcol_eg_billability_modified_by_pm",
+    "label": "EG - Billability modified by PM",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billExpValidated": {
+    "id": "custcol_eg_bill_exp_validated",
+    "label": "EG - Bill / Expense Line Validated",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "blockingJe": {
+    "id": "custcol_eg_blocking_je",
+    "label": "EG - Blocking Reason (JE)",
+    "input": "text",
+    "source": "custom"
+  },
+  "chargeInternalId": {
+    "id": "custcol_eg_charge_internal_id",
+    "label": "EG - Charge Internal ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "chargeMemo": {
+    "id": "custcol_eg_charge_memo",
+    "label": "EG - Charge Memo",
+    "input": "text",
+    "source": "custom"
+  },
+  "chargeType": {
+    "id": "custcol_eg_charge_type",
+    "label": "EG - Charge Type",
+    "input": "text",
+    "source": "custom"
+  },
+  "chargeTypeForTranslatio": {
+    "id": "custcol_eg_charge_type_for_translatio",
+    "label": "EG - Charge Type for Translation",
+    "input": "text",
+    "source": "custom"
+  },
+  "cogsExpenseAccount": {
+    "id": "custcol_eg_cogs_expense_account",
+    "label": "EG - COGS Expense Account",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "concatenateSorting": {
+    "id": "custcol_eg_concatenate_sorting",
+    "label": "EG - Concatenate for sorting",
+    "input": "text",
+    "source": "custom"
+  },
+  "contractItem": {
+    "id": "custcol_eg_contract_item",
+    "label": "EG - Contract Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "copySegmentationFromN1": {
+    "id": "custcol_eg_copy_segmentation_from_n_1",
+    "label": "EG - Copy Segmentation From Line N-1",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "costCategMandatAcco": {
+    "id": "custcol_eg_cost_categ_mandat_acco",
+    "label": "EG - Cost Category Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "costCategMandatItem": {
+    "id": "custcol_eg_cost_categ_mandat_item",
+    "label": "EG - Cost Category Mandatory (item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "costCategProhibAcco": {
+    "id": "custcol_eg_cost_categ_prohib_acco",
+    "label": "EG - Cost Category Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "createdfromBill": {
+    "id": "custcol_eg_createdfrom_bill",
+    "label": "EG - Created From Bill",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "createdon": {
+    "id": "custcol_eg_createdon",
+    "label": "EG - Created / Update On",
+    "input": "text",
+    "source": "custom"
+  },
+  "currentVersionRecId": {
+    "id": "custcol_eg_current_version_rec_id",
+    "label": "EG - Current Version Record Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "customer": {
+    "id": "custcol_eg_customer",
+    "label": "EG - Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerMandatAcco": {
+    "id": "custcol_eg_customer_mandat_acco",
+    "label": "EG - Customer Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerProhibAcco": {
+    "id": "custcol_eg_customer_prohib_acco",
+    "label": "EG - Customer Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defCostCatItem": {
+    "id": "custcol_eg_def_cost_cat_item",
+    "label": "EG - Default Cost Category (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defDepItem": {
+    "id": "custcol_eg_def_dep_item",
+    "label": "EG - Default Department (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defMainProdItem": {
+    "id": "custcol_eg_def_main_prod_item",
+    "label": "EG - Default Main Product (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defOfficeItem": {
+    "id": "custcol_eg_def_office_item",
+    "label": "EG - Default Office (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defProdItemItem": {
+    "id": "custcol_eg_def_prod_item_item",
+    "label": "EG - Default Product item (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defRevCatExpItem": {
+    "id": "custcol_eg_def_rev_cat_exp_item",
+    "label": "EG - Default Revenue Category (Expense Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defRevCatItem": {
+    "id": "custcol_eg_def_rev_cat_item",
+    "label": "EG - Default Revenue Category (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "defSubProdItem": {
+    "id": "custcol_eg_def_sub_prod_item",
+    "label": "EG - Default Sub Product (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "departmentAcRa": {
+    "id": "custcol_eg_department_ac_ra",
+    "label": "EG - Department (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "departmentFaRa": {
+    "id": "custcol_eg_department_fa_ra",
+    "label": "EG - Department (Fixed Amount Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "departmentPcRa": {
+    "id": "custcol_eg_department_pc_ra",
+    "label": "EG - Department (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "departMandatAccount": {
+    "id": "custcol_eg_depart_mandat_account",
+    "label": "EG - Department Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "departProhibAccount": {
+    "id": "custcol_eg_depart_prohib_account",
+    "label": "EG - Department Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "depMandatItem": {
+    "id": "custcol_eg_dep_mandat_item",
+    "label": "EG - Department Mandatory? (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "depPlanItem": {
+    "id": "custcol_eg_dep_plan_item",
+    "label": "EG - Department (Plan Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "displayName": {
+    "id": "custcol_eg_display_name",
+    "label": "EG - Display Name",
+    "input": "text",
+    "source": "custom"
+  },
+  "employeeonline": {
+    "id": "custcol_eg_employeeonline",
+    "label": "EG - Employee",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "employeeMandatAcco": {
+    "id": "custcol_eg_employee_mandat_acco",
+    "label": "EG - Employee Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "employeeProhiAcco": {
+    "id": "custcol_eg_employee_prohi_acco",
+    "label": "EG - Employee Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "excludeFromIc": {
+    "id": "custcol_eg_exclude_from_ic",
+    "label": "EG - Exclude from IC",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "externalIssueNumber": {
+    "id": "custcol_eg_external_issue_number",
+    "label": "EG - External Issue Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "extSysIncrementedNumber": {
+    "id": "custcol_eg_ext_sys_incremented_number",
+    "label": "EG - External System Incremented Number",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hasQtyDiscrepancy": {
+    "id": "custcol_eg_has_qty_discrepancy",
+    "label": "Has Qty Discrepancy",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hasRateDiscrepancy": {
+    "id": "custcol_eg_has_rate_discrepancy",
+    "label": "Has Rate Discrepancy",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hoursToBeBilled": {
+    "id": "custcol_eg_hours_to_be_billed",
+    "label": "EG - Hours to be billed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "httbOverride": {
+    "id": "custcol_eg_httb_override",
+    "label": "EG - Override Hours to be billed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "icbilling": {
+    "id": "custcol_eg_icbilling",
+    "label": "EG - IC Billing",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "internalCustomerProject": {
+    "id": "custcol_eg_internal_customer_project",
+    "label": "EG - Is Internal Customer Project ?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "internalMemo": {
+    "id": "custcol_eg_internal_memo",
+    "label": "EG - Internal Memo",
+    "input": "text",
+    "source": "custom"
+  },
+  "internalTimeMemo": {
+    "id": "custcol_eg_internal_time_memo",
+    "label": "Internal Time Memo",
+    "input": "text",
+    "source": "custom"
+  },
+  "invoice": {
+    "id": "custcol_eg_invoice",
+    "label": "EG - IC Invoice",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ispiremoved": {
+    "id": "custcol_eg_ispiremoved",
+    "label": "EG - Is PI Removed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isWebshopLocation": {
+    "id": "custcol_eg_is_webshop_location",
+    "label": "EG - Is Web Shop Location",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "itemCanBeSoldTItem": {
+    "id": "custcol_eg_item_can_be_sold_t_item",
+    "label": "EG - Item Can Be Sold Through a Plan? (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "jobGroupMandatAcco": {
+    "id": "custcol_eg_job_group_mandat_acco",
+    "label": "EG - Job Group Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "jobGroupMandatItem": {
+    "id": "custcol_eg_job_group_mandat_item",
+    "label": "EG - Job Group Mandatory (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "jobGroupProhibAcco": {
+    "id": "custcol_eg_job_group_prohib_acco",
+    "label": "EG - Job Group Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "lastmodified": {
+    "id": "custcol_eg_lastmodified",
+    "label": "EG - Last Modified",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedChargeRuleAcRa": {
+    "id": "custcol_eg_linked_charge_rule_ac_ra",
+    "label": "EG - Linked Charge Rule (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedChargeRuleFaRa": {
+    "id": "custcol_eg_linked_charge_rule_fa_ra",
+    "label": "EG - Linked Charge Rule (Fixed Amount Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedChargeRulePcRa": {
+    "id": "custcol_eg_linked_charge_rule_pc_ra",
+    "label": "EG - Linked Charge Rule (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "locationMandatAccount": {
+    "id": "custcol_eg_location_mandat_account",
+    "label": "EG - Location Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "locationProhibAccount": {
+    "id": "custcol_eg_location_prohib_account",
+    "label": "EG - Location Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProductBridgeCharge": {
+    "id": "custcol_eg_main_product_bridge_charge",
+    "label": "EG - Default Main Product (Charges)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProductMandatItem": {
+    "id": "custcol_eg_main_product_mandat_item",
+    "label": "EG - Main Product Mandatory (item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProdAcRa": {
+    "id": "custcol_eg_main_prod_ac_ra",
+    "label": "EG - Main Product (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProdBridgeProjTask": {
+    "id": "custcol_eg_main_prod_bridge_proj_task",
+    "label": "EG - Main Product (Project Task)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProdBridgePttt": {
+    "id": "custcol_eg_main_prod_bridge_pttt",
+    "label": "EG - Main Product (Project Task Time Tracking)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProdPcRa": {
+    "id": "custcol_eg_main_prod_pc_ra",
+    "label": "EG - Main Product (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProdPi": {
+    "id": "custcol_eg_main_prod_pi",
+    "label": "EG - Main Product (Plan Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainProdProjTask": {
+    "id": "custcol_eg_main_prod_proj_task",
+    "label": "EG - Default Main Product (Project Task)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainPMandatAcco": {
+    "id": "custcol_eg_main_p_mandat_acco",
+    "label": "EG - Main Product Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "mainPProhibAcco": {
+    "id": "custcol_eg_main_p_prohib_acco",
+    "label": "EG - Main Product Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oaEnvelopeId": {
+    "id": "custcol_eg_oa_envelope_id",
+    "label": "EG - OA Envelope Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaErrorExp": {
+    "id": "custcol_eg_oa_error_exp",
+    "label": "EG - OA error line",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaErrorInSynch": {
+    "id": "custcol_eg_oa_error_in_synch",
+    "label": "EG - Error in OA Synchronisation",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaSynchronizedWithOa": {
+    "id": "custcol_eg_oa_synchronized_with_oa",
+    "label": "EG - Synchronized with OA",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oaTicketId": {
+    "id": "custcol_eg_oa_ticket_id",
+    "label": "EG - OA Ticket Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaTimesheetId": {
+    "id": "custcol_eg_oa_timesheet_id",
+    "label": "EG - Timesheet Id in OA",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaTimeId": {
+    "id": "custcol_eg_oa_time_id",
+    "label": "EG - Time Entry Id in OA",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaTimeToCreate": {
+    "id": "custcol_eg_oa_time_to_create",
+    "label": "EG - Time to Create in OA",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oaTimeToUpdate": {
+    "id": "custcol_eg_oa_time_to_update",
+    "label": "EG - Time to Update in OA",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oaToSynchWithOa": {
+    "id": "custcol_eg_oa_to_synch_with_oa",
+    "label": "EG - To Synchronise with OA (OA Project Id)",
+    "input": "text",
+    "source": "custom"
+  },
+  "oaUpdateExp": {
+    "id": "custcol_eg_oa_update_exp",
+    "label": "EG - To Update in OA",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "officeMandatAccount": {
+    "id": "custcol_eg_office_mandat_account",
+    "label": "EG - Office Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "officeMandatExpAcc": {
+    "id": "custcol_eg_office_mandat_exp_acc",
+    "label": "EG - Office Mandatory (expense accounts)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "officeMandatItem": {
+    "id": "custcol_eg_office_mandat_item",
+    "label": "EG - Office Mandatory (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "officeProhibAccount": {
+    "id": "custcol_eg_office_prohib_account",
+    "label": "EG - Office Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oldVersionRecId": {
+    "id": "custcol_eg_old_version_rec_id",
+    "label": "EG - Old Version Record Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "orderedBy": {
+    "id": "custcol_eg_ordered_by",
+    "label": "EG - Ordered By/End User (Line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "orderedByEndUserAcRa": {
+    "id": "custcol_eg_ordered_by_end_user_ac_ra",
+    "label": "EG - Ordered By/End User (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "orderedByEndUserFaRa": {
+    "id": "custcol_eg_ordered_by_end_user_fa_ra",
+    "label": "EG - Ordered By/End User (Fixed Amount Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "orderedByEndUserPcRa": {
+    "id": "custcol_eg_ordered_by_end_user_pc_ra",
+    "label": "EG - Ordered By/End User (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "originalExpCatType": {
+    "id": "custcol_eg_original_exp_cat_type",
+    "label": "EG - Original Expense Category Description",
+    "input": "text",
+    "source": "custom"
+  },
+  "partnerMandatAcco": {
+    "id": "custcol_eg_partner_mandat_acco",
+    "label": "EG - Partner Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "partnerProhibAcco": {
+    "id": "custcol_eg_partner_prohib_acco",
+    "label": "EG - Partner Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "partnerReseller": {
+    "id": "custcol_eg_partner_reseller",
+    "label": "EG - Partner/Reseller (Line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "partnerResellerAcRa": {
+    "id": "custcol_eg_partner_reseller_ac_ra",
+    "label": "EG - Partner/Reseller (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "partnerResellerFaRa": {
+    "id": "custcol_eg_partner_reseller_fa_ra",
+    "label": "EG - Partner/Reseller (Fixed Amount Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "partnerResellerPcRa": {
+    "id": "custcol_eg_partner_reseller_pc_ra",
+    "label": "EG - Partner/Reseller (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "procFlexTime": {
+    "id": "custcol_eg_proc_flex_time",
+    "label": "EG - Processed Flex Time",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "productItemBridgeCharge": {
+    "id": "custcol_eg_product_item_bridge_charge",
+    "label": "EG - Default Product Item (Charges)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "productItemMandatAcco": {
+    "id": "custcol_eg_product_item_mandat_acco",
+    "label": "EG - Product Item Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "productItemMandatItem": {
+    "id": "custcol_eg_product_item_mandat_item",
+    "label": "EG - Product Item Mandatory (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "productItemProhibAcco": {
+    "id": "custcol_eg_product_item_prohib_acco",
+    "label": "EG - Product Item Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemAcRa": {
+    "id": "custcol_eg_prod_item_ac_ra",
+    "label": "EG - Product Item (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemBridgeProjTask": {
+    "id": "custcol_eg_prod_item_bridge_proj_task",
+    "label": "EG - Product Item (Project Task)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemBridgePttt": {
+    "id": "custcol_eg_prod_item_bridge_pttt",
+    "label": "EG - Product Item (Project Task Time Tracking)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemPcRa": {
+    "id": "custcol_eg_prod_item_pc_ra",
+    "label": "EG - Product Item (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemPi": {
+    "id": "custcol_eg_prod_item_pi",
+    "label": "EG - Product Item (Plan Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "prodItemProjTask": {
+    "id": "custcol_eg_prod_item_proj_task",
+    "label": "EG - Default Product Item (Project Task)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "project": {
+    "id": "custcol_eg_project",
+    "label": "EG - Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectJe": {
+    "id": "custcol_eg_project_je",
+    "label": "EG - Project (JE)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectMandatAcco": {
+    "id": "custcol_eg_project_mandat_acco",
+    "label": "EG - Project Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectProhibAcco": {
+    "id": "custcol_eg_project_prohib_acco",
+    "label": "EG - Project Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectTask": {
+    "id": "custcol_eg_project_task",
+    "label": "EG - Project Task",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectTaskFromZalaris": {
+    "id": "custcol_eg_project_task_from_zalaris",
+    "label": "EG - Project Task From Zalaris",
+    "input": "text",
+    "source": "custom"
+  },
+  "psBillingClass": {
+    "id": "custcol_eg_ps_billing_class",
+    "label": "EG - PS Billing Class",
+    "input": "text",
+    "source": "custom"
+  },
+  "psEmployee": {
+    "id": "custcol_eg_ps_employee",
+    "label": "EG - PS Employee",
+    "input": "text",
+    "source": "custom"
+  },
+  "psTask": {
+    "id": "custcol_eg_ps_task",
+    "label": "EG - PS Task",
+    "input": "text",
+    "source": "custom"
+  },
+  "psTimeDate": {
+    "id": "custcol_eg_ps_time_date",
+    "label": "EG - PS Time Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "recordCreatedFrom": {
+    "id": "custcol_eg_record_created_from",
+    "label": "EG - Record Created From",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "reinvoicingFoundation": {
+    "id": "custcol_eg_reinvoicing_foundation",
+    "label": "EG - Re-Invoicing Foundation",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "remainingEstimate": {
+    "id": "custcol_eg_remaining_estimate",
+    "label": "EG - Remaining Estimate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCategAcRa": {
+    "id": "custcol_eg_rev_categ_ac_ra",
+    "label": "EG - Revenue Category (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCategFaRa": {
+    "id": "custcol_eg_rev_categ_fa_ra",
+    "label": "EG - Revenue Category (Fixed Amount Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCategMandatAcco": {
+    "id": "custcol_eg_rev_categ_mandat_acco",
+    "label": "EG - Revenue Category Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCategPcRa": {
+    "id": "custcol_eg_rev_categ_pc_ra",
+    "label": "EG - Revenue Category (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCategProhibAcco": {
+    "id": "custcol_eg_rev_categ_prohib_acco",
+    "label": "EG - Revenue Category Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCatItemPr": {
+    "id": "custcol_eg_rev_cat_item_pr",
+    "label": "EG - Default Revenue Category (Item - Project)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCatMandatItem": {
+    "id": "custcol_eg_rev_cat_mandat_item",
+    "label": "EG - Revenue Category Mandatory (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revCatPlanItem": {
+    "id": "custcol_eg_rev_cat_plan_item",
+    "label": "EG - Revenue Category (Plan Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revRecEnd2": {
+    "id": "custcol_eg_rev_rec_end",
+    "label": "EG - Rev Rec End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "revRecReclassProcRun": {
+    "id": "custcol_eg_rev_rec_reclass_proc_run",
+    "label": "EG - REV Rec Reclassification Process Run",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revRecStart2": {
+    "id": "custcol_eg_rev_rec_start",
+    "label": "EG - Rev Rec Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "snowCopyMemoToTd": {
+    "id": "custcol_eg_snow_copy_memo_to_td",
+    "label": "EG - Copy Memo to Task Delivery ServiceNow",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "splitBasedOnHie": {
+    "id": "custcol_eg_split_based_on_hie",
+    "label": "EG - Split Based on Hierarchy",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subscriptionEndDate": {
+    "id": "custcol_eg_subscription_end_date",
+    "label": "EG - Subscription End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "subscriptionStartDate": {
+    "id": "custcol_eg_subscription_start_date",
+    "label": "EG - Subscription Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "subItemGrouped": {
+    "id": "custcol_eg_sub_item_grouped",
+    "label": "EG - Subscription Item Grouped ?",
+    "input": "text",
+    "source": "custom"
+  },
+  "subProductBridgeCharge": {
+    "id": "custcol_eg_sub_product_bridge_charge",
+    "label": "EG - Default Sub Product (Charges)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProductMandatItem": {
+    "id": "custcol_eg_sub_product_mandat_item",
+    "label": "EG - Sub Product Mandatory (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProdAcRa": {
+    "id": "custcol_eg_sub_prod_ac_ra",
+    "label": "EG - Sub Product (As Charged Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProdBridgeProjTask": {
+    "id": "custcol_eg_sub_prod_bridge_proj_task",
+    "label": "EG - Sub Product (Project Task)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProdBridgePttt": {
+    "id": "custcol_eg_sub_prod_bridge_pttt",
+    "label": "EG - Sub Product (Project Task Time Tracking)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProdPcRa": {
+    "id": "custcol_eg_sub_prod_pc_ra",
+    "label": "EG - Sub Product (Percent Complete Revenue Arrangement)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProdProjTask": {
+    "id": "custcol_eg_sub_prod_proj_task",
+    "label": "EG - Default Sub Product (Project Task)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subProdSi": {
+    "id": "custcol_eg_sub_prod_si",
+    "label": "EG - Sub Product (Plan item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subPMandatAcco": {
+    "id": "custcol_eg_sub_p_mandat_acco",
+    "label": "EG - Sub Product Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subPProhibAcco": {
+    "id": "custcol_eg_sub_p_prohib_acco",
+    "label": "EG - Sub Product Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "supervisor": {
+    "id": "custcol_eg_supervisor",
+    "label": "EG - Supervisor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "syncWithExternalSystem": {
+    "id": "custcol_eg_sync_with_external_system",
+    "label": "EG - Synchronised with external system",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "timeApprovedBy": {
+    "id": "custcol_eg_time_approved_by",
+    "label": "EG - Approved/Rejected By",
+    "input": "text",
+    "source": "custom"
+  },
+  "timeDateApproved": {
+    "id": "custcol_eg_time_date_approved",
+    "label": "EG - Date Approved/Rejected",
+    "input": "text",
+    "source": "custom"
+  },
+  "timeEndDate": {
+    "id": "custcol_eg_time_end_date",
+    "label": "EG - Time End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "timeStartDate": {
+    "id": "custcol_eg_time_start_date",
+    "label": "EG - Time Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "toSyncWithExtSys": {
+    "id": "custcol_eg_to_sync_with_ext_sys",
+    "label": "EG - To (Re)Synchronize With External System",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendor": {
+    "id": "custcol_eg_vendor",
+    "label": "EG - Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendorBill": {
+    "id": "custcol_eg_vendor_bill",
+    "label": "EG - IC Vendor Bill",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendorMandatAcco": {
+    "id": "custcol_eg_vendor_mandat_acco",
+    "label": "EG - Vendor Mandatory (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendorProhibAcc": {
+    "id": "custcol_eg_vendor_prohib_acc",
+    "label": "EG - Vendor Prohibited (Account)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopproductcategcode": {
+    "id": "custcol_eg_webshopproductcategcode",
+    "label": "EG - Webshop Product Category Code",
+    "input": "text",
+    "source": "custom"
+  },
+  "webshopOrderLine": {
+    "id": "custcol_eg_webshop_order_line",
+    "label": "EG - Webshop Order Line",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopPurchaseOrder": {
+    "id": "custcol_eg_webshop_purchase_order",
+    "label": "EG - Webshop Purchase Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "workerNumber": {
+    "id": "custcol_eg_worker_number",
+    "label": "EG - Worker Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "zabChargeInternalId": {
+    "id": "custcol_eg_zab_charge_internal_id",
+    "label": "EG - ZAB Charge Internal Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "zabPlan": {
+    "id": "custcol_eg_zab_plan",
+    "label": "EG - ZAB Plan",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "zabPlanItem": {
+    "id": "custcol_eg_zab_plan_item",
+    "label": "EG - ZAB Plan Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "icCustomer": {
+    "id": "custcol_ic_customer",
+    "label": "EG - IC Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "legalBasisForVatExemption": {
+    "id": "custcol_legal_basis_for_vat_exemption",
+    "label": "PLP LEGAL BASIS FOR THE VAT EXEMPTION",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpCitobligationdateitem": {
+    "id": "custcol_plp_citobligationdateitem",
+    "label": "PLP CIT Obligation Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpCitExchangeRate": {
+    "id": "custcol_plp_cit_exchange_rate",
+    "label": "PLP CIT exchange rate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCitTemporaryDifference": {
+    "id": "custcol_plp_cit_temporary_difference",
+    "label": "PLP CIT Temporary Difference",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCorrectionReason": {
+    "id": "custcol_plp_correction_reason",
+    "label": "PLP Reason of Correction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCorrectionReasonCustom": {
+    "id": "custcol_plp_correction_reason_custom",
+    "label": "PLP Reason of Correction (custom)",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpCountryOfOrigin": {
+    "id": "custcol_plp_country_of_origin",
+    "label": "PLP Country of origin",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCustomer": {
+    "id": "custcol_plp_customer",
+    "label": "PLP Customer",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCustomerBillAddr": {
+    "id": "custcol_plp_customer_bill_addr",
+    "label": "PLP Customer billing address",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpCustomerShipAddr": {
+    "id": "custcol_plp_customer_ship_addr",
+    "label": "PLP Customer shipping address",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpCustomerVatRegNum": {
+    "id": "custcol_plp_customer_vat_reg_num",
+    "label": "PLP Customer VAT reg. number",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDateBillFrom": {
+    "id": "custcol_plp_date_bill_from",
+    "label": "PLP Bill Date From",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDateBillTo": {
+    "id": "custcol_plp_date_bill_to",
+    "label": "PLP Bill Date To",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDateOfIssue": {
+    "id": "custcol_plp_date_of_issue",
+    "label": "PLP Date of issue (Line)",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDateOfReceipt": {
+    "id": "custcol_plp_date_of_receipt",
+    "label": "PLP Date of receipt (Line)",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpFixedAssets": {
+    "id": "custcol_plp_fixed_assets",
+    "label": "PLP Fixed Assets",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpForeignAmtCredit": {
+    "id": "custcol_plp_foreign_amt_credit",
+    "label": "PLP Amount (Credit) (Foreign Currency)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpForeignAmtDebit": {
+    "id": "custcol_plp_foreign_amt_debit",
+    "label": "PLP Amount (Debit) (Foreign Currency)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpHideOnPrintout": {
+    "id": "custcol_plp_hide_on_printout",
+    "label": "PLP Hide On Printout",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpInputCitDeduction": {
+    "id": "custcol_plp_input_cit_deduction",
+    "label": "PLP Input CIT deduction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpInputTaxAmount": {
+    "id": "custcol_plp_input_tax_amount",
+    "label": "PLP Input tax amount",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpInputVatDeduction": {
+    "id": "custcol_plp_input_vat_deduction",
+    "label": "PLP Input VAT deduction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpIsSplitPayment": {
+    "id": "custcol_plp_is_split_payment",
+    "label": "PLP Split Payment (Line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpItem": {
+    "id": "custcol_plp_item",
+    "label": "PLP Item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpItemQuantity": {
+    "id": "custcol_plp_item_quantity",
+    "label": "PLP Item quantity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpItemSubunit": {
+    "id": "custcol_plp_item_subunit",
+    "label": "PLP Item unit (stored value)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpItemUnit": {
+    "id": "custcol_plp_item_unit",
+    "label": "PLP Item unit type (old)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpItemUnitAbbrev": {
+    "id": "custcol_plp_item_unit_abbrev",
+    "label": "PLP Item Unit Abbreviation",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpJpkV7DocumentType": {
+    "id": "custcol_plp_jpk_v7_document_type",
+    "label": "PLP JPK_V7 document type (Line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpJpkV7ItemGroup": {
+    "id": "custcol_plp_jpk_v7_item_group",
+    "label": "PLP JPK_V7 Item Group",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpJpkV7Procedure": {
+    "id": "custcol_plp_jpk_v7_procedure",
+    "label": "PLP JPK_V7 procedure (Line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpKodfakturywewn": {
+    "id": "custcol_plp_kodfakturywewn",
+    "label": "PLP Internal Invoice Code",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpLegalActForVatExempt": {
+    "id": "custcol_plp_legal_act_for_vat_exempt",
+    "label": "PLP LEGAL ACT FOR THE VAT EXEMPTION",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpLineCurrency": {
+    "id": "custcol_plp_line_currency",
+    "label": "PLP Currency (Line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpLineDesc": {
+    "id": "custcol_plp_line_desc",
+    "label": "PLP Description Line",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpMixedBusinessVatCorr": {
+    "id": "custcol_plp_mixed_business_vat_corr",
+    "label": "PLP Mixed Business VAT Correction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpMixedBusinessVatRatio": {
+    "id": "custcol_plp_mixed_business_vat_ratio",
+    "label": "PLP Mixed business VAT ratio",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpNonDeductibleCitAcc": {
+    "id": "custcol_plp_non_deductible_cit_acc",
+    "label": "PLP Non-deductible CIT Account",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpNonDeductibleVatAcc": {
+    "id": "custcol_plp_non_deductible_vat_acc",
+    "label": "PLP Non-deductible VAT Account",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpOutputTaxAmount": {
+    "id": "custcol_plp_output_tax_amount",
+    "label": "PLP Output tax amount",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpPurchaseDate": {
+    "id": "custcol_plp_purchase_date",
+    "label": "PLP Purchase date (Line)",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpQtyInSupplUnitOfMeas": {
+    "id": "custcol_plp_qty_in_suppl_unit_of_meas",
+    "label": "PLP QUANTITY IN SUPPLEMENTARY UNIT OF MEASUREMENT",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpReferenceNo": {
+    "id": "custcol_plp_reference_no",
+    "label": "PLP Reference No. (Line)",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpSalesDate": {
+    "id": "custcol_plp_sales_date",
+    "label": "PLP Sales Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpTaxobligationdateitem": {
+    "id": "custcol_plp_taxobligationdateitem",
+    "label": "PLP Tax Obligation Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpTaxAmountFx": {
+    "id": "custcol_plp_tax_amount_fx",
+    "label": "PLP Tax amount (foreign currency)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpTransactiontypejpk": {
+    "id": "custcol_plp_transactiontypejpk",
+    "label": "PLP Transaction Item Type JPK",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpTyptransakcjizakupy": {
+    "id": "custcol_plp_typtransakcjizakupy",
+    "label": "PLP Item Type (Reporting Purpose)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpUnreturnedPackagingBail": {
+    "id": "custcol_plp_unreturned_packaging_bail",
+    "label": "PLP Unreturned packaging bail",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVat27": {
+    "id": "custcol_plp_vat27",
+    "label": "PLP VAT-27",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatzd": {
+    "id": "custcol_plp_vatzd",
+    "label": "PLP VAT-ZD",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatExchangeRate": {
+    "id": "custcol_plp_vat_exchange_rate",
+    "label": "PLP VAT Exchange Rate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatExchangeRateDate": {
+    "id": "custcol_plp_vat_exchange_rate_date",
+    "label": "PLP VAT Exchange Rate Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpVatExchangeRateToPln": {
+    "id": "custcol_plp_vat_exchange_rate_to_pln",
+    "label": "PLP VAT Exchange Rate to PLN (line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatMarginScheme": {
+    "id": "custcol_plp_vat_margin_scheme",
+    "label": "PLP VAT margin scheme",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatPeriodInput": {
+    "id": "custcol_plp_vat_period_input",
+    "label": "PLP VAT Period Input",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpVatPeriodOutput": {
+    "id": "custcol_plp_vat_period_output",
+    "label": "PLP VAT Period Output",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpVendorJournalsColumn": {
+    "id": "custcol_plp_vendor_journals_column",
+    "label": "PLP Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVisibleInBankPayments": {
+    "id": "custcol_plp_visible_in_bank_payments",
+    "label": "PLP Visible in Bank Payments (Line)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpWidocznecit": {
+    "id": "custcol_plp_widocznecit",
+    "label": "PLP Is tax deductible expense (KUP)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpWidocznecitjournal": {
+    "id": "custcol_plp_widocznecitjournal",
+    "label": "PLP Is tax deductible expense (KUP) - JE",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpWidocznejpk": {
+    "id": "custcol_plp_widocznejpk",
+    "label": "PLP Visible in JPK",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpWidocznejpkjournal": {
+    "id": "custcol_plp_widocznejpkjournal",
+    "label": "PLP Visible in JPK Journal",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpWidocznevat": {
+    "id": "custcol_plp_widocznevat",
+    "label": "PLP Visible in VAT",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpWidocznevatjournal": {
+    "id": "custcol_plp_widocznevatjournal",
+    "label": "PLP Visible in VAT Journal",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "pwIcDepartment": {
+    "id": "custcol_pw_ic_department",
+    "label": "EG - IC Department",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revRecEndDateMandat": {
+    "id": "custcol_rev_rec_end_date_mandat",
+    "label": "EG - Rev Rec End Date Mandatory? (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "revRecStartDateMandat": {
+    "id": "custcol_rev_rec_start_date_mandat",
+    "label": "EG - Rev Rec Start Date Mandatory? (Item)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "statisticalValueBaseCurr": {
+    "id": "custcol_statistical_value_base_curr",
+    "label": "Statistical Value - Base Currency",
+    "input": "nlapi",
+    "source": "custom"
+  }
+}

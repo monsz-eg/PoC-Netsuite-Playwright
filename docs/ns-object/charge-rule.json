@@ -1,0 +1,9 @@
+{
+  "name":             { "id": "name",             "label": "Name",            "input": "text",  "source": "native"   },
+  "description":      { "id": "description",      "label": "Description",     "input": "text",  "source": "native"   },
+  "chargeRuleType":   { "id": "chargeruletype",   "label": "Charge Type",     "input": "nlapi", "source": "native"   },
+  "project":          { "id": "project",          "label": "Project",         "input": "nlapi", "source": "native"   },
+  "rateSourceType":   { "id": "ratesourcetype",   "label": "Rate Source Type","input": "nlapi", "source": "inferred" },
+  "billingRateCard":  { "id": "billingratecard",  "label": "Billing Rate Card","input": "nlapi", "source": "inferred" },
+  "stage":            { "id": "stage",            "label": "Stage",           "input": "nlapi", "source": "inferred" }
+}

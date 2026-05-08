@@ -1,0 +1,1898 @@
+{
+  "entity": {
+    "id": "entity",
+    "label": "Entity",
+    "input": "typeahead",
+    "source": "native"
+  },
+  "tranDate": {
+    "id": "trandate",
+    "label": "Date",
+    "input": "text",
+    "source": "native"
+  },
+  "tranId": {
+    "id": "tranid",
+    "label": "Document Number/ID",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "otherRefNum": {
+    "id": "otherrefnum",
+    "label": "PO/Check Number",
+    "input": "text",
+    "source": "native"
+  },
+  "memo": {
+    "id": "memo",
+    "label": "Memo",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "subsidiary": {
+    "id": "subsidiary",
+    "label": "Subsidiary",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "currency": {
+    "id": "currency",
+    "label": "Currency",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "createdFrom": {
+    "id": "createdfrom",
+    "label": "Created From",
+    "input": "nlapi",
+    "source": "inferred"
+  },
+  "orderedBy": {
+    "id": "custbody_eg_ordered_by",
+    "label": "EG - Ordered by/End User",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "datePushedtocollectia": {
+    "id": "custbodyeg_date_pushedtocollectia",
+    "label": "EG - Date Pushed to Collectia",
+    "input": "text",
+    "source": "custom"
+  },
+  "11187PrefEbdDetails": {
+    "id": "custbody_11187_pref_ebd_details",
+    "label": "Entity Bank Details",
+    "input": "text",
+    "source": "custom"
+  },
+  "2WayMatchRun": {
+    "id": "custbody_2_way_match_run",
+    "label": "EG - 2 Way Match can run on this old bill",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "avtSchSoScheduled": {
+    "id": "custbody_avt_sch_so_scheduled",
+    "label": "Is Scheduled (SO)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "avtSchSoScheduleEndD": {
+    "id": "custbody_avt_sch_so_schedule_end_d",
+    "label": "Schedule End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "avtSchSoScheduleStartD": {
+    "id": "custbody_avt_sch_so_schedule_start_d",
+    "label": "Schedule Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "bpTaxAdditionalInformation": {
+    "id": "custbody_bp_tax_additional_information",
+    "label": "PLP Tax Additional Information",
+    "input": "text",
+    "source": "custom"
+  },
+  "cashRegister": {
+    "id": "custbody_cash_register",
+    "label": "Cash Register",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dkkDiffThreshold": {
+    "id": "custbody_dkk_diff_threshold",
+    "label": "VB/PO DKK Difference threshold",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectOrderBy": {
+    "id": "custbody_eg_address_select_order_by",
+    "label": "EG - Address Select (Ordered By)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addressSelectPartner": {
+    "id": "custbody_eg_address_select_partner",
+    "label": "EG - Address Select (Partner/Reseller)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "addSelBillToPr": {
+    "id": "custbody_eg_add_sel_bill_to_pr",
+    "label": "EG - Address Select (Bill To) (Project)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "amountPpSo": {
+    "id": "custbody_eg_amount_pp_so",
+    "label": "EG - Amount Prepaid Pool Sales Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "applySubsidiaryCom": {
+    "id": "custbody_eg_apply_subsidiary_com",
+    "label": "EG - Apply Subsidiary Communication",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "approvaldatepo": {
+    "id": "custbody_eg_approvaldatepo",
+    "label": "EG - Approval Date PO",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "approvebillinclosedperiod": {
+    "id": "custbody_eg_approvebillinclosedperiod",
+    "label": "EG - Approve Bill in closed period?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "autoProcessProjCreation": {
+    "id": "custbody_eg_auto_process_proj_creation",
+    "label": "EG - Auto-Process Project Creation",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "avtalegiroMandate": {
+    "id": "custbody_eg_avtalegiro_mandate",
+    "label": "EG - Avtalegiro Mandate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "bankAccountNumber": {
+    "id": "custbody_eg_bank_account_number",
+    "label": "Bank Account Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "bankDetailMemo": {
+    "id": "custbody_eg_bank_detail_memo",
+    "label": "Bank Detail Memo",
+    "input": "text",
+    "source": "custom"
+  },
+  "bankDetailRecord": {
+    "id": "custbody_eg_bank_detail_record",
+    "label": "Bank Detail Record",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "bankInformationUs": {
+    "id": "custbody_eg_bank_information_us",
+    "label": "EG - Bank Information US (INV)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billingProfileUsed": {
+    "id": "custbody_eg_billing_profile_used",
+    "label": "EG -  Billing Profile Used",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billtoaddresslistMandator": {
+    "id": "custbody_eg_billtoaddresslist_mandator",
+    "label": "EG - billaddresslist Mandatory",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billtoentityfromcustomer": {
+    "id": "custbody_eg_billtoentityfromcustomer",
+    "label": "EG - Bill to Entity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billtovalidate": {
+    "id": "custbody_eg_billtovalidate",
+    "label": "EG - Bill to be validated on receipt",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billtoEaddressNo": {
+    "id": "custbody_eg_billto_eaddress_no",
+    "label": "EG - Bill To E-Address Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "billtoGln": {
+    "id": "custbody_eg_billto_gln",
+    "label": "EG - Bill To GLN",
+    "input": "text",
+    "source": "custom"
+  },
+  "billToAddress": {
+    "id": "custbody_eg_bill_to_address",
+    "label": "EG - Bill to Address (Project)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "chargesUpdated": {
+    "id": "custbody_eg_charges_updated",
+    "label": "EG - Charges Updated",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "compRegNumber": {
+    "id": "custbody_eg_comp_reg_number",
+    "label": "EG - Company Registration Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "createdByZab": {
+    "id": "custbody_eg_created_by_zab",
+    "label": "EG - Transaction Created by ZAB",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "createdFromIcTimeProc": {
+    "id": "custbody_eg_created_from_ic_time_proc",
+    "label": "Created From IC Time Processor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "createIcVendorBill": {
+    "id": "custbody_eg_create_ic_vendor_bill",
+    "label": "EG - Create IC Vendor Bill",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "createNegativeCharges": {
+    "id": "custbody_eg_create_negative_charges",
+    "label": "EG - Create Negative Charges",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "createPositiveCharges": {
+    "id": "custbody_eg_create_positive_charges",
+    "label": "EG - Create Positive Charge",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "currencyPpSo": {
+    "id": "custbody_eg_currency_pp_so",
+    "label": "EG - Currency Prepaid Pool Sales Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerso": {
+    "id": "custbody_eg_customerso",
+    "label": "EG - Customer SO",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerCollectiaCase": {
+    "id": "custbody_eg_customer_collectia_case",
+    "label": "EG - Customer Collectia Case",
+    "input": "text",
+    "source": "custom"
+  },
+  "custRegNumInvDate": {
+    "id": "custbody_eg_cust_reg_num_inv_date",
+    "label": "EG - Cust Reg Num (on invoice date)",
+    "input": "text",
+    "source": "custom"
+  },
+  "custRegNumInvDateCb": {
+    "id": "custbody_eg_cust_reg_num_inv_date_cb",
+    "label": "EG - Cust Reg Num (on invoice date) Check",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "deletedfromcollectia": {
+    "id": "custbody_eg_deletedfromcollectia",
+    "label": "EG - Deleted From Collectia",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "differencevbwithpo": {
+    "id": "custbody_eg_differencevbwithpo",
+    "label": "EG - VB/PO difference in transaction Currency",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "differencevbwithpodkk": {
+    "id": "custbody_eg_differencevbwithpodkk",
+    "label": "EG - VB/PO Difference in DKK",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "docIssueDate": {
+    "id": "custbody_eg_doc_issue_date",
+    "label": "EG - Document Issue Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "doNotSendTransaction": {
+    "id": "custbody_eg_do_not_send_transaction",
+    "label": "EG - Do Not Send Transaction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dueDate": {
+    "id": "custbody_eg_due_date",
+    "label": "EG - Due Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "dueDateHolte": {
+    "id": "custbody_eg_due_date_holte",
+    "label": "EG - Invoice Due Date for Holte",
+    "input": "text",
+    "source": "custom"
+  },
+  "dunninglevelNew": {
+    "id": "custbody_eg_dunninglevel_new",
+    "label": "EG - Dunning Level (Non Store) NEW",
+    "input": "text",
+    "source": "custom"
+  },
+  "dunninglevelNewHonc": {
+    "id": "custbody_eg_dunninglevel_new_honc",
+    "label": "EG - Dunning Level (Non Store) NEW HONC",
+    "input": "text",
+    "source": "custom"
+  },
+  "dunningLevel": {
+    "id": "custbody_eg_dunning_level",
+    "label": "EG - Dunning Level",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dunningLevelNs": {
+    "id": "custbody_eg_dunning_level_ns",
+    "label": "EG - Dunning Level (Non-Store)",
+    "input": "text",
+    "source": "custom"
+  },
+  "dunningPauseReason": {
+    "id": "custbody_eg_dunning_pause_reason",
+    "label": "EG - Dunning Pause Reason",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "dunningProcedure": {
+    "id": "custbody_eg_dunning_procedure",
+    "label": "EG - Dunning Procedure transaction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "edocumentSendingMethod": {
+    "id": "custbody_eg_edocument_sending_method",
+    "label": "EG - Edocument Sending Method",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "edocumentTemplate": {
+    "id": "custbody_eg_edocument_template",
+    "label": "EG - Edocument Templates",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "edocPackage": {
+    "id": "custbody_eg_edoc_package",
+    "label": "EG - Edoc Package",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "emailprojectcreator": {
+    "id": "custbody_eg_emailprojectcreator",
+    "label": "EG - Email Project Creator",
+    "input": "text",
+    "source": "custom"
+  },
+  "emailprojectmanager": {
+    "id": "custbody_eg_emailprojectmanager",
+    "label": "EG - Email Project Manager",
+    "input": "text",
+    "source": "custom"
+  },
+  "endUserFromZab": {
+    "id": "custbody_eg_end_user_from_zab",
+    "label": "EG - End User",
+    "input": "text",
+    "source": "custom"
+  },
+  "excludeDunning": {
+    "id": "custbody_eg_exclude_dunning",
+    "label": "EG - Exclude From Dunning",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "excludeFromIc": {
+    "id": "custbody_eg_exclude_from_ic",
+    "label": "EG - Exclude from IC",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "externalAccountNumber": {
+    "id": "custbody_eg_external_account_number",
+    "label": "EG - External Account Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "externalVendorNumber": {
+    "id": "custbody_eg_external_vendor_number",
+    "label": "EG - External Vendor Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "fik": {
+    "id": "custbody_eg_fik",
+    "label": "EG - FIK?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpInvoicepaidbeforedue": {
+    "id": "custbody_eg_fp_invoicepaidbeforedue",
+    "label": "EG - FarPay Invoices paid before due",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpInvoiceId": {
+    "id": "custbody_eg_fp_invoice_id",
+    "label": "EG - FarPay invoice ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "fpInvoiceSendingStatus": {
+    "id": "custbody_eg_fp_invoice_sending_status",
+    "label": "EG - FarPay invoice sending status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpInvPaymStatus": {
+    "id": "custbody_eg_fp_inv_paym_status",
+    "label": "EG - FarPay invoice payment status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "fpMemo": {
+    "id": "custbody_eg_fp_memo",
+    "label": "EG - FarPay Memo",
+    "input": "text",
+    "source": "custom"
+  },
+  "framepo": {
+    "id": "custbody_eg_framepo",
+    "label": "EG - Frame PO",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "framepoed": {
+    "id": "custbody_eg_framepoed",
+    "label": "EG - Frame PO End Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "frameposd": {
+    "id": "custbody_eg_frameposd",
+    "label": "EG - Frame PO Start Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "generalTermsDeli": {
+    "id": "custbody_eg_general_terms_deli",
+    "label": "EG - General terms for delivery of goods & services",
+    "input": "text",
+    "source": "custom"
+  },
+  "generatePdf": {
+    "id": "custbody_eg_generate_pdf",
+    "label": "EG - Generate PDF",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "glnLabelBillTo": {
+    "id": "custbody_eg_gln_label_bill_to",
+    "label": "EG - GLN Label - Bill to",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "glnLabelShipTo": {
+    "id": "custbody_eg_gln_label_ship_to",
+    "label": "EG - GLN Label - Ship to",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hasQtyDiscrepancy": {
+    "id": "custbody_eg_has_qty_discrepancy",
+    "label": "Has Qty Discrepancy",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hasRateDiscrepancy": {
+    "id": "custbody_eg_has_rate_discrepancy",
+    "label": "Has rate Discrepancy",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hoursImported": {
+    "id": "custbody_eg_hours_imported",
+    "label": "EG - Hours Imported?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "hoursToBeImported": {
+    "id": "custbody_eg_hours_to_be_imported",
+    "label": "EG - Hours to be imported",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "initialDueDate": {
+    "id": "custbody_eg_initial_due_date",
+    "label": "EG - Initial Due Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "intercotransaction": {
+    "id": "custbody_eg_intercotransaction",
+    "label": "EG - Paired IC transaction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "internalNote": {
+    "id": "custbody_eg_internal_note",
+    "label": "EG - Internal Note",
+    "input": "text",
+    "source": "custom"
+  },
+  "interVendorDueDate": {
+    "id": "custbody_eg_inter_vendor_due_date",
+    "label": "EG - Intermediary Vendor Due Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "invoicePaymentId": {
+    "id": "custbody_eg_invoice_payment_id",
+    "label": "EG - Payment ID",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "invFromPrepPoolProject": {
+    "id": "custbody_eg_inv_from_prep_pool_project",
+    "label": "EG - Invoice from Prepaid Pool Project?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "invSubComm": {
+    "id": "custbody_eg_inv_sub_comm",
+    "label": "EG - Subsidiary Communication",
+    "input": "text",
+    "source": "custom"
+  },
+  "ispiremoved": {
+    "id": "custbody_eg_ispiremoved",
+    "label": "EG - Is PI Removed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isHardwareReselSo": {
+    "id": "custbody_eg_is_hardware_resel_so",
+    "label": "EG - Is Hardware/Reselling SO?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isInternalusestock": {
+    "id": "custbody_eg_is_internalusestock",
+    "label": "EG - Is Internal Use Stock",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isInternalOrder": {
+    "id": "custbody_eg_is_internal_order",
+    "label": "EG - Is Internal Use Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isPrepaidPool": {
+    "id": "custbody_eg_is_prepaid_pool",
+    "label": "EG - Is Prepaid Pool?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "isStandardDelivery": {
+    "id": "custbody_eg_is_standard_delivery",
+    "label": "EG - Is Standard Delivery?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "itemfulfillmentHaas": {
+    "id": "custbody_eg_itemfulfillment_haas",
+    "label": "EG - Item Fulfillment for HAAS",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "journalentryHaas": {
+    "id": "custbody_eg_journalentry_haas",
+    "label": "EG - Journal Entry for HAAS",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "jsonDelivery": {
+    "id": "custbody_eg_json_delivery",
+    "label": "EG - JSON Delivery",
+    "input": "text",
+    "source": "custom"
+  },
+  "jsonMandatoryTaxW": {
+    "id": "custbody_eg_json_mandatory_tax_w",
+    "label": "EG - JSON of Mandatory Tax Wording",
+    "input": "text",
+    "source": "custom"
+  },
+  "jsonProject": {
+    "id": "custbody_eg_json_project",
+    "label": "EG - JSON Project",
+    "input": "text",
+    "source": "custom"
+  },
+  "jsonProjectTosave": {
+    "id": "custbody_eg_json_project_tosave",
+    "label": "EG - JSON Project To Save",
+    "input": "text",
+    "source": "custom"
+  },
+  "jsonVatExemption": {
+    "id": "custbody_eg_json_vat_exemption",
+    "label": "EG - JSON of VAT Exemption reason",
+    "input": "text",
+    "source": "custom"
+  },
+  "kid": {
+    "id": "custbody_eg_kid",
+    "label": "EG - KID?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "killChargeType": {
+    "id": "custbody_eg_kill_charge_type",
+    "label": "EG - Kill Charge Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linesWithDiscrepancy": {
+    "id": "custbody_eg_lines_with_discrepancy",
+    "label": "EG - Lines With Discrepancy",
+    "input": "text",
+    "source": "custom"
+  },
+  "linkedPoolProjects": {
+    "id": "custbody_eg_linked_pool_projects",
+    "label": "EG - Linked Pool Projects",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPoolProvisionSo": {
+    "id": "custbody_eg_linked_pool_provision_so",
+    "label": "EG - Linked Pool Provision Sales Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPpInv": {
+    "id": "custbody_eg_linked_pp_inv",
+    "label": "EG - Linked Prepaid Pool (Invoice)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "linkedPpSo": {
+    "id": "custbody_eg_linked_pp_so",
+    "label": "EG - Linked Prepaid Pool (SO)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "lsDdPayoutDate": {
+    "id": "custbody_eg_ls_dd_payout_date",
+    "label": "EG - Direct Debit Payout Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "matchedTransaction": {
+    "id": "custbody_eg_matched_transaction",
+    "label": "EG - IC_matched transaction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "negativeChargesCreated": {
+    "id": "custbody_eg_negative_charges_created",
+    "label": "EG - Negative Charges Created",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "negativeChargeQueue": {
+    "id": "custbody_eg_negative_charge_queue",
+    "label": "EG - Negative Charges Queue",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ocr": {
+    "id": "custbody_eg_ocr",
+    "label": "EG - OCR?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "oktaxperiod": {
+    "id": "custbody_eg_oktaxperiod",
+    "label": "OK Tax period",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "orderbyaddresslist": {
+    "id": "custbody_eg_orderbyaddresslist",
+    "label": "EG - Ordered by Address",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "orderedbyaddress": {
+    "id": "custbody_eg_orderedbyaddress",
+    "label": "EG - Ordered By",
+    "input": "text",
+    "source": "custom"
+  },
+  "orderedBy2": {
+    "id": "custbody_eg_ordered_by",
+    "label": "EG - Ordered by/End User",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ourReference": {
+    "id": "custbody_eg_our_reference",
+    "label": "EG - Our Reference",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "overrideDuedate": {
+    "id": "custbody_eg_override_duedate",
+    "label": "EG - Manual Override Of Due Date",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "paidInFull": {
+    "id": "custbody_eg_paid_in_full",
+    "label": "EG - Paid in Full ?",
+    "input": "text",
+    "source": "custom"
+  },
+  "partnerReseller": {
+    "id": "custbody_eg_partner_reseller",
+    "label": "EG - Partner/Reseller",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "pauseDunning": {
+    "id": "custbody_eg_pause_dunning",
+    "label": "EG - Pause Dunning",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "paymentReferencesFin": {
+    "id": "custbody_eg_payment_references_fin",
+    "label": "EG - Payment References",
+    "input": "text",
+    "source": "custom"
+  },
+  "periodClosed": {
+    "id": "custbody_eg_period_closed",
+    "label": "EG - Is Period Closed?",
+    "input": "text",
+    "source": "custom"
+  },
+  "poolProject": {
+    "id": "custbody_eg_pool_project",
+    "label": "EG - Pool Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "poolProvSo": {
+    "id": "custbody_eg_pool_prov_so",
+    "label": "EG - Is Pool Provision Sales Order?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "positiveChargesCreated": {
+    "id": "custbody_eg_positive_charges_created",
+    "label": "EG - Positive Charges Created",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "positiveChargeQueue": {
+    "id": "custbody_eg_positive_charge_queue",
+    "label": "EG - Positive Charges Queue",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "poInitiator": {
+    "id": "custbody_eg_po_initiator",
+    "label": "EG - PO Initiator",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "poInventory": {
+    "id": "custbody_eg_po_inventory",
+    "label": "Po for Inventory",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "poLink": {
+    "id": "custbody_eg_po_link",
+    "label": "EG - PO Link",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "poTranNumber": {
+    "id": "custbody_eg_po_tran_number",
+    "label": "EG - PO Tran Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "ppAppliedInvoice": {
+    "id": "custbody_eg_pp_applied_invoice",
+    "label": "EG - Prepaid Pool Applied to Invoice?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "printOrderedBy": {
+    "id": "custbody_eg_print_ordered_by",
+    "label": "EG - Print Ordered By",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "printShipTo": {
+    "id": "custbody_eg_print_ship_to",
+    "label": "EG - Print Ship To",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "proforma": {
+    "id": "custbody_eg_proforma",
+    "label": "EG - Pro Forma",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "project": {
+    "id": "custbody_eg_project",
+    "label": "EG - Project",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectCreator": {
+    "id": "custbody_eg_project_creator",
+    "label": "EG - Project Creator",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectManager": {
+    "id": "custbody_eg_project_manager",
+    "label": "EG - Project Manager",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "ptPoNum": {
+    "id": "custbody_eg_pt_po_num",
+    "label": "PO Number",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "pushedtocollectia": {
+    "id": "custbody_eg_pushedtocollectia",
+    "label": "EG - Pushed to Collectia",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "readsoftCreationDate": {
+    "id": "custbody_eg_readsoft_creation_date",
+    "label": "EG - Readsoft Creation Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "readsoftTrackId": {
+    "id": "custbody_eg_readsoft_track_id",
+    "label": "EG - Readsoft Track Id",
+    "input": "text",
+    "source": "custom"
+  },
+  "reasonsForUnsett": {
+    "id": "custbody_eg_reasons_for_unsett",
+    "label": "EG - Reasons for Being Unsettled",
+    "input": "text",
+    "source": "custom"
+  },
+  "reasonsOnHold": {
+    "id": "custbody_eg_reasons_on_hold",
+    "label": "EG - Reasons on hold",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "relatedInvoice": {
+    "id": "custbody_eg_related_invoice",
+    "label": "EG - Related Invoice",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "removedPauseDun": {
+    "id": "custbody_eg_removed_pause_dun",
+    "label": "EG - Date Removed Pause Dunning",
+    "input": "text",
+    "source": "custom"
+  },
+  "requestoronpr": {
+    "id": "custbody_eg_requestoronpr",
+    "label": "EG - Requestor on PR",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "salesOrderLink": {
+    "id": "custbody_eg_sales_order_link",
+    "label": "EG - Sales Order Link",
+    "input": "text",
+    "source": "custom"
+  },
+  "sdReadyForBilling": {
+    "id": "custbody_eg_sd_ready_for_billing",
+    "label": "EG - Standard Delivery Ready for Billing?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sendtocollectia": {
+    "id": "custbody_eg_sendtocollectia",
+    "label": "EG - Send to Collectia",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sendDocumentAgain": {
+    "id": "custbody_eg_send_document_again",
+    "label": "EG - Send Document Again",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sentToPageroDate": {
+    "id": "custbody_eg_sent_to_pagero_date",
+    "label": "EG - Pagero Transfer Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "sentToPageroStatus": {
+    "id": "custbody_eg_sent_to_pagero_status",
+    "label": "EG - Transferred to Pagero",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "shiptoEaddressNo": {
+    "id": "custbody_eg_shipto_eaddress_no",
+    "label": "EG - Ship To E-Address Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "shiptoGln": {
+    "id": "custbody_eg_shipto_gln",
+    "label": "EG - Ship To GLN",
+    "input": "text",
+    "source": "custom"
+  },
+  "shipToEntity": {
+    "id": "custbody_eg_ship_to_entity",
+    "label": "EG - Ship to Entity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "shipToProject": {
+    "id": "custbody_eg_ship_to_project",
+    "label": "EG - Ship To (Project)",
+    "input": "text",
+    "source": "custom"
+  },
+  "skiFrameAgreement": {
+    "id": "custbody_eg_ski_frame_agreement",
+    "label": "EG - SKI Frame Agreement",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "sowaitingforbill": {
+    "id": "custbody_eg_sowaitingforbill",
+    "label": "EG - Waiting for Bill?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "soHaas": {
+    "id": "custbody_eg_so_haas",
+    "label": "EG - Sales Order for HAAS",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "soRequireContract": {
+    "id": "custbody_eg_so_require_contract",
+    "label": "EG - SO requires contract",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subscriptionCreated": {
+    "id": "custbody_eg_subscription_created",
+    "label": "EG - Subscription has been created",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "subsidiaryCustomerNo": {
+    "id": "custbody_eg_subsidiary_customer_no",
+    "label": "EG - Subsidiary Customer No.",
+    "input": "text",
+    "source": "custom"
+  },
+  "subsidiaryGln": {
+    "id": "custbody_eg_subsidiary_gln",
+    "label": "EG - Subsidiary GLN",
+    "input": "text",
+    "source": "custom"
+  },
+  "subAgreement": {
+    "id": "custbody_eg_sub_agreement",
+    "label": "EG - SKI Sub Agreement",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "taxperiod": {
+    "id": "custbody_eg_taxperiod",
+    "label": "EG - Tax Period",
+    "input": "text",
+    "source": "custom"
+  },
+  "templateSo": {
+    "id": "custbody_eg_template_so",
+    "label": "EG - Is Template SO?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "thereIsAPr": {
+    "id": "custbody_eg_there_is_a_pr",
+    "label": "Requisition before?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "totalestimate": {
+    "id": "custbody_eg_totalestimate",
+    "label": "EG - Total Estimate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "toBeEmailed": {
+    "id": "custbody_eg_to_be_emailed",
+    "label": "EG - To be Emailed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "transactionCreatedby": {
+    "id": "custbody_eg_transaction_createdby",
+    "label": "EG - Transaction - created by",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "transactionTypeTsl": {
+    "id": "custbody_eg_transaction_type_tsl",
+    "label": "EG - Transaction Type",
+    "input": "text",
+    "source": "custom"
+  },
+  "transContractOrder": {
+    "id": "custbody_eg_trans_contract_order",
+    "label": "EG - Contract / Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "tripNumber": {
+    "id": "custbody_eg_trip_number",
+    "label": "EG - Trip Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "vatValidatedOnInvoiceD": {
+    "id": "custbody_eg_vat_validated_on_invoice_d",
+    "label": "EG - VAT Validated on Invoice Date ?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vcchecked": {
+    "id": "custbody_eg_vcchecked",
+    "label": "EG - Vendor Credit Checked?",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vcApprover": {
+    "id": "custbody_eg_vc_approver",
+    "label": "EG - Approver",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendorisinternallocation": {
+    "id": "custbody_eg_vendorisinternallocation",
+    "label": "EG - Vendor Is With Internal Location",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "vendorDueDate": {
+    "id": "custbody_eg_vendor_due_date",
+    "label": "EG - Vendor Due Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "vendorEmailAddress": {
+    "id": "custbody_eg_vendor_email_address",
+    "label": "EG - Vendor Email address",
+    "input": "text",
+    "source": "custom"
+  },
+  "webshopCreatedfrom": {
+    "id": "custbody_eg_webshop_createdfrom",
+    "label": "EG - Webshop - Created From",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopOrder": {
+    "id": "custbody_eg_webshop_order",
+    "label": "EG - Webshop Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopProcessed": {
+    "id": "custbody_eg_webshop_processed",
+    "label": "EG - Webshop - Processed",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "webshopVendorOrderNum": {
+    "id": "custbody_eg_webshop_vendor_order_num",
+    "label": "EG - Webshop Vendor Order Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "woAgent": {
+    "id": "custbody_eg_wo_agent",
+    "label": "EG - Webshop - Is Agent",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "woIsintercoTran": {
+    "id": "custbody_eg_wo_isinterco_tran",
+    "label": "EG - Webshop - Interco Tran",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "woIsTransferorder": {
+    "id": "custbody_eg_wo_is_transferorder",
+    "label": "EG - Webshop - Is For Transfer Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "woPurchaseOrder": {
+    "id": "custbody_eg_wo_purchase_order",
+    "label": "EG - Webshop Purchase Order",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "woType": {
+    "id": "custbody_eg_wo_type",
+    "label": "EG - Webshop - Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "yourReference": {
+    "id": "custbody_eg_your_reference",
+    "label": "EG - Your Reference",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "yourReferenceOneTime": {
+    "id": "custbody_eg_your_reference_one_time",
+    "label": "EG -  Your Reference (One Time Usage)",
+    "input": "text",
+    "source": "custom"
+  },
+  "zabCreditedFrom": {
+    "id": "custbody_eg_zab_credited_from",
+    "label": "EG ZAB - Credited From",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "glmCsvReference": {
+    "id": "custbody_glm_csv_reference",
+    "label": "CSV Reference",
+    "input": "text",
+    "source": "custom"
+  },
+  "glmCsPermission": {
+    "id": "custbody_glm_cs_permission",
+    "label": "GLM Permission",
+    "input": "text",
+    "source": "custom"
+  },
+  "glmReference": {
+    "id": "custbody_glm_reference",
+    "label": "Matching Reference for All Lines",
+    "input": "text",
+    "source": "custom"
+  },
+  "notc": {
+    "id": "custbody_notc",
+    "label": "Nature of Transaction Code",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plp3rdSubject1Address": {
+    "id": "custbody_plp_3rd_subject_1_address",
+    "label": "PLP Third Subject 1 Address",
+    "input": "text",
+    "source": "custom"
+  },
+  "plp3rdSubject1Email": {
+    "id": "custbody_plp_3rd_subject_1_email",
+    "label": "PLP Third Subject 1 Email",
+    "input": "text",
+    "source": "custom"
+  },
+  "plp3rdSubject1Entity": {
+    "id": "custbody_plp_3rd_subject_1_entity",
+    "label": "PLP Third Subject 1 (Customer/Employee)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plp3rdSubject1Role": {
+    "id": "custbody_plp_3rd_subject_1_role",
+    "label": "PLP Third Subject 1 Role",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plp3rdSubject1Taxid": {
+    "id": "custbody_plp_3rd_subject_1_taxid",
+    "label": "PLP Third Subject 1 Tax ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "plp3rdSubject2Address": {
+    "id": "custbody_plp_3rd_subject_2_address",
+    "label": "PLP Third Subject 2 Address",
+    "input": "text",
+    "source": "custom"
+  },
+  "plp3rdSubject2Email": {
+    "id": "custbody_plp_3rd_subject_2_email",
+    "label": "PLP Third Subject 2 Email",
+    "input": "text",
+    "source": "custom"
+  },
+  "plp3rdSubject2Entity": {
+    "id": "custbody_plp_3rd_subject_2_entity",
+    "label": "PLP Third Subject 2 (Customer/Employee)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plp3rdSubject2Role": {
+    "id": "custbody_plp_3rd_subject_2_role",
+    "label": "PLP Third Subject 2 Role",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plp3rdSubject2Taxid": {
+    "id": "custbody_plp_3rd_subject_2_taxid",
+    "label": "PLP Third Subject 2 Tax ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "plp3rdSubject3Email": {
+    "id": "custbody_plp_3rd_subject_3_email",
+    "label": "PLP Third Subject 3 Email",
+    "input": "text",
+    "source": "custom"
+  },
+  "plp3rdSubject3Role": {
+    "id": "custbody_plp_3rd_subject_3_role",
+    "label": "PLP Third Subject 3 Role",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpAdditionalHeaderNotes": {
+    "id": "custbody_plp_additional_header_notes",
+    "label": "PLP Additional Header Notes",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpAdditionalNotes": {
+    "id": "custbody_plp_additional_notes",
+    "label": "PLP Additional notes",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpAdditonalFooter": {
+    "id": "custbody_plp_additonal_footer",
+    "label": "PLP Additonal Footer",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpApprovalDate": {
+    "id": "custbody_plp_approval_date",
+    "label": "PLP Approval date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpAutonumberId": {
+    "id": "custbody_plp_autonumber_id",
+    "label": "PLP Autonumber",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpAutoPrefix": {
+    "id": "custbody_plp_auto_prefix",
+    "label": "PLP Prefix",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpBankAccountNumber": {
+    "id": "custbody_plp_bank_account_number",
+    "label": "PLP Bank Account Number",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpBeforeLoadRecordState": {
+    "id": "custbody_plp_before_load_record_state",
+    "label": "PLP Before load record state",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpBic": {
+    "id": "custbody_plp_bic",
+    "label": "PLP BIC",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpBpIdc": {
+    "id": "custbody_plp_bp_idc",
+    "label": "PLP IDC",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpBpNetAmount": {
+    "id": "custbody_plp_bp_net_amount",
+    "label": "PLP Net Amount",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpBpPayableAmount": {
+    "id": "custbody_plp_bp_payable_amount",
+    "label": "PLP Payable amount",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpBpTaxAmount": {
+    "id": "custbody_plp_bp_tax_amount",
+    "label": "PLP Tax Amount",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCashAccountingScheme": {
+    "id": "custbody_plp_cash_accounting_scheme",
+    "label": "PLP Cash accounting scheme",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCashAcctSchemeRelPay": {
+    "id": "custbody_plp_cash_acct_scheme_rel_pay",
+    "label": "PLP Cash accounting scheme related payment",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpConsolidatedLineAbbrev": {
+    "id": "custbody_plp_consolidated_line_abbrev",
+    "label": "PLP Consolidated line unit abbrev.",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpConsolidatedLineDesc": {
+    "id": "custbody_plp_consolidated_line_desc",
+    "label": "PLP Consolidated line description",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpConsolidatedLineItem": {
+    "id": "custbody_plp_consolidated_line_item",
+    "label": "PLP Consolidated line item",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpConsolidatedLineQty": {
+    "id": "custbody_plp_consolidated_line_qty",
+    "label": "PLP Consolidated line quantity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpConsolidatedLineUnit": {
+    "id": "custbody_plp_consolidated_line_unit",
+    "label": "PLP Consolidated line unit",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpConsolidateLines": {
+    "id": "custbody_plp_consolidate_lines",
+    "label": "PLP Consolidate lines",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCorrectionReason": {
+    "id": "custbody_plp_correction_reason",
+    "label": "PLP Reason of Correction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCorrectionReasonCustom": {
+    "id": "custbody_plp_correction_reason_custom",
+    "label": "PLP Reason of Correction (custom)",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpCorrectsDocument": {
+    "id": "custbody_plp_corrects_document",
+    "label": "PLP Corrects document",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCountryOfDispatch": {
+    "id": "custbody_plp_country_of_dispatch",
+    "label": "PLP Country of dispatch",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCustomer": {
+    "id": "custbody_plp_customer",
+    "label": "PLP Customer (Main)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpCustomContentCorrect": {
+    "id": "custbody_plp_custom_content_correct",
+    "label": "PLP Custom Correct Content",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpCustomContentIncorrect": {
+    "id": "custbody_plp_custom_content_incorrect",
+    "label": "PLP Custom Incorrect Content",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDatadostawy": {
+    "id": "custbody_plp_datadostawy",
+    "label": "PLP Delivery Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDatazakupu": {
+    "id": "custbody_plp_datazakupu",
+    "label": "PLP Purchase Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDateOfIssue": {
+    "id": "custbody_plp_date_of_issue",
+    "label": "PLP Date of Issue",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDateOfPayment": {
+    "id": "custbody_plp_date_of_payment",
+    "label": "PLP Date of Payment",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDateOfReceived": {
+    "id": "custbody_plp_date_of_received",
+    "label": "PLP Date of Receipt",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDeliveryDateForWrkflw": {
+    "id": "custbody_plp_delivery_date_for_wrkflw",
+    "label": "PLP Delivery Date for Workflow",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDescription": {
+    "id": "custbody_plp_description",
+    "label": "PLP Description",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDoctypeSalesform": {
+    "id": "custbody_plp_doctype_salesform",
+    "label": "PLP Document Type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpDocument": {
+    "id": "custbody_plp_document",
+    "label": "PLP Printout File",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDocumentAutoMonth": {
+    "id": "custbody_plp_document_auto_month",
+    "label": "PLP Document Auto Month",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDocumentAutoNo": {
+    "id": "custbody_plp_document_auto_no",
+    "label": "PLP Document Auto Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDocumentAutoYear": {
+    "id": "custbody_plp_document_auto_year",
+    "label": "PLP Document Auto Year",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDocumentId": {
+    "id": "custbody_plp_document_id",
+    "label": "PLP Document ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpDueDateJournal": {
+    "id": "custbody_plp_due_date_journal",
+    "label": "PLP Due Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpEmployee": {
+    "id": "custbody_plp_employee",
+    "label": "PLP Employee",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpEntity": {
+    "id": "custbody_plp_entity",
+    "label": "PLP Entity",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpExchangeRateCit": {
+    "id": "custbody_plp_exchange_rate_cit",
+    "label": "PLP Exchange Rate CIT",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpExcludeFromTrialBalanc": {
+    "id": "custbody_plp_exclude_from_trial_balanc",
+    "label": "PLP Exclude from trial balance",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpExcludeKsefAutomation": {
+    "id": "custbody_plp_exclude_ksef_automation",
+    "label": "PLP exclude from KseF automation",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpFxValuationExclude": {
+    "id": "custbody_plp_fx_valuation_exclude",
+    "label": "PLP Exclude from foreign currency turnover",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpIban": {
+    "id": "custbody_plp_iban",
+    "label": "PLP IBAN",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpIsSplitPayment": {
+    "id": "custbody_plp_is_split_payment",
+    "label": "PLP Split Payment",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpJpkV7Doctype": {
+    "id": "custbody_plp_jpk_v7_doctype",
+    "label": "PLP JPK_V7 document type",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpJpkV7InvoiceFormat": {
+    "id": "custbody_plp_jpk_v7_invoice_format",
+    "label": "PLP JPK_V7 invoice format",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpJpkV7Procedure": {
+    "id": "custbody_plp_jpk_v7_procedure",
+    "label": "PLP JPK_V7 procedure",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpKsefApiVersion": {
+    "id": "custbody_plp_ksef_api_version",
+    "label": "PLP KSeF API Version",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpKsefInvoiceId": {
+    "id": "custbody_plp_ksef_invoice_id",
+    "label": "PLP KSeF invoice ID",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpKsefOfflineMode": {
+    "id": "custbody_plp_ksef_offline_mode",
+    "label": "PLP KSeF Offline Mode",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpKsefSendSessionRefNum": {
+    "id": "custbody_plp_ksef_send_session_ref_num",
+    "label": "PLP KSeF Send Session Reference Number",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpKsefSendStatusRefNo": {
+    "id": "custbody_plp_ksef_send_status_ref_no",
+    "label": "PLP KSeF send status reference no.",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpKsefSendStatPrcssCode": {
+    "id": "custbody_plp_ksef_send_stat_prcss_code",
+    "label": "PLP KSeF send status process. code",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpKsefSendStatPrcssDesc": {
+    "id": "custbody_plp_ksef_send_stat_prcss_desc",
+    "label": "PLP KSeF send status process. desc",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpKsefSendStatPrcssDet": {
+    "id": "custbody_plp_ksef_send_stat_prcss_det",
+    "label": "PLP KSeF send status process. details",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpKsefSendTimeout": {
+    "id": "custbody_plp_ksef_send_timeout",
+    "label": "PLP KSeF Send Timeout",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpKsefXmlFile": {
+    "id": "custbody_plp_ksef_xml_file",
+    "label": "PLP KSeF XML file",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpMarginScheme": {
+    "id": "custbody_plp_margin_scheme",
+    "label": "PLP Margin Scheme",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpNatureOfTransaction": {
+    "id": "custbody_plp_nature_of_transaction",
+    "label": "PLP Nature of transaction",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpNumberingCounter": {
+    "id": "custbody_plp_numbering_counter",
+    "label": "PLP Numbering counter",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpNumberingRule": {
+    "id": "custbody_plp_numbering_rule",
+    "label": "PLP Numbering rule",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpOpeningBalanceTran": {
+    "id": "custbody_plp_opening_balance_tran",
+    "label": "PLP Opening Balance only",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpOptimaPymntMthd": {
+    "id": "custbody_plp_optima_pymnt_mthd",
+    "label": "PLP Optima Payment Method",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpPaymentApproval": {
+    "id": "custbody_plp_payment_approval",
+    "label": "PLP Payment Approval",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpPaymentMethod": {
+    "id": "custbody_plp_payment_method",
+    "label": "PLP Payment method",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpPaymentStatus": {
+    "id": "custbody_plp_payment_status",
+    "label": "PLP Payment Status",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpPrepaid": {
+    "id": "custbody_plp_prepaid",
+    "label": "PLP Prepaid",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpPrepaymentInvoiceHeader": {
+    "id": "custbody_plp_prepayment_invoice_header",
+    "label": "PLP Advance Invoice Header",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpReferenceNo": {
+    "id": "custbody_plp_reference_no",
+    "label": "PLP Reference No.",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpRemarks": {
+    "id": "custbody_plp_remarks",
+    "label": "PLP Remarks",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpSaleDate": {
+    "id": "custbody_plp_sale_date",
+    "label": "PLP Sales Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpShiptoAs3rdSubject3": {
+    "id": "custbody_plp_shipto_as_3rd_subject_3",
+    "label": "PLP Ship to as Third Subject 3",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpSimplifiedProcedure": {
+    "id": "custbody_plp_simplified_procedure",
+    "label": "PLP Simplified procedure - Import",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpSubsidiaryBankAccounts": {
+    "id": "custbody_plp_subsidiary_bank_accounts",
+    "label": "PLP Subsidiary bank accounts",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpSubsidiaryBankDetails": {
+    "id": "custbody_plp_subsidiary_bank_details",
+    "label": "PLP Subsidiary bank details",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpSubsidiaryMainAddr": {
+    "id": "custbody_plp_subsidiary_main_addr",
+    "label": "PLP Subsidiary main address",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpSubsidiaryVatRegNum": {
+    "id": "custbody_plp_subsidiary_vat_reg_num",
+    "label": "PLP Subsidiary VAT reg. number",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpTaxobligationdate": {
+    "id": "custbody_plp_taxobligationdate",
+    "label": "PLP Tax Obligation Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpTaxAmountPrepayment": {
+    "id": "custbody_plp_tax_amount_prepayment",
+    "label": "PLP Tax Amount Prepayment",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpTransactionType": {
+    "id": "custbody_plp_transaction_type",
+    "label": "PLP Transaction Type",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpTriangulartransactionvue": {
+    "id": "custbody_plp_triangulartransactionvue",
+    "label": "PLP Triangular transactions - VAT UE",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatExchangeRate": {
+    "id": "custbody_plp_vat_exchange_rate",
+    "label": "PLP VAT Exchange Rate",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatExchangeRateDate": {
+    "id": "custbody_plp_vat_exchange_rate_date",
+    "label": "PLP VAT Exchange Rate Date",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpVatExchangeRateToPln": {
+    "id": "custbody_plp_vat_exchange_rate_to_pln",
+    "label": "PLP VAT Exchange Rate to PLN",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVatRegNum": {
+    "id": "custbody_plp_vat_reg_num",
+    "label": "PLP VAT REG NUM",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpVatValidityCustomer": {
+    "id": "custbody_plp_vat_validity_customer",
+    "label": "PLP Customer VAT Validity",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpVatValidityVendor": {
+    "id": "custbody_plp_vat_validity_vendor",
+    "label": "PLP Vendor VAT Validity",
+    "input": "text",
+    "source": "custom"
+  },
+  "plpVendor": {
+    "id": "custbody_plp_vendor",
+    "label": "PLP Vendor",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVisibleInBankPayments": {
+    "id": "custbody_plp_visible_in_bank_payments",
+    "label": "PLP Visible in Bank Payments",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpVisibleInJpkFa": {
+    "id": "custbody_plp_visible_in_jpk_fa",
+    "label": "PLP Visible in JPK_FA/KSeF",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "plpWidocznecit": {
+    "id": "custbody_plp_widocznecit",
+    "label": "PLP Is tax deductible expense (KUP)",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "refnoOriginvoice": {
+    "id": "custbody_refno_originvoice",
+    "label": "Reference No. of Original Invoice",
+    "input": "text",
+    "source": "custom"
+  }
+}
