@@ -31,6 +31,13 @@ export const CUSTOMERS = {
     id: '3013',
     displayName: '076876 Sears Manufacturing Co.',
   },
+  /** NS label: "116205 Randersbolig" */
+  randersbolig: {
+    id: '116371',
+    displayName: '116205 Randersbolig',
+    /** NS label: "EG DK" — subsidiary auto-populated from customer */
+    subsidiary: '15',
+  },
 } as const;
 
 export const SUBSIDIARIES = {

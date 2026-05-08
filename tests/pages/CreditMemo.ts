@@ -39,4 +39,35 @@ export class CreditMemo extends BasePage {
       this.page.locator('[data-field-name="createdfrom"] [data-nsps-type="field_input"]'),
     ).toHaveText(`Invoice #${invoiceNumber}`);
   }
+
+  async navigateToCreditMemo(creditMemoId: string): Promise<void> {
+    await this.navigateTo(`/app/accounting/transactions/custcred.nl?id=${creditMemoId}`);
+  }
+
+  async clickGenerateEDocument(): Promise<void> {
+    // NS shows a confirm dialog when a document was previously generated/sent
+    this.page.once('dialog', (dialog) => dialog.accept());
+    await this.page.locator('[id="custpage_generate_ei_button"]').click();
+    // Wait for the generation banner rather than a load-state — the operation is
+    // an AJAX call that updates the page in-place, so waitForNetSuiteLoad() hangs
+    await this.page
+      .getByText('The e-document has been generated')
+      .waitFor({ timeout: 30_000 });
+  }
+
+  async openEDocumentTab(): Promise<void> {
+    await this.switchToTab('E-Document');
+    // Tab click triggers a full page navigation (URL gains ei_process=generation params)
+    await this.page.waitForURL(/ei_process=generation/, { timeout: 30_000 });
+    await this.waitForNetSuiteLoad();
+  }
+
+  async openXmlPreview(): Promise<Page> {
+    // The preview link navigates in the same tab (no target=_blank); wait for that navigation
+    await Promise.all([
+      this.page.waitForURL(/command=preview/, { timeout: 30_000 }),
+      this.page.getByRole('link', { name: /preview creditmemo/i }).click(),
+    ]);
+    return this.page;
+  }
 }
