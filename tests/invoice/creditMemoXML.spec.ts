@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import { CUSTOMERS } from '../constants/lookups';
 import { INVOICE_DATA } from '../constants/invoiceData';
 import { ROLES } from '../constants/roles';
@@ -7,7 +6,7 @@ import { CreditMemo } from '../pages/CreditMemo';
 import { InvoiceRecord } from '../pages/InvoiceRecord';
 import { today } from '../utils/dateUtils';
 import { generateMemo, generatePoNumber } from '../utils/nameGenerators';
-import { parsePeppolCreditNote } from '../utils/peppolValidator';
+import { extractBillingReferenceId, validatePeppolXml } from '../utils/peppolValidator';
 
 const RANDERSBOLIG = CUSTOMERS.randersbolig;
 
@@ -50,8 +49,30 @@ test.describe.serial('billing responsible credits a Randersbolig invoice and val
 
     // Assert
     await invoiceRecord.verifyRecordCreated();
-    invoiceId = new URL(page.url()).searchParams.get('id')!;
+    invoiceId = invoiceRecord.getRecordId();
     invoiceNumber = await invoiceRecord.getInvoiceNumber();
+  });
+
+  test('billing responsible can generate PEPPOL-compliant XML e-document for the invoice', async ({ page }) => {
+    // Arrange
+    const invoiceRecord = new InvoiceRecord(page);
+    await invoiceRecord.switchRole(ROLES.egBillingResponsible);
+    await invoiceRecord.navigateToSavedInvoice(invoiceId);
+    await invoiceRecord.verifyRecordCreated();
+
+    // Act
+    await invoiceRecord.clickGenerateInvRefNo();
+    await invoiceRecord.clickGenerateEDocument();
+    await invoiceRecord.openEDocumentTab();
+    const xml = await invoiceRecord.downloadXml();
+    const result = await validatePeppolXml(xml);
+
+    // Assert
+    expect(
+      result.errors.map((e) => `[${e.ruleId}] ${e.text}`).join('\n'),
+      'PEPPOL/CEN validation errors',
+    ).toBe('');
+    expect(result.valid).toBe(true);
   });
 
   test('billing responsible can credit the Randersbolig invoice', async ({ page }) => {
@@ -67,8 +88,7 @@ test.describe.serial('billing responsible credits a Randersbolig invoice and val
 
     // Assert
     await creditMemo.verifyRecordCreated();
-    creditMemoId = new URL(page.url()).searchParams.get('id')!;
-    await creditMemo.verifyCreatedFrom(invoiceNumber);
+    creditMemoId = creditMemo.getRecordId();
   });
 
   test('billing responsible can generate PEPPOL-compliant XML e-document with invoice reference', async ({ page }) => {
@@ -82,18 +102,15 @@ test.describe.serial('billing responsible credits a Randersbolig invoice and val
     await creditMemo.clickGenerateEDocument();
     await creditMemo.openEDocumentTab();
     const xml = await creditMemo.downloadXml();
-    fs.writeFileSync('test-results/debug-credit-memo.xml', xml, 'utf-8');
-    const peppol = parsePeppolCreditNote(xml);
+    const result = await validatePeppolXml(xml);
+    const billingReferenceId = extractBillingReferenceId(xml);
 
     // Assert
-    expect(peppol.customizationId).toBe(
-      'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0',
-    );
-    expect(peppol.profileId).toBe('urn:fdc:peppol.eu:2017:poacc:billing:01:1.0');
-    expect(peppol.creditNoteTypeCode).toBe('381');
-    expect(peppol.documentCurrencyCode).not.toBe('');
-    expect(peppol.billingReferenceId).toBe(invoiceNumber);
-    expect(peppol.hasSupplierParty).toBe(true);
-    expect(peppol.hasCustomerParty).toBe(true);
+    expect(
+      result.errors.map((e) => `[${e.ruleId}] ${e.text}`).join('\n'),
+      'PEPPOL/CEN validation errors',
+    ).toBe('');
+    expect(result.valid).toBe(true);
+    expect(billingReferenceId).toBe(invoiceNumber);
   });
 });
