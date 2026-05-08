@@ -3,7 +3,7 @@ import { ROLES } from '../constants/roles';
 import { PROJECT_DATA } from '../constants/projectData';
 import { generateProjectName } from '../utils/nameGenerators';
 import { ProjectRecord } from '../pages/ProjectRecord';
-import JobFields from '../../docs/ns-object/job.json';
+import JobFields from '../../docs/ns-object/entity.json';
 
 test('project manager can create a new Customer Project @smoke', async ({
   isolatedPage,
