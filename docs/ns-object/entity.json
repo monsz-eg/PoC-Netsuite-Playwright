@@ -5,12 +5,6 @@
     "input": "text",
     "source": "native"
   },
-  "parent": {
-    "id": "parent",
-    "label": "Parent Record",
-    "input": "nlapi",
-    "source": "native"
-  },
   "subsidiary": {
     "id": "subsidiary",
     "label": "Subsidiary",
@@ -39,12 +33,6 @@
     "id": "projectedenddate",
     "label": "Estimated End Date",
     "input": "text",
-    "source": "native"
-  },
-  "entityStatus": {
-    "id": "entitystatus",
-    "label": "Status",
-    "input": "nlapi",
     "source": "native"
   },
   "approvedForTest": {
@@ -347,12 +335,6 @@
     "input": "text",
     "source": "custom"
   },
-  "contactperson": {
-    "id": "custentity_eg_contactperson",
-    "label": "EG - Contact Person",
-    "input": "nlapi",
-    "source": "custom"
-  },
   "contractItemLink": {
     "id": "custentity_eg_contract_item_link",
     "label": "EG - Contract Item Link",
@@ -425,12 +407,6 @@
     "input": "nlapi",
     "source": "custom"
   },
-  "customercontractportalacce": {
-    "id": "custentity_eg_customercontractportalacce",
-    "label": "EG - Customer Contact Portal Access 1",
-    "input": "nlapi",
-    "source": "custom"
-  },
   "customerHasGlnAddress": {
     "id": "custentity_eg_customer_has_gln_address",
     "label": "EG - Customer has a GLN address",
@@ -483,12 +459,6 @@
     "id": "custentity_eg_department_org_code",
     "label": "EG - Department Org Code",
     "input": "text",
-    "source": "custom"
-  },
-  "departmentProject": {
-    "id": "custentity_eg_department_project",
-    "label": "EG - Department",
-    "input": "nlapi",
     "source": "custom"
   },
   "dunningMultiCurrency": {
@@ -1391,12 +1361,6 @@
     "input": "nlapi",
     "source": "custom"
   },
-  "serviceitemfortimebased": {
-    "id": "custentity_eg_serviceitemfortimebased",
-    "label": "EG - Service Item for Time-based and Purchase rules",
-    "input": "nlapi",
-    "source": "custom"
-  },
   "servicenowdescription": {
     "id": "custentity_eg_servicenowdescription",
     "label": "EG - ServiceNow Description",
@@ -1650,8 +1614,8 @@
     "source": "custom"
   },
   "department": {
-    "id": "custentity_plp_department",
-    "label": "PLP Department",
+    "id": "custentity_eg_department_project",
+    "label": "EG - Department",
     "input": "nlapi",
     "source": "custom"
   },
@@ -1756,5 +1720,35 @@
     "label": "EG - To Transfer to Empl/Vendor",
     "input": "nlapi",
     "source": "custom"
+  },
+  "serviceItemForTimeBased": {
+    "id": "custentity_eg_serviceitemfortimebased",
+    "label": "EG - Service Item for Time-based and Purchase rules",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "projectStatus": {
+    "id": "entitystatus",
+    "label": "Status",
+    "input": "nlapi",
+    "source": "native"
+  },
+  "contactPerson": {
+    "id": "custentity_eg_contactperson",
+    "label": "EG - Contact Person",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "customerContractPortalAccess": {
+    "id": "custentity_eg_customercontractportalacce",
+    "label": "EG - Customer Contact Portal Access 1",
+    "input": "nlapi",
+    "source": "custom"
+  },
+  "billToCustomer": {
+    "id": "parent",
+    "label": "Parent Record",
+    "input": "nlapi",
+    "source": "native"
   }
 }

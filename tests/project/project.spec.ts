@@ -21,7 +21,7 @@ test('project manager can create a new Customer Project @smoke', async ({
   await projectRecord.setCustomForm(d.form);
   await projectRecord.setFields([[JobFields.projectCategory, d.projectCategory]]);
   await projectRecord.setBillToCustomer(d.customer);
-  await projectRecord.verifyNsField(JobFields.subsidiary, d.subsidiary);
+  await projectRecord.verifyNsFields([[JobFields.subsidiary, d.subsidiary]]);
   await projectRecord.setFields([
     [JobFields.jobType,               d.jobType],
     [JobFields.companyName,           projectName],
@@ -30,7 +30,7 @@ test('project manager can create a new Customer Project @smoke', async ({
     [JobFields.serviceItemForTimeBased, d.serviceItemTimeBased],
     [JobFields.department,            d.department],
   ]);
-  await projectRecord.verifyNsField(JobFields.schedulingMethod, d.schedulingMethod);
+  await projectRecord.verifyNsFields([[JobFields.schedulingMethod, d.schedulingMethod]]);
   await projectRecord.setFields([
     [JobFields.projectedEndDate, d.projectedEndDate],
     [JobFields.projectStatus,   d.projectStatus],
@@ -45,7 +45,9 @@ test('project manager can create a new Customer Project @smoke', async ({
 
   // Assert
   await projectRecord.verifyRecordCreated();
-  await projectRecord.verifyDisplayField(JobFields.companyName,    projectName);
-  await projectRecord.verifyDisplayField(JobFields.billToCustomer, d.customerDisplayName);
-  await projectRecord.verifyDisplayField(JobFields.projectManager, d.projectManagerDisplayName);
+  await projectRecord.verifyDisplayFields([
+    [JobFields.companyName,    projectName],
+    [JobFields.billToCustomer, d.customerDisplayName],
+    [JobFields.projectManager, d.projectManagerDisplayName],
+  ]);
 });

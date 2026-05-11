@@ -122,6 +122,20 @@ export class BasePage {
     ).toHaveText(expected);
   }
 
+  // Bulk edit-mode assertions — verifies multiple fields sequentially.
+  async verifyNsFields(entries: [NsField, string][]): Promise<void> {
+    for (const [field, expected] of entries) {
+      await this.verifyNsField(field, expected);
+    }
+  }
+
+  // Bulk view-mode assertions — verifies multiple display fields sequentially.
+  async verifyDisplayFields(entries: [NsField, string][]): Promise<void> {
+    for (const [field, expected] of entries) {
+      await this.verifyDisplayField(field, expected);
+    }
+  }
+
   // Waits for a sublist line item field to reach the expected value.
   // Use this for fields auto-populated after setting a line item value (e.g. service item
   // auto-filled after selecting a resource in the assignee sublist).

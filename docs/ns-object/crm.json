@@ -8,13 +8,13 @@
   "startDate": {
     "id": "startdate",
     "label": "Start Date",
-    "input": "text",
+    "input": "nlapi",
     "source": "inferred"
   },
   "finishByDate": {
     "id": "finishbydate",
     "label": "Finish No Later Than",
-    "input": "text",
+    "input": "nlapi",
     "source": "native"
   },
   "plannedWork": {
