@@ -12,6 +12,14 @@
         "JIRA_USERNAME": "${JIRA_USERNAME}",
         "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
       }
+    },
+    "zephyr": {
+      "command": "uv",
+      "args": ["run", "mcp/zephyr/server.py"],
+      "env": {
+        "JIRA_URL": "${JIRA_URL}",
+        "ZEPHYR_TOKEN": "${ZEPHYR_TOKEN}"
+      }
     }
   }
 }
