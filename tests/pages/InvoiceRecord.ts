@@ -27,6 +27,18 @@ export class InvoiceRecord extends BasePage {
     await this.waitForFormReady();
   }
 
+  async navigateToSavedInvoice(invoiceId: string): Promise<void> {
+    await this.navigateTo(`/app/accounting/transactions/custinvc.nl?id=${invoiceId}`);
+  }
+
+  async clickGenerateInvRefNo(): Promise<void> {
+    await this.page.locator('[id="custpageworkflow8228"]').click();
+    // Wait for the e-document button to appear, confirming the ref no was populated
+    await this.page
+      .locator('[id="custpage_generate_ei_button"]')
+      .waitFor({ state: 'visible', timeout: 30_000 });
+  }
+
   async setPONumber(value: string): Promise<void> {
     await this.page.locator('[name="otherrefnum"]').fill(value);
   }
@@ -58,7 +70,7 @@ export class InvoiceRecord extends BasePage {
     // window in either path.
     let needsTab = true;
     try {
-      await this.page.waitForLoadState('networkidle');
+      await this.waitForNetworkIdle();
     } catch (e: any) {
       if ((e?.message ?? '').includes('closed')) {
         needsTab = false;
@@ -187,7 +199,7 @@ export class InvoiceRecord extends BasePage {
         g.nlapiFieldChanged = orig;
       }
     }, quantity);
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForTimeout(1000);
   }
 
@@ -205,7 +217,7 @@ export class InvoiceRecord extends BasePage {
         g.nlapiFieldChanged = orig;
       }
     }, rate);
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForFunction(
       () => {
         try {
@@ -383,7 +395,7 @@ export class InvoiceRecord extends BasePage {
 
   override async save(): Promise<void> {
     await this.ensureFormInited();
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
     const saveBtn = this.page.locator('[id="btn_multibutton_submitter"]');
     await saveBtn.waitFor({ state: 'visible' });
@@ -413,6 +425,14 @@ export class InvoiceRecord extends BasePage {
       (v) => (globalThis as any).nlapiSetFieldValue('custbody_eg_ordered_by', v, null, true),
       id,
     );
+  }
+
+  async setShipToAddress(addressId: string): Promise<void> {
+    await this.page.evaluate(
+      (v) => (globalThis as any).nlapiSetFieldValue('shipaddresslist', v, null, true),
+      addressId,
+    );
+    await this.waitForNetSuiteLoad();
   }
 
   async verifyTranDate(): Promise<void> {

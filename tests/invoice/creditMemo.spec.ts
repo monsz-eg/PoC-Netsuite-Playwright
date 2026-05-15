@@ -6,7 +6,7 @@ import { InvoiceRecord } from '../pages/InvoiceRecord';
 import { today } from '../utils/dateUtils';
 import { generateMemo, generatePoNumber } from '../utils/nameGenerators';
 
-test.describe.serial('billinge responsible credits an invoice', () => {
+test.describe.serial('billing responsible credits an invoice', () => {
   let invoiceId: string;
   let invoiceNumber: string;
   let memo: string;

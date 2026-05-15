@@ -8,7 +8,7 @@ export class CreditMemo extends BasePage {
 
   override async save(): Promise<void> {
     await this.ensureFormInited();
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
     const saveBtn = this.page.locator('[id="btn_multibutton_submitter"]');
     await saveBtn.waitFor({ state: 'visible' });
@@ -34,9 +34,14 @@ export class CreditMemo extends BasePage {
     await this.verifyFieldText('createdfrom', `Invoice #${invoiceNumber}`);
   }
 
+  async navigateToCreditMemo(creditMemoId: string): Promise<void> {
+    await this.navigateTo(`/app/accounting/transactions/custcred.nl?id=${creditMemoId}`);
+  }
+
   async verifyCreatedFrom(invoiceNumber: string): Promise<void> {
     await expect(
       this.page.locator('[data-field-name="createdfrom"] [data-nsps-type="field_input"]'),
     ).toHaveText(`Invoice #${invoiceNumber}`);
   }
+
 }

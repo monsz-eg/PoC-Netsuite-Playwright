@@ -11,6 +11,7 @@
     "test:report:html": "npx playwright show-report --reporter=html",
     "test:report:json": "npx playwright show-report --reporter=json",
     "auth:setup": "npx ts-node scripts/setup-auth.ts",
+    "peppol:setup": "npx ts-node scripts/setup-peppol-validation.ts",
     "format": "prettier --write \"**/*.{ts,json}\" --ignore-path .gitignore",
     "format:check": "prettier --check \"**/*.{ts,json}\" --ignore-path .gitignore"
   },
@@ -29,9 +30,14 @@
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "@types/node": "^25.5.2",
+    "@xmldom/xmldom": "^0.9.10",
     "pdf-parse": "^2.4.5",
     "prettier": "^3.8.3",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "xslt3": "^2.7.0"
+  },
+  "dependencies": {
+    "saxon-js": "^2.7.0"
   }
 }

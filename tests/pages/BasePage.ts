@@ -141,6 +141,10 @@ export class BasePage {
     await expect(this.page).toHaveURL(/[?&]id=\d+/);
   }
 
+  getRecordId(): string {
+    return new URL(this.page.url()).searchParams.get('id')!;
+  }
+
   async save(): Promise<void> {
     // dispatchEvent bypasses Playwright's pointer-event interception check.
     // In headed mode NS renders a transparent <div></div> overlay after sublist
@@ -154,6 +158,37 @@ export class BasePage {
 
   async switchToTab(tabLabel: string): Promise<void> {
     await this.page.locator(`[data-nsps-label="${tabLabel}"]`).click();
+  }
+
+  async clickGenerateEDocument(): Promise<void> {
+    // Global dialog handler in BasePage constructor already accepts all dialogs —
+    // no need for a page.once handler here.
+    await this.page.locator('[id="custpage_generate_ei_button"]').click();
+    await this.page.getByText('The e-document has been generated').waitFor({ timeout: 30_000 });
+    // Wait for any post-generation AJAX (e.g. e-document record creation, tab refresh)
+    // to settle before the caller switches to the E-Document tab.
+    await this.waitForNetworkIdle();
+  }
+
+  async openEDocumentTab(): Promise<void> {
+    await this.switchToTab('E-Document');
+    // The tab renders its content via AJAX after the click — waitForNetSuiteLoad only
+    // checks the page load event and the NS spinner, both of which resolve before the
+    // tab's AJAX response arrives. waitForNetworkIdle captures the full AJAX cycle.
+    await this.waitForNetworkIdle();
+    await this.page.getByRole('link', { name: 'download' }).waitFor({ state: 'visible', timeout: 30_000 });
+  }
+
+  async downloadXml(): Promise<string> {
+    const link = this.page.getByRole('link', { name: 'download' });
+    const href = await link.getAttribute('href');
+    if (!href) throw new Error('E-Document download link has no href');
+    // Resolve root-relative NS URLs and fetch directly with the authenticated session.
+    // The link does not trigger a browser download or page event — it is a plain GET.
+    const url = new URL(href, this.page.url()).href;
+    const response = await this.page.request.get(url);
+    if (!response.ok()) throw new Error(`XML download failed: HTTP ${response.status()}`);
+    return response.text();
   }
 
   async switchRole(roleId: number): Promise<void> {
