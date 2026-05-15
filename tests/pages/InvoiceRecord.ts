@@ -70,7 +70,7 @@ export class InvoiceRecord extends BasePage {
     // window in either path.
     let needsTab = true;
     try {
-      await this.page.waitForLoadState('networkidle');
+      await this.waitForNetworkIdle();
     } catch (e: any) {
       if ((e?.message ?? '').includes('closed')) {
         needsTab = false;
@@ -199,7 +199,7 @@ export class InvoiceRecord extends BasePage {
         g.nlapiFieldChanged = orig;
       }
     }, quantity);
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForTimeout(1000);
   }
 
@@ -217,7 +217,7 @@ export class InvoiceRecord extends BasePage {
         g.nlapiFieldChanged = orig;
       }
     }, rate);
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForFunction(
       () => {
         try {
@@ -395,7 +395,7 @@ export class InvoiceRecord extends BasePage {
 
   override async save(): Promise<void> {
     await this.ensureFormInited();
-    await this.page.waitForLoadState('networkidle');
+    await this.waitForNetworkIdle();
     await this.page.waitForSelector('.ns-loading', { state: 'hidden' }).catch(() => {});
     const saveBtn = this.page.locator('[id="btn_multibutton_submitter"]');
     await saveBtn.waitFor({ state: 'visible' });
